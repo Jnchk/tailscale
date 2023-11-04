@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback, useEffect } from "react"
 import { AuthResponse, AuthType, SessionsCallbacks } from "src/hooks/auth"
 import { NodeData } from "src/hooks/node-data"
 import { ReactComponent as ConnectedDeviceIcon } from "src/icons/connected-device.svg"
@@ -23,6 +23,25 @@ export default function ReadonlyClientView({
   auth?: AuthResponse
   sessions: SessionsCallbacks
 }) {
+  const newSession = async () => {
+    return sessions
+      .new()
+      .then((url) => {
+        if (url) {
+          window.open(url, "_blank")
+          sessions.wait()
+        }
+      })
+      .catch((e) => console.error(e))
+  }
+
+  useEffect(() => {
+    // if ?checkmode=1 is provided, get a new session immediately
+    if (new URLSearchParams(window.location.search).get("checkmode") == "1") {
+      newSession()
+    }
+  }, [])
+
   return (
     <>
       <div className="pb-52 mx-auto">
@@ -51,18 +70,22 @@ export default function ReadonlyClientView({
               <div className="text-sm leading-tight">{data.IP}</div>
             </div>
           </div>
-          {auth?.authNeeded == AuthType.tailscale && (
+          {auth?.authNeeded == AuthType.tailscale ? (
+            <button className="button button-blue ml-6" onClick={newSession}>
+              Access
+            </button>
+          ) : window.location.hostname != data.IP ? (
+            // TODO: check connectivity to tailscale IP
             <button
               className="button button-blue ml-6"
               onClick={() => {
-                sessions
-                  .new()
-                  .then((url) => window.open(url, "_blank"))
-                  .then(() => sessions.wait())
+                window.location.href = `http://${data.IP}:5252/?checkmode=1`
               }}
             >
-              Access
+              Manage
             </button>
+          ) : (
+            <></>
           )}
         </div>
       </div>
