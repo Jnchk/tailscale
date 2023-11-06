@@ -202,7 +202,7 @@ func (s *Server) serveHTTP(w http.ResponseWriter, r *http.Request) {
 		lah := localapi.NewHandler(lb, s.logf, s.netMon, s.backendLogID)
 		lah.PermitRead, lah.PermitWrite = s.localAPIPermissions(ci)
 		lah.PermitCert = s.connCanFetchCerts(ci)
-		lah.CallerIsLocalAdmin = s.connIsLocalAdmin(ci)
+		lah.CallerIsLocalAdmin = ci.IsLocalAdmin()
 		lah.ServeHTTP(w, r)
 		return
 	}

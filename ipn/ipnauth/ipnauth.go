@@ -11,6 +11,7 @@ import (
 	"net"
 	"net/netip"
 	"os"
+	"os/exec"
 	"os/user"
 	"runtime"
 	"strconv"
@@ -191,6 +192,36 @@ func (ci *ConnIdentity) IsReadonlyConn(operatorUID string, logf logger.Logf) boo
 	return ro
 }
 
+// IsLocalAdmin reports whether the connected user is considered a "local
+// admin". This is a higher privilege level than simple write access (per
+// IsReadonlyConn).
+//
+// Local admin means:
+//
+//   - Windows: member of the Administrators group (not necessarily The
+//     Administrator user, but can elevate privileges as needed)
+//   - macOS: member of the "admin" group
+//   - linux: caller is able to run "sudo tailscale"
+//   - other: not supported and always returns false
+func (ci *ConnIdentity) IsLocalAdmin() bool {
+	if !safesocket.PlatformUsesPeerCreds() {
+		return false
+	}
+	creds := ci.creds
+	if ci.creds == nil {
+		return false
+	}
+	uid, ok := creds.UserID()
+	if !ok {
+		return false
+	}
+	if uid == "0" {
+		return true
+	}
+	yes, err := isLocalAdmin(uid)
+	return yes && err == nil
+}
+
 func isLocalAdmin(uid string) (bool, error) {
 	u, err := user.LookupId(uid)
 	if err != nil {
@@ -202,10 +233,28 @@ func isLocalAdmin(uid string) (bool, error) {
 		adminGroup = "admin"
 	case distro.Get() == distro.QNAP:
 		adminGroup = "administrators"
+	case runtime.GOOS == "linux":
+		return isLocalAdminLinux(u)
 	default:
 		return false, fmt.Errorf("no system admin group found")
 	}
 	return groupmember.IsMemberOfGroup(adminGroup, u.Username)
+}
+
+func isLocalAdminLinux(u *user.User) (bool, error) {
+	// We treat the ability to execute "sudo tailscale" as local admin in
+	// Linux.
+	out, err := exec.Command("sudo", "--other-user="+u.Name, "--list", "tailscale").CombinedOutput()
+	if err != nil {
+		var exitErr *exec.ExitError
+		if errors.As(err, &exitErr) {
+			if exitErr.ExitCode() == 1 {
+				return false, nil
+			}
+		}
+		return false, fmt.Errorf("failed to check sudo access for user %q: %v; %q", u.Name, err, out)
+	}
+	return true, nil
 }
 
 func peerPid(entries []netstat.Entry, la, ra netip.AddrPort) int {
