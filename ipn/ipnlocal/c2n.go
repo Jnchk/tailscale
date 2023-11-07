@@ -16,13 +16,13 @@ import (
 	"strconv"
 	"time"
 
-	"tailscale.com/envknob"
-	"tailscale.com/net/sockstats"
-	"tailscale.com/tailcfg"
-	"tailscale.com/util/clientmetric"
-	"tailscale.com/util/goroutines"
-	"tailscale.com/version"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/net/sockstats"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/util/clientmetric"
+	"github.com/Jnchk/tailscale/util/goroutines"
+	"github.com/Jnchk/tailscale/version"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 func (b *LocalBackend) handleC2N(w http.ResponseWriter, r *http.Request) {

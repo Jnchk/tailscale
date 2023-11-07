@@ -9,15 +9,15 @@ import (
 	"reflect"
 	"testing"
 
-	"tailscale.com/ipn"
-	"tailscale.com/net/dns"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/types/dnstype"
-	"tailscale.com/types/netmap"
-	"tailscale.com/util/cloudenv"
-	"tailscale.com/util/cmpx"
-	"tailscale.com/util/dnsname"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/net/dns"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/types/dnstype"
+	"github.com/Jnchk/tailscale/types/netmap"
+	"github.com/Jnchk/tailscale/util/cloudenv"
+	"github.com/Jnchk/tailscale/util/cmpx"
+	"github.com/Jnchk/tailscale/util/dnsname"
 )
 
 func ipps(ippStrs ...string) (ipps []netip.Prefix) {

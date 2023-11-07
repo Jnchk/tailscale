@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"strings"
 
-	"tailscale.com/types/lazy"
+	"github.com/Jnchk/tailscale/types/lazy"
 )
 
 var stringLazy = lazy.SyncFunc(func() string {
@@ -19,7 +19,7 @@ var stringLazy = lazy.SyncFunc(func() string {
 		fmt.Fprintf(&ret, "  track: unstable (dev); frequent updates and bugs are likely\n")
 	}
 	if gitCommit() != "" {
-		fmt.Fprintf(&ret, "  tailscale commit: %s%s\n", gitCommit(), dirtyString())
+		fmt.Fprintf(&ret, "  github.com/Jnchk/tailscalemit: %s%s\n", gitCommit(), dirtyString())
 	}
 	if extraGitCommitStamp != "" {
 		fmt.Fprintf(&ret, "  other commit: %s\n", extraGitCommitStamp)

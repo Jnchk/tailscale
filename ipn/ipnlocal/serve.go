@@ -23,14 +23,14 @@ import (
 	"time"
 
 	"golang.org/x/exp/slices"
-	"tailscale.com/ipn"
-	"tailscale.com/logtail/backoff"
-	"tailscale.com/net/netutil"
-	"tailscale.com/syncs"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/mak"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/logtail/backoff"
+	"github.com/Jnchk/tailscale/net/netutil"
+	"github.com/Jnchk/tailscale/syncs"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/mak"
+	"github.com/Jnchk/tailscale/version"
 )
 
 // serveHTTPContextKey is the context.Value key for a *serveHTTPContext.
@@ -516,7 +516,7 @@ func (b *LocalBackend) addTailscaleIdentityHeaders(r *httputil.ProxyRequest) {
 	}
 	r.Out.Header.Set("Tailscale-User-Login", user.LoginName)
 	r.Out.Header.Set("Tailscale-User-Name", user.DisplayName)
-	r.Out.Header.Set("Tailscale-Headers-Info", "https://tailscale.com/s/serve-headers")
+	r.Out.Header.Set("Tailscale-Headers-Info", "https://github.com/Jnchk/tailscale/s/serve-headers")
 }
 
 func (b *LocalBackend) serveWebHandler(w http.ResponseWriter, r *http.Request) {

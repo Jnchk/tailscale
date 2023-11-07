@@ -36,9 +36,9 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/client/tailscale"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tsnet"
+	"github.com/Jnchk/tailscale/client/tailscale"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tsnet"
 )
 
 var (

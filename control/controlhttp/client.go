@@ -36,16 +36,16 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/control/controlbase"
-	"tailscale.com/envknob"
-	"tailscale.com/net/dnscache"
-	"tailscale.com/net/dnsfallback"
-	"tailscale.com/net/netutil"
-	"tailscale.com/net/sockstats"
-	"tailscale.com/net/tlsdial"
-	"tailscale.com/net/tshttpproxy"
-	"tailscale.com/tailcfg"
-	"tailscale.com/util/multierr"
+	"github.com/Jnchk/tailscale/control/controlbase"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/net/dnscache"
+	"github.com/Jnchk/tailscale/net/dnsfallback"
+	"github.com/Jnchk/tailscale/net/netutil"
+	"github.com/Jnchk/tailscale/net/sockstats"
+	"github.com/Jnchk/tailscale/net/tlsdial"
+	"github.com/Jnchk/tailscale/net/tshttpproxy"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/util/multierr"
 )
 
 var stdDialer net.Dialer

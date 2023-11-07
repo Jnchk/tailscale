@@ -13,8 +13,8 @@ import (
 	"strings"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/ipn"
-	"tailscale.com/util/mak"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/util/mak"
 )
 
 var funnelCmd = newFunnelCommand(&serveEnv{lc: &localClient})

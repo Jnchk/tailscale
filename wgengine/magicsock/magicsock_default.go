@@ -9,8 +9,8 @@ import (
 	"errors"
 	"io"
 
-	"tailscale.com/types/logger"
-	"tailscale.com/types/nettype"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/nettype"
 )
 
 func (c *Conn) listenRawDisco(family string) (io.Closer, error) {

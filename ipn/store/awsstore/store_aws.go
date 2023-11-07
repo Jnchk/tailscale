@@ -17,9 +17,9 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
 	ssmTypes "github.com/aws/aws-sdk-go-v2/service/ssm/types"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/store/mem"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 const (

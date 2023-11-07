@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"strings"
 
-	"tailscale.com/ipn/ipnlocal"
+	"github.com/Jnchk/tailscale/ipn/ipnlocal"
 )
 
 func (h *Handler) serveCert(w http.ResponseWriter, r *http.Request) {

@@ -17,7 +17,7 @@ import (
 	"golang.org/x/exp/slices"
 	"k8s.io/client-go/util/homedir"
 	"sigs.k8s.io/yaml"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/version"
 )
 
 func init() {
@@ -33,7 +33,7 @@ Run this command to configure kubectl to connect to a Kubernetes cluster over Ta
 
 The hostname argument should be set to the Tailscale hostname of the peer running as an auth proxy in the cluster.
 
-See: https://tailscale.com/s/k8s-auth-proxy
+See: https://github.com/Jnchk/tailscale/s/k8s-auth-proxy
 `),
 	FlagSet: (func() *flag.FlagSet {
 		fs := newFlagSet("kubeconfig")

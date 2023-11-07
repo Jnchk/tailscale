@@ -10,9 +10,9 @@ import (
 	"reflect"
 	"testing"
 
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/tailcfg"
-	"tailscale.com/util/must"
+	"github.com/Jnchk/tailscale/ipn/store/mem"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/util/must"
 )
 
 func TestSSHKeyGen(t *testing.T) {

@@ -5,7 +5,7 @@
 
 package magicsock
 
-import "tailscale.com/types/opt"
+import "github.com/Jnchk/tailscale/types/opt"
 
 // All knobs are disabled on iOS and Wasm.
 //

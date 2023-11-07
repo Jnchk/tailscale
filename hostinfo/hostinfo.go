@@ -19,14 +19,14 @@ import (
 	"time"
 
 	"go4.org/mem"
-	"tailscale.com/envknob"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/ptr"
-	"tailscale.com/util/cloudenv"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/lineread"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/opt"
+	"github.com/Jnchk/tailscale/types/ptr"
+	"github.com/Jnchk/tailscale/util/cloudenv"
+	"github.com/Jnchk/tailscale/util/dnsname"
+	"github.com/Jnchk/tailscale/util/lineread"
+	"github.com/Jnchk/tailscale/version"
 )
 
 var started = time.Now()

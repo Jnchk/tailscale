@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/logtail/backoff"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/logtail/backoff"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // Replace replaces the value of target with val.

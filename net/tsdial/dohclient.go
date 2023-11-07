@@ -13,7 +13,7 @@ import (
 	"net/http"
 	"time"
 
-	"tailscale.com/net/dnscache"
+	"github.com/Jnchk/tailscale/net/dnscache"
 )
 
 // dohConn is a net.PacketConn suitable for returning from

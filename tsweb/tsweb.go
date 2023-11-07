@@ -23,12 +23,12 @@ import (
 	"time"
 
 	"go4.org/mem"
-	"tailscale.com/envknob"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/tsweb/varz"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/cmpx"
-	"tailscale.com/util/vizerror"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/tsweb/varz"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/cmpx"
+	"github.com/Jnchk/tailscale/util/vizerror"
 )
 
 // DevMode controls whether extra output in shown, for when the binary is being run in dev mode.

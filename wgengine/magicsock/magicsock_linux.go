@@ -17,11 +17,11 @@ import (
 
 	"golang.org/x/net/bpf"
 	"golang.org/x/sys/unix"
-	"tailscale.com/envknob"
-	"tailscale.com/net/netns"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/nettype"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/net/netns"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/nettype"
 )
 
 const (

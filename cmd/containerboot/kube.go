@@ -12,8 +12,8 @@ import (
 	"net/http"
 	"os"
 
-	"tailscale.com/kube"
-	"tailscale.com/tailcfg"
+	"github.com/Jnchk/tailscale/kube"
+	"github.com/Jnchk/tailscale/tailcfg"
 )
 
 // findKeyInKubeSecret inspects the kube secret secretName for a data

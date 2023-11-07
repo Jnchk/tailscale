@@ -11,8 +11,8 @@ import (
 	"net/url"
 
 	"nhooyr.io/websocket"
-	"tailscale.com/control/controlbase"
-	"tailscale.com/net/wsconn"
+	"github.com/Jnchk/tailscale/control/controlbase"
+	"github.com/Jnchk/tailscale/net/wsconn"
 )
 
 // Variant of Dial that tunnels the request over WebSockets, since we cannot do

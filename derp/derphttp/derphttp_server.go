@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"strings"
 
-	"tailscale.com/derp"
+	"github.com/Jnchk/tailscale/derp"
 )
 
 // fastStartHeader is the header (with value "1") that signals to the HTTP

@@ -19,7 +19,7 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	"golang.org/x/exp/maps"
-	"tailscale.com/ipn/store/mem"
+	"github.com/Jnchk/tailscale/ipn/store/mem"
 )
 
 func TestValidLookingCertDomain(t *testing.T) {

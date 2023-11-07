@@ -14,10 +14,10 @@ import (
 
 	"github.com/tailscale/wireguard-go/tun"
 	"go4.org/netipx"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/types/logger"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/version"
 )
 
 type userspaceBSDRouter struct {

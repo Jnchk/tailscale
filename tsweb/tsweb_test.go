@@ -16,8 +16,8 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"tailscale.com/tstest"
-	"tailscale.com/util/vizerror"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/util/vizerror"
 )
 
 type noopHijacker struct {

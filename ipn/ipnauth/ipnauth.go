@@ -14,15 +14,15 @@ import (
 	"strconv"
 
 	"inet.af/peercred"
-	"tailscale.com/envknob"
-	"tailscale.com/ipn"
-	"tailscale.com/net/netstat"
-	"tailscale.com/safesocket"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/clientmetric"
-	"tailscale.com/util/groupmember"
-	"tailscale.com/util/winutil"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/net/netstat"
+	"github.com/Jnchk/tailscale/safesocket"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/clientmetric"
+	"github.com/Jnchk/tailscale/util/groupmember"
+	"github.com/Jnchk/tailscale/util/winutil"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 // ConnIdentity represents the owner of a localhost TCP or unix socket connection

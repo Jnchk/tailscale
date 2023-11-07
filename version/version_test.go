@@ -8,8 +8,8 @@ import (
 	"os"
 	"testing"
 
-	ts "tailscale.com"
-	"tailscale.com/version"
+	ts "github.com/Jnchk/tailscale"
+	"github.com/Jnchk/tailscale/version"
 )
 
 func TestAlpineTag(t *testing.T) {

@@ -19,9 +19,9 @@ import (
 	"net/netip"
 	"sync/atomic"
 
-	"tailscale.com/net/netknob"
-	"tailscale.com/net/netmon"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/net/netknob"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 var disabled atomic.Bool

@@ -15,10 +15,10 @@ import (
 	"syscall"
 	"time"
 
-	"tailscale.com/net/interfaces"
-	"tailscale.com/net/netmon"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/clientmetric"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/clientmetric"
 )
 
 const IsAvailable = true

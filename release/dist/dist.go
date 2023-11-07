@@ -19,8 +19,8 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/util/multierr"
-	"tailscale.com/version/mkversion"
+	"github.com/Jnchk/tailscale/util/multierr"
+	"github.com/Jnchk/tailscale/version/mkversion"
 )
 
 // A Target is something that can be build in a Build.

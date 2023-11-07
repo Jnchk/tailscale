@@ -15,10 +15,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/envknob"
-	"tailscale.com/tailcfg"
-	"tailscale.com/util/multierr"
-	"tailscale.com/util/set"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/util/multierr"
+	"github.com/Jnchk/tailscale/util/set"
 )
 
 var (

@@ -17,14 +17,14 @@ import (
 	"syscall"
 	"time"
 
-	"tailscale.com/net/dnscache"
-	"tailscale.com/net/interfaces"
-	"tailscale.com/net/netknob"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/netns"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/netmap"
-	"tailscale.com/util/mak"
+	"github.com/Jnchk/tailscale/net/dnscache"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/net/netknob"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/netns"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/netmap"
+	"github.com/Jnchk/tailscale/util/mak"
 )
 
 // Dialer dials out of tailscaled, while taking care of details while

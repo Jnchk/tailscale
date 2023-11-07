@@ -16,9 +16,9 @@ import (
 
 	"go4.org/mem"
 	"golang.org/x/time/rate"
-	"tailscale.com/syncs"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/syncs"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // Client is a DERP client.

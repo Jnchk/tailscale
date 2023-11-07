@@ -20,12 +20,12 @@ import (
 	"golang.org/x/exp/slices"
 	"golang.org/x/sys/windows"
 	"golang.zx2c4.com/wireguard/windows/tunnel/winipcfg"
-	"tailscale.com/health"
-	"tailscale.com/net/interfaces"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/net/tstun"
-	"tailscale.com/util/multierr"
-	"tailscale.com/wgengine/winnet"
+	"github.com/Jnchk/tailscale/health"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/net/tstun"
+	"github.com/Jnchk/tailscale/util/multierr"
+	"github.com/Jnchk/tailscale/wgengine/winnet"
 )
 
 var wintunLinkLocal = netip.MustParseAddr("fe80::99d0:ec2d:b2e7:536b")

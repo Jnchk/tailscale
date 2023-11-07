@@ -14,7 +14,7 @@ import (
 	"strconv"
 	"strings"
 
-	"tailscale.com/net/interfaces"
+	"github.com/Jnchk/tailscale/net/interfaces"
 )
 
 // protocolsRequiredForForwarding reports whether IPv4 and/or IPv6 protocols are
@@ -65,7 +65,7 @@ func CheckIPForwarding(routes []netip.Prefix, state *interfaces.State) (warn, er
 		}
 		return nil, nil
 	}
-	const kbLink = "\nSee https://tailscale.com/s/ip-forwarding"
+	const kbLink = "\nSee https://github.com/Jnchk/tailscale/s/ip-forwarding"
 	if state == nil {
 		var err error
 		state, err = interfaces.GetState()

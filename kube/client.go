@@ -23,7 +23,7 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/util/multierr"
+	"github.com/Jnchk/tailscale/util/multierr"
 )
 
 const (

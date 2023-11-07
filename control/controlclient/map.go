@@ -9,14 +9,14 @@ import (
 	"net/netip"
 	"sort"
 
-	"tailscale.com/envknob"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/netmap"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/views"
-	"tailscale.com/wgengine/filter"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/netmap"
+	"github.com/Jnchk/tailscale/types/opt"
+	"github.com/Jnchk/tailscale/types/views"
+	"github.com/Jnchk/tailscale/wgengine/filter"
 )
 
 // mapSession holds the state over a long-polled "map" request to the

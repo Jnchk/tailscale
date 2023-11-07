@@ -12,13 +12,13 @@ import (
 	"time"
 
 	"go4.org/mem"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/types/key"
-	"tailscale.com/types/netmap"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/ptr"
-	"tailscale.com/util/must"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/netmap"
+	"github.com/Jnchk/tailscale/types/opt"
+	"github.com/Jnchk/tailscale/types/ptr"
+	"github.com/Jnchk/tailscale/util/must"
 )
 
 func TestUndeltaPeers(t *testing.T) {

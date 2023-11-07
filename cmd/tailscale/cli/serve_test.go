@@ -16,9 +16,9 @@ import (
 	"testing"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/tailcfg"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/tailcfg"
 )
 
 func TestCleanMountPoint(t *testing.T) {
@@ -32,7 +32,7 @@ func TestCleanMountPoint(t *testing.T) {
 		{"////foo", "", true},               // too many slashes
 		{"/foo//", "", true},                // too many slashes
 		{"", "", true},                      // empty
-		{"https://tailscale.com", "", true}, // not a path
+		{"https://github.com/Jnchk/tailscale", "", true}, // not a path
 	}
 	for _, tt := range tests {
 		mp, err := cleanMountPoint(tt.mount)

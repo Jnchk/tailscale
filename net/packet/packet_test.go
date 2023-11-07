@@ -13,9 +13,9 @@ import (
 	"testing"
 	"unicode"
 
-	"tailscale.com/tstest"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/util/must"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/types/ipproto"
+	"github.com/Jnchk/tailscale/util/must"
 )
 
 const (

@@ -17,11 +17,11 @@ import (
 
 	"github.com/miekg/dns"
 	"golang.org/x/exp/slices"
-	"tailscale.com/envknob"
-	"tailscale.com/tstest"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/tstest"
 )
 
-const testDomain = "tailscale.com"
+const testDomain = "github.com/Jnchk/tailscale"
 
 // Recursively resolving the AWS console requires being able to handle CNAMEs,
 // glue records, falling back from UDP to TCP for oversize queries, and more;
@@ -161,7 +161,7 @@ func TestResolveFallbackToTCP(t *testing.T) {
 	r.testExchangeHook = hook
 
 	ctx := context.Background()
-	resp, err := r.queryNameserverProto(ctx, 0, "tailscale.com", netip.MustParseAddr("9.9.9.9"), "udp", dns.Type(dns.TypeA))
+	resp, err := r.queryNameserverProto(ctx, 0, "github.com/Jnchk/tailscale", netip.MustParseAddr("9.9.9.9"), "udp", dns.Type(dns.TypeA))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -188,7 +188,7 @@ func TestResolveFallbackToTCP(t *testing.T) {
 		t.Errorf("wanted entries in the query cache")
 	}
 
-	resp2, err := r.queryNameserverProto(ctx, 0, "tailscale.com", netip.MustParseAddr("9.9.9.9"), "udp", dns.Type(dns.TypeA))
+	resp2, err := r.queryNameserverProto(ctx, 0, "github.com/Jnchk/tailscale", netip.MustParseAddr("9.9.9.9"), "udp", dns.Type(dns.TypeA))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -300,13 +300,13 @@ var (
 	amazonNS   = netip.MustParseAddr("205.251.192.197")
 	amazonNSv6 = netip.MustParseAddr("2600:9000:5306:1600::1")
 
-	// Nameservers for the tailscale.com domain
+	// Nameservers for the github.com/Jnchk/tailscale domain
 	tailscaleNameservers = &dns.Msg{
 		Ns: []dns.RR{
-			nsRR("tailscale.com.", "ns-197.awsdns-24.com."),
-			nsRR("tailscale.com.", "ns-557.awsdns-05.net."),
-			nsRR("tailscale.com.", "ns-1558.awsdns-02.co.uk."),
-			nsRR("tailscale.com.", "ns-1359.awsdns-41.org."),
+			nsRR("github.com/Jnchk/tailscale.", "ns-197.awsdns-24.com."),
+			nsRR("github.com/Jnchk/tailscale.", "ns-557.awsdns-05.net."),
+			nsRR("github.com/Jnchk/tailscale.", "ns-1558.awsdns-02.co.uk."),
+			nsRR("github.com/Jnchk/tailscale.", "ns-1359.awsdns-41.org."),
 		},
 		Extra: []dns.RR{
 			dnsIPRR("ns-197.awsdns-24.com.", amazonNS),
@@ -320,30 +320,30 @@ func TestBasicRecursion(t *testing.T) {
 		replies: map[netip.Addr][]mockReply{
 			// Query to the root server returns the .com server + a glue record
 			rootServerAddr: {
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeA), resp: comRecord},
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: comRecord},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: comRecord},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: comRecord},
 			},
 
-			// Query to the ".com" server return the nameservers for tailscale.com
+			// Query to the ".com" server return the nameservers for github.com/Jnchk/tailscale
 			comNSAddr: {
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeA), resp: tailscaleNameservers},
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: tailscaleNameservers},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: tailscaleNameservers},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: tailscaleNameservers},
 			},
 
 			// Query to the actual nameserver works.
 			amazonNS: {
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeA), resp: &dns.Msg{
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: &dns.Msg{
 					MsgHdr: dns.MsgHdr{Authoritative: true},
 					Answer: []dns.RR{
-						dnsIPRR("tailscale.com.", netip.MustParseAddr("13.248.141.131")),
-						dnsIPRR("tailscale.com.", netip.MustParseAddr("76.223.15.28")),
+						dnsIPRR("github.com/Jnchk/tailscale.", netip.MustParseAddr("13.248.141.131")),
+						dnsIPRR("github.com/Jnchk/tailscale.", netip.MustParseAddr("76.223.15.28")),
 					},
 				}},
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: &dns.Msg{
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: &dns.Msg{
 					MsgHdr: dns.MsgHdr{Authoritative: true},
 					Answer: []dns.RR{
-						dnsIPRR("tailscale.com.", netip.MustParseAddr("2600:9000:a602:b1e6:86d:8165:5e8c:295b")),
-						dnsIPRR("tailscale.com.", netip.MustParseAddr("2600:9000:a51d:27c1:1530:b9ef:2a6:b9e5")),
+						dnsIPRR("github.com/Jnchk/tailscale.", netip.MustParseAddr("2600:9000:a602:b1e6:86d:8165:5e8c:295b")),
+						dnsIPRR("github.com/Jnchk/tailscale.", netip.MustParseAddr("2600:9000:a51d:27c1:1530:b9ef:2a6:b9e5")),
 					},
 				}},
 			},
@@ -354,9 +354,9 @@ func TestBasicRecursion(t *testing.T) {
 	r.testExchangeHook = mock.exchangeHook
 	r.rootServers = []netip.Addr{rootServerAddr}
 
-	// Query for tailscale.com, verify we get the right responses
+	// Query for github.com/Jnchk/tailscale, verify we get the right responses
 	ctx := context.Background()
-	addrs, minTTL, err := r.Resolve(ctx, "tailscale.com")
+	addrs, minTTL, err := r.Resolve(ctx, "github.com/Jnchk/tailscale")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -385,23 +385,23 @@ func TestNoAnswers(t *testing.T) {
 		replies: map[netip.Addr][]mockReply{
 			// Query to the root server returns the .com server + a glue record
 			rootServerAddr: {
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeA), resp: comRecord},
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: comRecord},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: comRecord},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: comRecord},
 			},
 
-			// Query to the ".com" server return the nameservers for tailscale.com
+			// Query to the ".com" server return the nameservers for github.com/Jnchk/tailscale
 			comNSAddr: {
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeA), resp: tailscaleNameservers},
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: tailscaleNameservers},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: tailscaleNameservers},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: tailscaleNameservers},
 			},
 
 			// Query to the actual nameserver returns no responses, authoritatively.
 			amazonNS: {
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeA), resp: &dns.Msg{
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: &dns.Msg{
 					MsgHdr: dns.MsgHdr{Authoritative: true},
 					Answer: []dns.RR{},
 				}},
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: &dns.Msg{
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: &dns.Msg{
 					MsgHdr: dns.MsgHdr{Authoritative: true},
 					Answer: []dns.RR{},
 				}},
@@ -415,8 +415,8 @@ func TestNoAnswers(t *testing.T) {
 		rootServers:      []netip.Addr{rootServerAddr},
 	}
 
-	// Query for tailscale.com, verify we get the right responses
-	_, _, err := r.Resolve(context.Background(), "tailscale.com")
+	// Query for github.com/Jnchk/tailscale, verify we get the right responses
+	_, _, err := r.Resolve(context.Background(), "github.com/Jnchk/tailscale")
 	if err == nil {
 		t.Fatalf("got no error, want error")
 	}
@@ -434,37 +434,37 @@ func TestRecursionCNAME(t *testing.T) {
 				{name: "subdomain.otherdomain.com.", qtype: dns.Type(dns.TypeA), resp: comRecord},
 				{name: "subdomain.otherdomain.com.", qtype: dns.Type(dns.TypeAAAA), resp: comRecord},
 
-				{name: "subdomain.tailscale.com.", qtype: dns.Type(dns.TypeA), resp: comRecord},
-				{name: "subdomain.tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: comRecord},
+				{name: "subdomain.github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: comRecord},
+				{name: "subdomain.github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: comRecord},
 			},
 
-			// Query to the ".com" server return the nameservers for tailscale.com
+			// Query to the ".com" server return the nameservers for github.com/Jnchk/tailscale
 			comNSAddr: {
 				{name: "subdomain.otherdomain.com.", qtype: dns.Type(dns.TypeA), resp: tailscaleNameservers},
 				{name: "subdomain.otherdomain.com.", qtype: dns.Type(dns.TypeAAAA), resp: tailscaleNameservers},
 
-				{name: "subdomain.tailscale.com.", qtype: dns.Type(dns.TypeA), resp: tailscaleNameservers},
-				{name: "subdomain.tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: tailscaleNameservers},
+				{name: "subdomain.github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: tailscaleNameservers},
+				{name: "subdomain.github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: tailscaleNameservers},
 			},
 
 			// Query to the actual nameserver works.
 			amazonNS: {
 				{name: "subdomain.otherdomain.com.", qtype: dns.Type(dns.TypeA), resp: &dns.Msg{
 					MsgHdr: dns.MsgHdr{Authoritative: true},
-					Answer: []dns.RR{cnameRR("subdomain.otherdomain.com.", "subdomain.tailscale.com.")},
+					Answer: []dns.RR{cnameRR("subdomain.otherdomain.com.", "subdomain.github.com/Jnchk/tailscale.")},
 				}},
 				{name: "subdomain.otherdomain.com.", qtype: dns.Type(dns.TypeAAAA), resp: &dns.Msg{
 					MsgHdr: dns.MsgHdr{Authoritative: true},
-					Answer: []dns.RR{cnameRR("subdomain.otherdomain.com.", "subdomain.tailscale.com.")},
+					Answer: []dns.RR{cnameRR("subdomain.otherdomain.com.", "subdomain.github.com/Jnchk/tailscale.")},
 				}},
 
-				{name: "subdomain.tailscale.com.", qtype: dns.Type(dns.TypeA), resp: &dns.Msg{
+				{name: "subdomain.github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: &dns.Msg{
 					MsgHdr: dns.MsgHdr{Authoritative: true},
-					Answer: []dns.RR{dnsIPRR("tailscale.com.", netip.MustParseAddr("13.248.141.131"))},
+					Answer: []dns.RR{dnsIPRR("github.com/Jnchk/tailscale.", netip.MustParseAddr("13.248.141.131"))},
 				}},
-				{name: "subdomain.tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: &dns.Msg{
+				{name: "subdomain.github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: &dns.Msg{
 					MsgHdr: dns.MsgHdr{Authoritative: true},
-					Answer: []dns.RR{dnsIPRR("tailscale.com.", netip.MustParseAddr("2600:9000:a602:b1e6:86d:8165:5e8c:295b"))},
+					Answer: []dns.RR{dnsIPRR("github.com/Jnchk/tailscale.", netip.MustParseAddr("2600:9000:a602:b1e6:86d:8165:5e8c:295b"))},
 				}},
 			},
 		},
@@ -476,7 +476,7 @@ func TestRecursionCNAME(t *testing.T) {
 		rootServers:      []netip.Addr{rootServerAddr},
 	}
 
-	// Query for tailscale.com, verify we get the right responses
+	// Query for github.com/Jnchk/tailscale, verify we get the right responses
 	addrs, minTTL, err := r.Resolve(context.Background(), "subdomain.otherdomain.com")
 	if err != nil {
 		t.Fatal(err)
@@ -514,18 +514,18 @@ func TestRecursionNoGlue(t *testing.T) {
 	const amazonNameserver = "ns-1558.awsdns-02.co.uk."
 	tailscaleNameservers := &dns.Msg{
 		Ns: []dns.RR{
-			nsRR("tailscale.com.", amazonNameserver),
+			nsRR("github.com/Jnchk/tailscale.", amazonNameserver),
 		},
 	}
 
 	tailscaleResponses := []mockReply{
-		{name: "tailscale.com.", qtype: dns.Type(dns.TypeA), resp: &dns.Msg{
+		{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: &dns.Msg{
 			MsgHdr: dns.MsgHdr{Authoritative: true},
-			Answer: []dns.RR{dnsIPRR("tailscale.com.", netip.MustParseAddr("13.248.141.131"))},
+			Answer: []dns.RR{dnsIPRR("github.com/Jnchk/tailscale.", netip.MustParseAddr("13.248.141.131"))},
 		}},
-		{name: "tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: &dns.Msg{
+		{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: &dns.Msg{
 			MsgHdr: dns.MsgHdr{Authoritative: true},
-			Answer: []dns.RR{dnsIPRR("tailscale.com.", netip.MustParseAddr("2600:9000:a602:b1e6:86d:8165:5e8c:295b"))},
+			Answer: []dns.RR{dnsIPRR("github.com/Jnchk/tailscale.", netip.MustParseAddr("2600:9000:a602:b1e6:86d:8165:5e8c:295b"))},
 		}},
 	}
 
@@ -534,8 +534,8 @@ func TestRecursionNoGlue(t *testing.T) {
 		replies: map[netip.Addr][]mockReply{
 			rootServerAddr: {
 				// Query to the root server returns the .com server + a glue record
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeA), resp: comRecord},
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: comRecord},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: comRecord},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: comRecord},
 
 				// Querying the .co.uk nameserver returns the .co.uk nameserver + a glue record.
 				{name: amazonNameserver, qtype: dns.Type(dns.TypeA), resp: coukRecord},
@@ -543,11 +543,11 @@ func TestRecursionNoGlue(t *testing.T) {
 			},
 
 			// Queries to the ".com" server return the nameservers
-			// for tailscale.com, which don't contain a glue
+			// for github.com/Jnchk/tailscale, which don't contain a glue
 			// record.
 			comNSAddr: {
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeA), resp: tailscaleNameservers},
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: tailscaleNameservers},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: tailscaleNameservers},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: tailscaleNameservers},
 			},
 
 			// Queries to the ".co.uk" nameserver returns the
@@ -581,8 +581,8 @@ func TestRecursionNoGlue(t *testing.T) {
 	r.testExchangeHook = mock.exchangeHook
 	r.rootServers = []netip.Addr{rootServerAddr}
 
-	// Query for tailscale.com, verify we get the right responses
-	addrs, minTTL, err := r.Resolve(context.Background(), "tailscale.com")
+	// Query for github.com/Jnchk/tailscale, verify we get the right responses
+	addrs, minTTL, err := r.Resolve(context.Background(), "github.com/Jnchk/tailscale")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -613,7 +613,7 @@ func TestRecursionLimit(t *testing.T) {
 	// this far since each CNAME is more than 1 level "deep", but this
 	// ensures that we have more than the limit.
 	for i := 0; i < maxDepth+1; i++ {
-		curr := fmt.Sprintf("%d-tailscale.com.", i)
+		curr := fmt.Sprintf("%d-github.com/Jnchk/tailscale.", i)
 
 		tailscaleNameservers := &dns.Msg{
 			Ns:    []dns.RR{nsRR(curr, "ns-197.awsdns-24.com.")},
@@ -626,14 +626,14 @@ func TestRecursionLimit(t *testing.T) {
 			mockReply{name: curr, qtype: dns.Type(dns.TypeAAAA), resp: comRecord},
 		)
 
-		// Query to the ".com" server return the nameservers for NN-tailscale.com
+		// Query to the ".com" server return the nameservers for NN-github.com/Jnchk/tailscale
 		mock.replies[comNSAddr] = append(mock.replies[comNSAddr],
 			mockReply{name: curr, qtype: dns.Type(dns.TypeA), resp: tailscaleNameservers},
 			mockReply{name: curr, qtype: dns.Type(dns.TypeAAAA), resp: tailscaleNameservers},
 		)
 
 		// Queries to the nameserver return a CNAME for the n+1th server.
-		next := fmt.Sprintf("%d-tailscale.com.", i+1)
+		next := fmt.Sprintf("%d-github.com/Jnchk/tailscale.", i+1)
 		mock.replies[amazonNS] = append(mock.replies[amazonNS],
 			mockReply{
 				name:  curr,
@@ -658,10 +658,10 @@ func TestRecursionLimit(t *testing.T) {
 	r.testExchangeHook = mock.exchangeHook
 	r.rootServers = []netip.Addr{rootServerAddr}
 
-	// Query for the first node in the chain, 0-tailscale.com, and verify
+	// Query for the first node in the chain, 0-github.com/Jnchk/tailscale, and verify
 	// we get a max-depth error.
 	ctx := context.Background()
-	_, _, err := r.Resolve(ctx, "0-tailscale.com")
+	_, _, err := r.Resolve(ctx, "0-github.com/Jnchk/tailscale")
 	if err == nil {
 		t.Fatal("expected error, got nil")
 	} else if !errors.Is(err, ErrMaxDepth) {
@@ -675,23 +675,23 @@ func TestInvalidResponses(t *testing.T) {
 		replies: map[netip.Addr][]mockReply{
 			// Query to the root server returns the .com server + a glue record
 			rootServerAddr: {
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeA), resp: comRecord},
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: comRecord},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: comRecord},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: comRecord},
 			},
 
-			// Query to the ".com" server return the nameservers for tailscale.com
+			// Query to the ".com" server return the nameservers for github.com/Jnchk/tailscale
 			comNSAddr: {
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeA), resp: tailscaleNameservers},
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: tailscaleNameservers},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: tailscaleNameservers},
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: tailscaleNameservers},
 			},
 
 			// Query to the actual nameserver returns an invalid IP address
 			amazonNS: {
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeA), resp: &dns.Msg{
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeA), resp: &dns.Msg{
 					MsgHdr: dns.MsgHdr{Authoritative: true},
 					Answer: []dns.RR{&dns.A{
 						Hdr: dns.RR_Header{
-							Name:   "tailscale.com.",
+							Name:   "github.com/Jnchk/tailscale.",
 							Rrtype: dns.TypeA,
 							Class:  dns.ClassINET,
 							Ttl:    300,
@@ -700,12 +700,12 @@ func TestInvalidResponses(t *testing.T) {
 						A: net.IP(netip.MustParseAddr("2600:9000:a51d:27c1:1530:b9ef:2a6:b9e5").AsSlice()),
 					}},
 				}},
-				{name: "tailscale.com.", qtype: dns.Type(dns.TypeAAAA), resp: &dns.Msg{
+				{name: "github.com/Jnchk/tailscale.", qtype: dns.Type(dns.TypeAAAA), resp: &dns.Msg{
 					MsgHdr: dns.MsgHdr{Authoritative: true},
 					// This an IPv4 response to an IPv6 query
 					Answer: []dns.RR{&dns.A{
 						Hdr: dns.RR_Header{
-							Name:   "tailscale.com.",
+							Name:   "github.com/Jnchk/tailscale.",
 							Rrtype: dns.TypeA,
 							Class:  dns.ClassINET,
 							Ttl:    300,
@@ -723,9 +723,9 @@ func TestInvalidResponses(t *testing.T) {
 		rootServers:      []netip.Addr{rootServerAddr},
 	}
 
-	// Query for tailscale.com, verify we get no responses since the
+	// Query for github.com/Jnchk/tailscale, verify we get no responses since the
 	// addresses are invalid.
-	_, _, err := r.Resolve(context.Background(), "tailscale.com")
+	_, _, err := r.Resolve(context.Background(), "github.com/Jnchk/tailscale")
 	if err == nil {
 		t.Fatalf("got no error, want error")
 	}

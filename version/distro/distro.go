@@ -11,8 +11,8 @@ import (
 	"runtime"
 	"strconv"
 
-	"tailscale.com/types/lazy"
-	"tailscale.com/util/lineread"
+	"github.com/Jnchk/tailscale/types/lazy"
+	"github.com/Jnchk/tailscale/util/lineread"
 )
 
 type Distro string

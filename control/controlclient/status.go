@@ -8,10 +8,10 @@ import (
 	"fmt"
 	"reflect"
 
-	"tailscale.com/types/empty"
-	"tailscale.com/types/netmap"
-	"tailscale.com/types/persist"
-	"tailscale.com/types/structs"
+	"github.com/Jnchk/tailscale/types/empty"
+	"github.com/Jnchk/tailscale/types/netmap"
+	"github.com/Jnchk/tailscale/types/persist"
+	"github.com/Jnchk/tailscale/types/structs"
 )
 
 // State is the high-level state of the client. It is used only in

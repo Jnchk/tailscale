@@ -12,15 +12,15 @@ import (
 	"time"
 
 	"go4.org/mem"
-	"tailscale.com/types/dnstype"
-	"tailscale.com/types/key"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/structs"
-	"tailscale.com/types/tkatype"
-	"tailscale.com/types/views"
+	"github.com/Jnchk/tailscale/types/dnstype"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/opt"
+	"github.com/Jnchk/tailscale/types/structs"
+	"github.com/Jnchk/tailscale/types/tkatype"
+	"github.com/Jnchk/tailscale/types/views"
 )
 
-//go:generate go run tailscale.com/cmd/cloner  -clonefunc=true -type=User,Node,Hostinfo,NetInfo,Login,DNSConfig,RegisterResponse,DERPRegion,DERPMap,DERPNode,SSHRule,SSHAction,SSHPrincipal,ControlDialPlan
+//go:generate go run github.com/Jnchk/tailscale/cmd/cloner  -clonefunc=true -type=User,Node,Hostinfo,NetInfo,Login,DNSConfig,RegisterResponse,DERPRegion,DERPMap,DERPNode,SSHRule,SSHAction,SSHPrincipal,ControlDialPlan
 
 // View returns a readonly view of User.
 func (p *User) View() UserView {

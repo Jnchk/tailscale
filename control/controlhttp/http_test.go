@@ -20,13 +20,13 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/control/controlbase"
-	"tailscale.com/net/dnscache"
-	"tailscale.com/net/socks5"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/control/controlbase"
+	"github.com/Jnchk/tailscale/net/dnscache"
+	"github.com/Jnchk/tailscale/net/socks5"
+	"github.com/Jnchk/tailscale/net/tsdial"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 type httpTestParam struct {

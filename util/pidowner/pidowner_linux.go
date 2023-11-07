@@ -8,7 +8,7 @@ import (
 	"os"
 	"strings"
 
-	"tailscale.com/util/lineread"
+	"github.com/Jnchk/tailscale/util/lineread"
 )
 
 func ownerOfPID(pid int) (userID string, err error) {

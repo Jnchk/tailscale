@@ -22,8 +22,8 @@ func TestFQDN(t *testing.T) {
 		{".foo.com.", "foo.com.", false, 2},
 		{".foo.com", "foo.com.", false, 2},
 		{"com", "com.", false, 1},
-		{"www.tailscale.com", "www.tailscale.com.", false, 3},
-		{"_ssh._tcp.tailscale.com", "_ssh._tcp.tailscale.com.", false, 4},
+		{"www.github.com/Jnchk/tailscale", "www.github.com/Jnchk/tailscale.", false, 3},
+		{"_ssh._tcp.github.com/Jnchk/tailscale", "_ssh._tcp.github.com/Jnchk/tailscale.", false, 4},
 		{"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com", "", true, 0},
 		{strings.Repeat("aaaaa.", 60) + "com", "", true, 0},
 		{"foo..com", "", true, 0},
@@ -67,9 +67,9 @@ func TestFQDNContains(t *testing.T) {
 		{"", "", true},
 		{"", "foo.com", true},
 		{"foo.com", "", false},
-		{"tailscale.com", "www.tailscale.com", true},
-		{"www.tailscale.com", "tailscale.com", false},
-		{"scale.com", "tailscale.com", false},
+		{"github.com/Jnchk/tailscale", "www.github.com/Jnchk/tailscale", true},
+		{"www.github.com/Jnchk/tailscale", "github.com/Jnchk/tailscale", false},
+		{"scale.com", "github.com/Jnchk/tailscale", false},
 		{"foo.com", "foo.com", true},
 	}
 
@@ -214,11 +214,11 @@ var sinkFQDN FQDN
 
 func BenchmarkToFQDN(b *testing.B) {
 	tests := []string{
-		"www.tailscale.com.",
-		"www.tailscale.com",
-		".www.tailscale.com",
-		"_ssh._tcp.www.tailscale.com.",
-		"_ssh._tcp.www.tailscale.com",
+		"www.github.com/Jnchk/tailscale.",
+		"www.github.com/Jnchk/tailscale",
+		".www.github.com/Jnchk/tailscale",
+		"_ssh._tcp.www.github.com/Jnchk/tailscale.",
+		"_ssh._tcp.www.github.com/Jnchk/tailscale",
 	}
 
 	for _, test := range tests {

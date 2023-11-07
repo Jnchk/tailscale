@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/version"
 )
 
 var (
@@ -22,7 +22,7 @@ var (
 func TestFindModuleInfo(t *testing.T) {
 	dir := t.TempDir()
 	name := filepath.Join(dir, "tailscaled-version-test")
-	out, err := exec.Command("go", "build", "-o", name, "tailscale.com/cmd/tailscaled").CombinedOutput()
+	out, err := exec.Command("go", "build", "-o", name, "github.com/Jnchk/tailscale/cmd/tailscaled").CombinedOutput()
 	if err != nil {
 		t.Fatalf("failed to build tailscaled: %v\n%s", err, out)
 	}
@@ -30,7 +30,7 @@ func TestFindModuleInfo(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	prefix := "path\ttailscale.com/cmd/tailscaled\nmod\ttailscale.com"
+	prefix := "path\tgithub.com/Jnchk/tailscale/cmd/tailscaled\nmod\tgithub.com/Jnchk/tailscale"
 	if !strings.HasPrefix(modinfo, prefix) {
 		t.Errorf("unexpected modinfo contents %q", modinfo)
 	}

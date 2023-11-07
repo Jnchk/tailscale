@@ -11,9 +11,9 @@ import (
 	"strings"
 
 	"golang.org/x/sys/unix"
-	"tailscale.com/types/ptr"
-	"tailscale.com/util/lineread"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/types/ptr"
+	"github.com/Jnchk/tailscale/util/lineread"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 func init() {

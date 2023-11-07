@@ -30,15 +30,15 @@ import (
 	"time"
 
 	"golang.org/x/net/proxy"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/net/netns"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/tstest/integration"
-	"tailscale.com/tstest/integration/testcontrol"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/must"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/store/mem"
+	"github.com/Jnchk/tailscale/net/netns"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/tstest/integration"
+	"github.com/Jnchk/tailscale/tstest/integration/testcontrol"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/must"
 )
 
 // TestListener_Server ensures that the listener type always keeps the Server

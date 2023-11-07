@@ -17,14 +17,14 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/ptr"
-	"tailscale.com/types/views"
-	"tailscale.com/util/dnsname"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/ptr"
+	"github.com/Jnchk/tailscale/types/views"
+	"github.com/Jnchk/tailscale/util/dnsname"
 )
 
-//go:generate go run tailscale.com/cmd/cloner  -clonefunc=false -type=TKAFilteredPeer
+//go:generate go run github.com/Jnchk/tailscale/cmd/cloner  -clonefunc=false -type=TKAFilteredPeer
 
 // Status represents the entire state of the IPN network.
 type Status struct {
@@ -203,7 +203,7 @@ type PeerStatus struct {
 	TailscaleIPs []netip.Addr
 
 	// Tags are the list of ACL tags applied to this node.
-	// See tailscale.com/tailcfg#Node.Tags for more information.
+	// See github.com/Jnchk/tailscale/tailcfg#Node.Tags for more information.
 	Tags *views.Slice[string] `json:",omitempty"`
 
 	// PrimaryRoutes are the routes this node is currently the primary
@@ -240,8 +240,8 @@ type PeerStatus struct {
 	// Capabilities are capabilities that the node has.
 	// They're free-form strings, but should be in the form of URLs/URIs
 	// such as:
-	//    "https://tailscale.com/cap/is-admin"
-	//    "https://tailscale.com/cap/file-sharing"
+	//    "https://github.com/Jnchk/tailscale/cap/is-admin"
+	//    "https://github.com/Jnchk/tailscale/cap/file-sharing"
 	//    "funnel"
 	Capabilities []string `json:",omitempty"`
 

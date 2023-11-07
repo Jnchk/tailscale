@@ -15,8 +15,8 @@ import (
 	"github.com/google/nftables/xt"
 	"github.com/josharian/native"
 	"golang.org/x/sys/unix"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/cmpx"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/cmpx"
 )
 
 // DebugNetfilter prints debug information about netfilter rules to the

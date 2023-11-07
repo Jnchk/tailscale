@@ -15,7 +15,7 @@ import (
 
 	"golang.org/x/net/route"
 	"golang.org/x/sys/unix"
-	"tailscale.com/net/interfaces"
+	"github.com/Jnchk/tailscale/net/interfaces"
 )
 
 func TestRouteEntryFromMsg(t *testing.T) {

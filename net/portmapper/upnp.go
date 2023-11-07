@@ -22,9 +22,9 @@ import (
 
 	"github.com/tailscale/goupnp"
 	"github.com/tailscale/goupnp/dcps/internetgateway2"
-	"tailscale.com/control/controlknobs"
-	"tailscale.com/net/netns"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/control/controlknobs"
+	"github.com/Jnchk/tailscale/net/netns"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // References:

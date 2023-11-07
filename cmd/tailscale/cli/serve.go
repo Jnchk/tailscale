@@ -22,10 +22,10 @@ import (
 	"strings"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/util/mak"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/util/mak"
+	"github.com/Jnchk/tailscale/version"
 )
 
 var serveCmd = newServeCommand(&serveEnv{lc: &localClient})
@@ -53,7 +53,7 @@ your tailnet.
 You can also choose to enable the Tailscale Funnel with:
 'tailscale funnel on'. Funnel allows you to publish
 a 'tailscale serve' server publicly, open to the entire
-internet. See https://tailscale.com/funnel.
+internet. See https://github.com/Jnchk/tailscale/funnel.
 
 EXAMPLES
   - To proxy requests to a web server at 127.0.0.1:3000:

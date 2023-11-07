@@ -19,9 +19,9 @@ import (
 	"time"
 
 	"github.com/tailscale/certstore"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/util/winutil"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/util/winutil"
 )
 
 var getMachineCertificateSubjectOnce struct {

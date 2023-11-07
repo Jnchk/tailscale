@@ -10,7 +10,7 @@ import (
 	"fmt"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/client/tailscale"
+	"github.com/Jnchk/tailscale/client/tailscale"
 )
 
 var bugReportCmd = &ffcli.Command{

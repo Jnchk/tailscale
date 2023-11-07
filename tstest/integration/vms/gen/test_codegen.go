@@ -12,7 +12,7 @@ import (
 
 	"github.com/dave/jennifer/jen"
 	"github.com/iancoleman/strcase"
-	"tailscale.com/tstest/integration/vms"
+	"github.com/Jnchk/tailscale/tstest/integration/vms"
 )
 
 func main() {

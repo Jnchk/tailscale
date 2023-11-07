@@ -9,7 +9,7 @@ import (
 	"context"
 	"sync"
 
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // Check is the interface defining a singular check.

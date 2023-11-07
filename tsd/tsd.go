@@ -21,14 +21,14 @@ import (
 	"fmt"
 	"reflect"
 
-	"tailscale.com/ipn"
-	"tailscale.com/net/dns"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/net/tstun"
-	"tailscale.com/wgengine"
-	"tailscale.com/wgengine/magicsock"
-	"tailscale.com/wgengine/router"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/net/dns"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/tsdial"
+	"github.com/Jnchk/tailscale/net/tstun"
+	"github.com/Jnchk/tailscale/wgengine"
+	"github.com/Jnchk/tailscale/wgengine/magicsock"
+	"github.com/Jnchk/tailscale/wgengine/router"
 )
 
 // System contains all the subsystems of a Tailscale node (tailscaled, etc.)

@@ -13,7 +13,7 @@ import (
 	"strings"
 
 	"golang.org/x/exp/slices"
-	"tailscale.com/tailcfg"
+	"github.com/Jnchk/tailscale/tailcfg"
 )
 
 // ServeConfigKey returns a StateKey that stores the
@@ -214,13 +214,13 @@ func (sc *ServeConfig) IsFunnelOn() bool {
 // Funnel.
 func CheckFunnelAccess(port uint16, nodeAttrs []string) error {
 	if slices.Contains(nodeAttrs, tailcfg.CapabilityWarnFunnelNoInvite) {
-		return errors.New("Funnel not enabled; See https://tailscale.com/s/no-funnel.")
+		return errors.New("Funnel not enabled; See https://github.com/Jnchk/tailscale/s/no-funnel.")
 	}
 	if slices.Contains(nodeAttrs, tailcfg.CapabilityWarnFunnelNoHTTPS) {
-		return errors.New("Funnel not available; HTTPS must be enabled. See https://tailscale.com/s/https.")
+		return errors.New("Funnel not available; HTTPS must be enabled. See https://github.com/Jnchk/tailscale/s/https.")
 	}
 	if !slices.Contains(nodeAttrs, tailcfg.NodeAttrFunnel) {
-		return errors.New("Funnel not available; \"funnel\" node attribute not set. See https://tailscale.com/s/no-funnel.")
+		return errors.New("Funnel not available; \"funnel\" node attribute not set. See https://github.com/Jnchk/tailscale/s/no-funnel.")
 	}
 	return checkFunnelPort(port, nodeAttrs)
 }

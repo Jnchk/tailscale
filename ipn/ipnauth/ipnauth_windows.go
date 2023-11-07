@@ -10,9 +10,9 @@ import (
 	"unsafe"
 
 	"golang.org/x/sys/windows"
-	"tailscale.com/ipn"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/pidowner"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/pidowner"
 )
 
 var (

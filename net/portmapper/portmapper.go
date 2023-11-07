@@ -18,15 +18,15 @@ import (
 	"time"
 
 	"go4.org/mem"
-	"tailscale.com/net/interfaces"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/net/neterror"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/netns"
-	"tailscale.com/net/sockstats"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/nettype"
-	"tailscale.com/util/clientmetric"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/net/netaddr"
+	"github.com/Jnchk/tailscale/net/neterror"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/netns"
+	"github.com/Jnchk/tailscale/net/sockstats"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/nettype"
+	"github.com/Jnchk/tailscale/util/clientmetric"
 )
 
 // DebugKnobs contains debug configuration that can be provided when creating a
@@ -604,7 +604,7 @@ func (c *Client) createOrGetMapping(ctx context.Context) (external netip.AddrPor
 	}
 }
 
-//go:generate go run tailscale.com/cmd/addlicense -file pmpresultcode_string.go go run golang.org/x/tools/cmd/stringer -type=pmpResultCode -trimprefix=pmpCode
+//go:generate go run github.com/Jnchk/tailscale/cmd/addlicense -file pmpresultcode_string.go go run golang.org/x/tools/cmd/stringer -type=pmpResultCode -trimprefix=pmpCode
 
 type pmpResultCode uint16
 

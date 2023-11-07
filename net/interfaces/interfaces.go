@@ -14,15 +14,15 @@ import (
 	"sort"
 	"strings"
 
-	"tailscale.com/hostinfo"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/net/tshttpproxy"
+	"github.com/Jnchk/tailscale/hostinfo"
+	"github.com/Jnchk/tailscale/net/netaddr"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/net/tshttpproxy"
 )
 
 // LoginEndpointForProxyDetermination is the URL used for testing
 // which HTTP proxy the system should use.
-var LoginEndpointForProxyDetermination = "https://controlplane.tailscale.com/"
+var LoginEndpointForProxyDetermination = "https://controlplane.github.com/Jnchk/tailscale/"
 
 // Tailscale returns the current machine's Tailscale interface, if any.
 // If none is found, all zero values are returned.

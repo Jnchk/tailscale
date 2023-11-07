@@ -13,9 +13,9 @@ import (
 
 	"github.com/tailscale/netlink"
 	"golang.org/x/sys/unix"
-	"tailscale.com/net/interfaces"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/net/netaddr"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // RouteEntryLinux is the structure that makes up the Sys field of the

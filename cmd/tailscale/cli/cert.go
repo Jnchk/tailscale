@@ -19,9 +19,9 @@ import (
 
 	"github.com/peterbourgon/ff/v3/ffcli"
 	"software.sslmate.com/src/go-pkcs12"
-	"tailscale.com/atomicfile"
-	"tailscale.com/ipn"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/atomicfile"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/version"
 )
 
 var certCmd = &ffcli.Command{

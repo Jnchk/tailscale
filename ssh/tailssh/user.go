@@ -21,10 +21,10 @@ import (
 	"unicode/utf8"
 
 	"go4.org/mem"
-	"tailscale.com/envknob"
-	"tailscale.com/hostinfo"
-	"tailscale.com/util/lineread"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/hostinfo"
+	"github.com/Jnchk/tailscale/util/lineread"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 // userMeta is a wrapper around *user.User with extra fields.

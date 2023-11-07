@@ -15,15 +15,15 @@ import (
 
 	qt "github.com/frankban/quicktest"
 	"github.com/google/go-cmp/cmp"
-	"tailscale.com/health/healthmsg"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/tka"
-	"tailscale.com/tstest"
-	"tailscale.com/types/persist"
-	"tailscale.com/types/preftype"
-	"tailscale.com/util/cmpx"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/health/healthmsg"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/tka"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/types/persist"
+	"github.com/Jnchk/tailscale/types/preftype"
+	"github.com/Jnchk/tailscale/util/cmpx"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 // geese is a collection of gooses. It need not be complete.
@@ -428,9 +428,9 @@ func TestCheckForAccidentalSettingReverts(t *testing.T) {
 		},
 		{
 			name:  "ignore_login_server_synonym",
-			flags: []string{"--login-server=https://controlplane.tailscale.com"},
+			flags: []string{"--login-server=https://controlplane.github.com/Jnchk/tailscale"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				AllowSingleHosts: true,
 				CorpDNS:          true,
 				NetfilterMode:    preftype.NetfilterOn,
@@ -441,7 +441,7 @@ func TestCheckForAccidentalSettingReverts(t *testing.T) {
 			name:  "ignore_login_server_synonym_on_other_change",
 			flags: []string{"--netfilter-mode=off"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				AllowSingleHosts: true,
 				CorpDNS:          false,
 				NetfilterMode:    preftype.NetfilterOn,
@@ -454,7 +454,7 @@ func TestCheckForAccidentalSettingReverts(t *testing.T) {
 			name:  "synology_permit_omit_accept_routes",
 			flags: []string{"--hostname=foo"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				CorpDNS:          true,
 				AllowSingleHosts: true,
 				RouteAll:         true,
@@ -470,7 +470,7 @@ func TestCheckForAccidentalSettingReverts(t *testing.T) {
 			name:  "not_synology_dont_permit_omit_accept_routes",
 			flags: []string{"--hostname=foo"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				CorpDNS:          true,
 				AllowSingleHosts: true,
 				RouteAll:         true,
@@ -484,7 +484,7 @@ func TestCheckForAccidentalSettingReverts(t *testing.T) {
 			name:  "profile_name_ignored_in_up",
 			flags: []string{"--hostname=foo"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				CorpDNS:          true,
 				AllowSingleHosts: true,
 				NetfilterMode:    preftype.NetfilterOn,
@@ -883,7 +883,7 @@ func TestUpdatePrefs(t *testing.T) {
 			name:  "control_synonym",
 			flags: []string{},
 			curPrefs: &ipn.Prefs{
-				ControlURL: "https://login.tailscale.com",
+				ControlURL: "https://login.github.com/Jnchk/tailscale",
 				Persist:    &persist.Persist{LoginName: "crawshaw.github"},
 			},
 			env:            upCheckEnv{backendState: "Running"},
@@ -894,7 +894,7 @@ func TestUpdatePrefs(t *testing.T) {
 			name:  "change_login_server",
 			flags: []string{"--login-server=https://localhost:1000"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				Persist:          &persist.Persist{LoginName: "crawshaw.github"},
 				AllowSingleHosts: true,
 				CorpDNS:          true,
@@ -909,7 +909,7 @@ func TestUpdatePrefs(t *testing.T) {
 			name:  "change_tags",
 			flags: []string{"--advertise-tags=tag:foo"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				Persist:          &persist.Persist{LoginName: "crawshaw.github"},
 				AllowSingleHosts: true,
 				CorpDNS:          true,
@@ -922,7 +922,7 @@ func TestUpdatePrefs(t *testing.T) {
 			name:  "explicit_empty_operator",
 			flags: []string{"--operator="},
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				CorpDNS:          true,
 				AllowSingleHosts: true,
 				NetfilterMode:    preftype.NetfilterOn,
@@ -943,7 +943,7 @@ func TestUpdatePrefs(t *testing.T) {
 			name:  "enable_ssh",
 			flags: []string{"--ssh"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				Persist:          &persist.Persist{LoginName: "crawshaw.github"},
 				AllowSingleHosts: true,
 				CorpDNS:          true,
@@ -964,7 +964,7 @@ func TestUpdatePrefs(t *testing.T) {
 			name:  "disable_ssh",
 			flags: []string{"--ssh=false"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				Persist:          &persist.Persist{LoginName: "crawshaw.github"},
 				AllowSingleHosts: true,
 				CorpDNS:          true,
@@ -989,7 +989,7 @@ func TestUpdatePrefs(t *testing.T) {
 			flags:            []string{"--ssh=false"},
 			sshOverTailscale: true,
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				Persist:          &persist.Persist{LoginName: "crawshaw.github"},
 				AllowSingleHosts: true,
 				CorpDNS:          true,
@@ -1013,7 +1013,7 @@ func TestUpdatePrefs(t *testing.T) {
 			flags:            []string{"--ssh=true"},
 			sshOverTailscale: true,
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				Persist:          &persist.Persist{LoginName: "crawshaw.github"},
 				AllowSingleHosts: true,
 				CorpDNS:          true,
@@ -1036,7 +1036,7 @@ func TestUpdatePrefs(t *testing.T) {
 			flags:            []string{"--ssh=true", "--accept-risk=lose-ssh"},
 			sshOverTailscale: true,
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				Persist:          &persist.Persist{LoginName: "crawshaw.github"},
 				AllowSingleHosts: true,
 				CorpDNS:          true,
@@ -1058,7 +1058,7 @@ func TestUpdatePrefs(t *testing.T) {
 			flags:            []string{"--ssh=false", "--accept-risk=lose-ssh"},
 			sshOverTailscale: true,
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				Persist:          &persist.Persist{LoginName: "crawshaw.github"},
 				AllowSingleHosts: true,
 				CorpDNS:          true,
@@ -1081,7 +1081,7 @@ func TestUpdatePrefs(t *testing.T) {
 			flags:            []string{"--force-reauth"},
 			sshOverTailscale: true,
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				AllowSingleHosts: true,
 				CorpDNS:          true,
 				NetfilterMode:    preftype.NetfilterOn,
@@ -1094,7 +1094,7 @@ func TestUpdatePrefs(t *testing.T) {
 			flags:            []string{"--force-reauth", "--accept-risk=lose-ssh"},
 			sshOverTailscale: true,
 			curPrefs: &ipn.Prefs{
-				ControlURL:       "https://login.tailscale.com",
+				ControlURL:       "https://login.github.com/Jnchk/tailscale",
 				AllowSingleHosts: true,
 				CorpDNS:          true,
 				NetfilterMode:    preftype.NetfilterOn,

@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"net/netip"
 
-	"tailscale.com/types/logger"
-	"tailscale.com/util/dnsname"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/dnsname"
 )
 
 // An OSConfigurator applies DNS settings to the operating system.

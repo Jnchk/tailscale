@@ -14,8 +14,8 @@ import (
 
 	"github.com/godbus/dbus/v5"
 	"github.com/josharian/native"
-	"tailscale.com/net/interfaces"
-	"tailscale.com/util/dnsname"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/util/dnsname"
 )
 
 const (

@@ -63,9 +63,9 @@ import (
 	"time"
 
 	"golang.org/x/sys/unix"
-	"tailscale.com/client/tailscale"
-	"tailscale.com/ipn"
-	"tailscale.com/util/deephash"
+	"github.com/Jnchk/tailscale/client/tailscale"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/util/deephash"
 )
 
 func main() {

@@ -13,8 +13,8 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/derp"
-	"tailscale.com/types/key"
+	"github.com/Jnchk/tailscale/derp"
+	"github.com/Jnchk/tailscale/types/key"
 )
 
 func TestSendRecv(t *testing.T) {

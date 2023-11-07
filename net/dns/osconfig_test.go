@@ -8,7 +8,7 @@ import (
 	"net/netip"
 	"testing"
 
-	"tailscale.com/util/dnsname"
+	"github.com/Jnchk/tailscale/util/dnsname"
 )
 
 func TestOSConfigPrintable(t *testing.T) {

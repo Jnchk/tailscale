@@ -9,7 +9,7 @@ import (
 	"net"
 	"os"
 
-	"tailscale.com/net/stun"
+	"github.com/Jnchk/tailscale/net/stun"
 )
 
 func main() {

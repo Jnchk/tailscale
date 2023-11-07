@@ -10,8 +10,8 @@ import (
 	"net"
 	"net/netip"
 
-	"tailscale.com/net/interfaces"
-	"tailscale.com/net/netns"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/net/netns"
 )
 
 func init() {

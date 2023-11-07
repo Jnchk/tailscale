@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"runtime"
 
-	"tailscale.com/ipn"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 func New(logger.Logf, string) (ipn.StateStore, error) {

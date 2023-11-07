@@ -20,10 +20,10 @@ import (
 	"github.com/peterbourgon/ff/v3/ffcli"
 	"github.com/toqueteos/webbrowser"
 	"golang.org/x/net/idna"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/net/interfaces"
-	"tailscale.com/util/dnsname"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/util/dnsname"
 )
 
 var statusCmd = &ffcli.Command{

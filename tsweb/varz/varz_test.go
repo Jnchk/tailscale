@@ -10,9 +10,9 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/metrics"
-	"tailscale.com/tstest"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/metrics"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/version"
 )
 
 func TestVarzHandler(t *testing.T) {

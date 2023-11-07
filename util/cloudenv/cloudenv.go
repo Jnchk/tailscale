@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/syncs"
+	"github.com/Jnchk/tailscale/syncs"
 )
 
 // CommonNonRoutableMetadataIP is the IP address of the metadata server

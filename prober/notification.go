@@ -16,7 +16,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"tailscale.com/util/httpm"
+	"github.com/Jnchk/tailscale/util/httpm"
 )
 
 var (

@@ -8,9 +8,9 @@ package table
 import (
 	"net/netip"
 
-	"tailscale.com/tempfork/device"
-	"tailscale.com/types/key"
-	"tailscale.com/util/mak"
+	"github.com/Jnchk/tailscale/tempfork/device"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/util/mak"
 )
 
 // RoutingTableBuilder is a builder for a RoutingTable.

@@ -15,7 +15,7 @@ import (
 	"time"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/release/dist"
+	"github.com/Jnchk/tailscale/release/dist"
 )
 
 // CLI returns a CLI root command to build release packages.

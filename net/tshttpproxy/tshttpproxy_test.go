@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/util/must"
+	"github.com/Jnchk/tailscale/util/must"
 )
 
 func TestGetAuthHeaderNoResult(t *testing.T) {
@@ -183,7 +183,7 @@ func TestSetSelfProxy(t *testing.T) {
 			if tt.wantHTTP != "" {
 				want := "http://" + tt.wantHTTP
 
-				uu, _ := url.Parse("http://tailscale.com")
+				uu, _ := url.Parse("http://github.com/Jnchk/tailscale")
 				dest, err := pf(uu)
 				if err != nil {
 					t.Error(err)
@@ -194,7 +194,7 @@ func TestSetSelfProxy(t *testing.T) {
 			if tt.wantHTTPS != "" {
 				want := "http://" + tt.wantHTTPS
 
-				uu, _ := url.Parse("https://tailscale.com")
+				uu, _ := url.Parse("https://github.com/Jnchk/tailscale")
 				dest, err := pf(uu)
 				if err != nil {
 					t.Error(err)

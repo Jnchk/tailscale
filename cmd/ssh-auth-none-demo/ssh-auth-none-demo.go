@@ -26,7 +26,7 @@ import (
 	"time"
 
 	gossh "github.com/tailscale/golang-x-crypto/ssh"
-	"tailscale.com/tempfork/gliderlabs/ssh"
+	"github.com/Jnchk/tailscale/tempfork/gliderlabs/ssh"
 )
 
 // keyTypes are the SSH key types that we either try to read from the

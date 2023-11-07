@@ -11,7 +11,7 @@ import (
 	"net/netip"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
 )
 
 var ipCmd = &ffcli.Command{

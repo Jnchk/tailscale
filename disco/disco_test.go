@@ -11,7 +11,7 @@ import (
 	"testing"
 
 	"go4.org/mem"
-	"tailscale.com/types/key"
+	"github.com/Jnchk/tailscale/types/key"
 )
 
 func TestMarshalAndParse(t *testing.T) {

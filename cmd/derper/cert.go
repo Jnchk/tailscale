@@ -40,9 +40,9 @@ func certProviderByCertMode(mode, dir, hostname string) (certProvider, error) {
 			HostPolicy: autocert.HostWhitelist(hostname),
 			Cache:      autocert.DirCache(dir),
 		}
-		if hostname == "derp.tailscale.com" {
+		if hostname == "derp.github.com/Jnchk/tailscale" {
 			certManager.HostPolicy = prodAutocertHostPolicy
-			certManager.Email = "security@tailscale.com"
+			certManager.Email = "security@github.com/Jnchk/tailscale"
 		}
 		return certManager, nil
 	case "manual":

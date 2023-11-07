@@ -9,8 +9,8 @@ import (
 	"sync/atomic"
 
 	"golang.org/x/exp/slices"
-	"tailscale.com/envknob"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // TODO(andrew-d): should we have a package-global registry of logknobs? It

@@ -32,16 +32,16 @@ import (
 
 	"golang.org/x/crypto/acme"
 	"golang.org/x/exp/slices"
-	"tailscale.com/atomicfile"
-	"tailscale.com/envknob"
-	"tailscale.com/hostinfo"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/ipn/store"
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/types/logger"
-	"tailscale.com/version"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/atomicfile"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/hostinfo"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/ipn/store"
+	"github.com/Jnchk/tailscale/ipn/store/mem"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/version"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 // Process-wide cache. (A new *Handler is created per connection,

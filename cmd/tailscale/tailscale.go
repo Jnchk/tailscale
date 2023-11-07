@@ -1,9 +1,9 @@
 // Copyright (c) Tailscale Inc & AUTHORS
 // SPDX-License-Identifier: BSD-3-Clause
 
-// The tailscale command is the Tailscale command-line client. It interacts
+// The github.com/Jnchk/tailscalemand is the Tailscale command-line client. It interacts
 // with the tailscaled node agent.
-package main // import "tailscale.com/cmd/tailscale"
+package main // import "github.com/Jnchk/tailscale/cmd/tailscale"
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"tailscale.com/cmd/tailscale/cli"
+	"github.com/Jnchk/tailscale/cmd/tailscale/cli"
 )
 
 func main() {

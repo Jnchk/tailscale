@@ -9,11 +9,11 @@ import (
 	"net/netip"
 	"sort"
 
-	"tailscale.com/net/dns/publicdns"
-	"tailscale.com/net/dns/resolver"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/types/dnstype"
-	"tailscale.com/util/dnsname"
+	"github.com/Jnchk/tailscale/net/dns/publicdns"
+	"github.com/Jnchk/tailscale/net/dns/resolver"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/types/dnstype"
+	"github.com/Jnchk/tailscale/util/dnsname"
 )
 
 // Config is a DNS configuration.

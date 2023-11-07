@@ -20,12 +20,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/envknob"
-	"tailscale.com/net/netmon"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/cloudenv"
-	"tailscale.com/util/singleflight"
-	"tailscale.com/util/slicesx"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/cloudenv"
+	"github.com/Jnchk/tailscale/util/singleflight"
+	"github.com/Jnchk/tailscale/util/slicesx"
 )
 
 var zaddr netip.Addr

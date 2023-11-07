@@ -17,7 +17,7 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/util/lineread"
+	"github.com/Jnchk/tailscale/util/lineread"
 )
 
 // These vars are overridden for tests.

@@ -17,15 +17,15 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tsd"
-	"tailscale.com/types/logid"
-	"tailscale.com/types/netmap"
-	"tailscale.com/util/cmpx"
-	"tailscale.com/util/must"
-	"tailscale.com/wgengine"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/store/mem"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tsd"
+	"github.com/Jnchk/tailscale/types/logid"
+	"github.com/Jnchk/tailscale/types/netmap"
+	"github.com/Jnchk/tailscale/util/cmpx"
+	"github.com/Jnchk/tailscale/util/must"
+	"github.com/Jnchk/tailscale/wgengine"
 )
 
 func TestExpandProxyArg(t *testing.T) {
@@ -253,7 +253,7 @@ func TestServeHTTPProxy(t *testing.T) {
 				{"X-Forwarded-For", "100.150.151.152"},
 				{"Tailscale-User-Login", "someone@example.com"},
 				{"Tailscale-User-Name", "Some One"},
-				{"Tailscale-Headers-Info", "https://tailscale.com/s/serve-headers"},
+				{"Tailscale-Headers-Info", "https://github.com/Jnchk/tailscale/s/serve-headers"},
 			},
 		},
 		{

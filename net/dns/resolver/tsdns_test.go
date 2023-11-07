@@ -23,12 +23,12 @@ import (
 
 	miekdns "github.com/miekg/dns"
 	dns "golang.org/x/net/dns/dnsmessage"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/tstest"
-	"tailscale.com/types/dnstype"
-	"tailscale.com/util/dnsname"
+	"github.com/Jnchk/tailscale/net/netaddr"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/tsdial"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/types/dnstype"
+	"github.com/Jnchk/tailscale/util/dnsname"
 )
 
 var (

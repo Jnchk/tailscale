@@ -14,12 +14,12 @@ import (
 	"time"
 
 	"golang.org/x/exp/slices"
-	"tailscale.com/envknob"
-	"tailscale.com/ipn"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/clientmetric"
-	"tailscale.com/util/winutil"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/clientmetric"
+	"github.com/Jnchk/tailscale/util/winutil"
 )
 
 var errAlreadyMigrated = errors.New("profile migration already completed")
@@ -353,9 +353,9 @@ func (pm *profileManager) loadSavedPrefs(key ipn.StateKey) (ipn.PrefsView, error
 	}
 	pm.logf("using backend prefs for %q: %v", key, savedPrefs.Pretty())
 
-	// Ignore any old stored preferences for https://login.tailscale.com
+	// Ignore any old stored preferences for https://login.github.com/Jnchk/tailscale
 	// as the control server that would override the new default of
-	// controlplane.tailscale.com.
+	// controlplane.github.com/Jnchk/tailscale.
 	if savedPrefs.ControlURL != "" &&
 		savedPrefs.ControlURL != ipn.DefaultControlURL &&
 		ipn.IsLoginServerSynonym(savedPrefs.ControlURL) {

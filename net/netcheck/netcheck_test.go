@@ -18,11 +18,11 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/net/interfaces"
-	"tailscale.com/net/stun"
-	"tailscale.com/net/stun/stuntest"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/net/stun"
+	"github.com/Jnchk/tailscale/net/stun/stuntest"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tstest"
 )
 
 func TestHairpinSTUN(t *testing.T) {
@@ -835,7 +835,7 @@ func TestNodeAddrResolve(t *testing.T) {
 	dn := &tailcfg.DERPNode{
 		Name:     "derptest1a",
 		RegionID: 901,
-		HostName: "tailscale.com",
+		HostName: "github.com/Jnchk/tailscale",
 		// No IPv4 or IPv6 addrs
 	}
 	dnV4Only := &tailcfg.DERPNode{

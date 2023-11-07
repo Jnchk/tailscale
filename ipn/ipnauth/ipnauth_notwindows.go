@@ -9,7 +9,7 @@ import (
 	"net"
 
 	"inet.af/peercred"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // GetConnIdentity extracts the identity information from the connection

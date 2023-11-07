@@ -15,7 +15,7 @@
 //     are ignored as part of the hash.
 //   - netip.Addr are compared based on a shallow comparison of the struct.
 //
-// WARNING: This package, like most of the tailscale.com Go module,
+// WARNING: This package, like most of the github.com/Jnchk/tailscale Go module,
 // should be considered Tailscale-internal; we make no API promises.
 package deephash
 
@@ -27,7 +27,7 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/util/hashx"
+	"github.com/Jnchk/tailscale/util/hashx"
 )
 
 // There is much overlap between the theory of serialization and hashing.

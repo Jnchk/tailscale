@@ -7,7 +7,7 @@ import (
 	"net/netip"
 	"testing"
 
-	"tailscale.com/tstest"
+	"github.com/Jnchk/tailscale/tstest"
 )
 
 func TestCache(t *testing.T) {

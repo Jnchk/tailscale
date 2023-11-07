@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"testing"
 
-	"tailscale.com/tstest"
+	"github.com/Jnchk/tailscale/tstest"
 )
 
 func TestCurrentFileDescriptors(t *testing.T) {

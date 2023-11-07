@@ -20,7 +20,7 @@ import (
 	"testing"
 
 	"golang.org/x/exp/slices"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 func TestDropPrivileges(t *testing.T) {

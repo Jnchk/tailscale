@@ -11,13 +11,13 @@ import (
 	"time"
 
 	"go4.org/netipx"
-	"tailscale.com/envknob"
-	"tailscale.com/net/flowtrack"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/net/packet"
-	"tailscale.com/tstime/rate"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/net/flowtrack"
+	"github.com/Jnchk/tailscale/net/netaddr"
+	"github.com/Jnchk/tailscale/net/packet"
+	"github.com/Jnchk/tailscale/tstime/rate"
+	"github.com/Jnchk/tailscale/types/ipproto"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // Filter is a stateful packet filter.

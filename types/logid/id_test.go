@@ -6,7 +6,7 @@ package logid
 import (
 	"testing"
 
-	"tailscale.com/tstest"
+	"github.com/Jnchk/tailscale/tstest"
 )
 
 func TestIDs(t *testing.T) {

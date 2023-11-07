@@ -18,12 +18,12 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/derp"
-	"tailscale.com/derp/derphttp"
-	"tailscale.com/net/stun"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/derp"
+	"github.com/Jnchk/tailscale/derp/derphttp"
+	"github.com/Jnchk/tailscale/net/stun"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // derpProber dynamically manages several probes for each DERP server

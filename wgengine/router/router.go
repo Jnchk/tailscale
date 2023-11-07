@@ -10,9 +10,9 @@ import (
 	"reflect"
 
 	"github.com/tailscale/wireguard-go/tun"
-	"tailscale.com/net/netmon"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/preftype"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/preftype"
 )
 
 // Router is responsible for managing the system network stack.

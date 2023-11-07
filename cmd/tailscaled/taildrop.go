@@ -10,9 +10,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"tailscale.com/ipn/ipnlocal"
-	"tailscale.com/types/logger"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/ipn/ipnlocal"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 func configureTaildrop(logf logger.Logf, lb *ipnlocal.LocalBackend) {

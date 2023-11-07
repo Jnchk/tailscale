@@ -3,7 +3,7 @@
 
 package safesocket
 
-import "tailscale.com/util/winutil"
+import "github.com/Jnchk/tailscale/util/winutil"
 
 func init() {
 	// downgradeSDDL is a test helper that downgrades the windowsSDDL variable if

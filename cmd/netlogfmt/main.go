@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 // netlogfmt parses a stream of JSON log messages from stdin and
-// formats the network traffic logs produced by "tailscale.com/wgengine/netlog"
-// according to the schema in "tailscale.com/types/netlogtype.Message"
+// formats the network traffic logs produced by "github.com/Jnchk/tailscale/wgengine/netlog"
+// according to the schema in "github.com/Jnchk/tailscale/types/netlogtype.Message"
 // in a more humanly readable format.
 //
 // Example usage:
 //
-//	$ cat netlog.json | go run tailscale.com/cmd/netlogfmt
+//	$ cat netlog.json | go run github.com/Jnchk/tailscale/cmd/netlogfmt
 //	=========================================================================================
 //	NodeID: n123456CNTRL
 //	Logged: 2022-10-13T20:23:10.165Z
@@ -43,15 +43,15 @@ import (
 	jsonv2 "github.com/go-json-experiment/json"
 	"golang.org/x/exp/maps"
 	"golang.org/x/exp/slices"
-	"tailscale.com/types/logid"
-	"tailscale.com/types/netlogtype"
-	"tailscale.com/util/must"
+	"github.com/Jnchk/tailscale/types/logid"
+	"github.com/Jnchk/tailscale/types/netlogtype"
+	"github.com/Jnchk/tailscale/util/must"
 )
 
 var (
 	resolveNames = flag.Bool("resolve-names", false, "convert tailscale IP addresses to hostnames; must also specify --api-key and --tailnet-id")
-	apiKey       = flag.String("api-key", "", "API key to query the Tailscale API with; see https://login.tailscale.com/admin/settings/keys")
-	tailnetName  = flag.String("tailnet-name", "", "tailnet domain name to lookup devices in; see https://login.tailscale.com/admin/settings/general")
+	apiKey       = flag.String("api-key", "", "API key to query the Tailscale API with; see https://login.github.com/Jnchk/tailscale/admin/settings/keys")
+	tailnetName  = flag.String("tailnet-name", "", "tailnet domain name to lookup devices in; see https://login.github.com/Jnchk/tailscale/admin/settings/general")
 )
 
 var namesByAddr map[netip.Addr]string
@@ -287,7 +287,7 @@ func mustMakeNamesByAddr() map[netip.Addr]string {
 	}
 
 	// Query the Tailscale API for a list of devices in the tailnet.
-	const apiURL = "https://api.tailscale.com/api/v2"
+	const apiURL = "https://api.github.com/Jnchk/tailscale/api/v2"
 	req := must.Get(http.NewRequest("GET", apiURL+"/tailnet/"+*tailnetName+"/devices", nil))
 	req.Header.Add("Authorization", "Basic "+base64.StdEncoding.EncodeToString([]byte(*apiKey+":")))
 	resp := must.Get(http.DefaultClient.Do(req))

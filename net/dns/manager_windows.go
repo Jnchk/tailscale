@@ -20,11 +20,11 @@ import (
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/registry"
 	"golang.zx2c4.com/wireguard/windows/tunnel/winipcfg"
-	"tailscale.com/atomicfile"
-	"tailscale.com/envknob"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/winutil"
+	"github.com/Jnchk/tailscale/atomicfile"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/dnsname"
+	"github.com/Jnchk/tailscale/util/winutil"
 )
 
 const (

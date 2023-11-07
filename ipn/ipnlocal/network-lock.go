@@ -20,18 +20,18 @@ import (
 	"path/filepath"
 	"time"
 
-	"tailscale.com/envknob"
-	"tailscale.com/health"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tka"
-	"tailscale.com/types/key"
-	"tailscale.com/types/netmap"
-	"tailscale.com/types/persist"
-	"tailscale.com/types/tkatype"
-	"tailscale.com/util/mak"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/health"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tka"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/netmap"
+	"github.com/Jnchk/tailscale/types/persist"
+	"github.com/Jnchk/tailscale/types/tkatype"
+	"github.com/Jnchk/tailscale/util/mak"
 )
 
 // TODO(tom): RPC retry/backoff was broken and has been removed. Fix?
@@ -124,7 +124,7 @@ func (b *LocalBackend) tkaFilterNetmapLocked(nm *netmap.NetworkMap) {
 
 	// Check that we ourselves are not locked out, report a health issue if so.
 	if nm.SelfNode != nil && b.tka.authority.NodeKeyAuthorized(nm.SelfNode.Key, nm.SelfNode.KeySignature) != nil {
-		health.SetTKAHealth(errors.New("this node is locked out; it will not have connectivity until it is signed. For more info, see https://tailscale.com/s/locked-out"))
+		health.SetTKAHealth(errors.New("this node is locked out; it will not have connectivity until it is signed. For more info, see https://github.com/Jnchk/tailscale/s/locked-out"))
 	} else {
 		health.SetTKAHealth(nil)
 	}

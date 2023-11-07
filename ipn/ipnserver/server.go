@@ -19,17 +19,17 @@ import (
 	"time"
 	"unicode"
 
-	"tailscale.com/envknob"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnauth"
-	"tailscale.com/ipn/ipnlocal"
-	"tailscale.com/ipn/localapi"
-	"tailscale.com/net/netmon"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/logid"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/set"
-	"tailscale.com/util/systemd"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/ipnauth"
+	"github.com/Jnchk/tailscale/ipn/ipnlocal"
+	"github.com/Jnchk/tailscale/ipn/localapi"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/logid"
+	"github.com/Jnchk/tailscale/util/mak"
+	"github.com/Jnchk/tailscale/util/set"
+	"github.com/Jnchk/tailscale/util/systemd"
 )
 
 // Server is an IPN backend and its set of 0 or more active localhost

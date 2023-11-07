@@ -15,9 +15,9 @@ import (
 	"time"
 
 	qt "github.com/frankban/quicktest"
-	"tailscale.com/cmd/testwrapper/flakytest"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/types/netlogtype"
+	"github.com/Jnchk/tailscale/cmd/testwrapper/flakytest"
+	"github.com/Jnchk/tailscale/types/ipproto"
+	"github.com/Jnchk/tailscale/types/netlogtype"
 )
 
 func testPacketV4(proto ipproto.Proto, srcAddr, dstAddr [4]byte, srcPort, dstPort, size uint16) (out []byte) {

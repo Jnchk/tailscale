@@ -26,12 +26,12 @@ import (
 	"github.com/mattn/go-isatty"
 	"github.com/peterbourgon/ff/v3/ffcli"
 	"golang.org/x/time/rate"
-	"tailscale.com/client/tailscale/apitype"
-	"tailscale.com/envknob"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/tailcfg"
-	"tailscale.com/util/quarantine"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/client/tailscale/apitype"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/util/quarantine"
+	"github.com/Jnchk/tailscale/version"
 )
 
 var fileCmd = &ffcli.Command{

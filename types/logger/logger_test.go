@@ -14,7 +14,7 @@ import (
 	"time"
 
 	qt "github.com/frankban/quicktest"
-	"tailscale.com/tailcfg"
+	"github.com/Jnchk/tailscale/tailcfg"
 )
 
 func TestFuncWriter(t *testing.T) {

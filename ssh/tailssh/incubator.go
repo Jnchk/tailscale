@@ -33,11 +33,11 @@ import (
 	gossh "golang.org/x/crypto/ssh"
 	"golang.org/x/exp/slices"
 	"golang.org/x/sys/unix"
-	"tailscale.com/cmd/tailscaled/childproc"
-	"tailscale.com/hostinfo"
-	"tailscale.com/tempfork/gliderlabs/ssh"
-	"tailscale.com/types/logger"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/cmd/tailscaled/childproc"
+	"github.com/Jnchk/tailscale/hostinfo"
+	"github.com/Jnchk/tailscale/tempfork/gliderlabs/ssh"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 func init() {

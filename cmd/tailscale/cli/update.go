@@ -28,11 +28,11 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/net/tshttpproxy"
-	"tailscale.com/util/must"
-	"tailscale.com/util/winutil"
-	"tailscale.com/version"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/net/tshttpproxy"
+	"github.com/Jnchk/tailscale/util/must"
+	"github.com/Jnchk/tailscale/util/winutil"
+	"github.com/Jnchk/tailscale/version"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 var updateCmd = &ffcli.Command{
@@ -145,11 +145,11 @@ func newUpdater() (*updater, error) {
 		case strings.HasSuffix(os.Getenv("HOME"), "/io.tailscale.ipn.macsys/Data"):
 			up.update = up.updateMacSys
 		default:
-			return nil, errors.New("This is the macOS App Store version of Tailscale; update in the App Store, or see https://tailscale.com/s/unstable-clients to use TestFlight or to install the non-App Store version")
+			return nil, errors.New("This is the macOS App Store version of Tailscale; update in the App Store, or see https://github.com/Jnchk/tailscale/s/unstable-clients to use TestFlight or to install the non-App Store version")
 		}
 	}
 	if up.update == nil {
-		return nil, errors.New("The 'update' command is not supported on this platform; see https://tailscale.com/s/client-updates")
+		return nil, errors.New("The 'update' command is not supported on this platform; see https://github.com/Jnchk/tailscale/s/client-updates")
 	}
 	return up, nil
 }
@@ -190,7 +190,7 @@ func (up *updater) confirm(ver string) error {
 
 func (up *updater) updateSynology() error {
 	// TODO(bradfitz): detect, map GOARCH+CPU to the right Synology arch.
-	// TODO(bradfitz): add pkgs.tailscale.com endpoint to get release info
+	// TODO(bradfitz): add pkgs.github.com/Jnchk/tailscale endpoint to get release info
 	// TODO(bradfitz): require root/sudo
 	// TODO(bradfitz): run /usr/syno/bin/synopkg install tailscale.spk
 	return errors.New("The 'update' command is not yet implemented on Synology.")
@@ -199,7 +199,7 @@ func (up *updater) updateSynology() error {
 func (up *updater) updateDebLike() error {
 	ver := updateArgs.version
 	if ver == "" {
-		res, err := http.Get("https://pkgs.tailscale.com/" + up.track + "/?mode=json")
+		res, err := http.Get("https://pkgs.github.com/Jnchk/tailscale/" + up.track + "/?mode=json")
 		if err != nil {
 			return err
 		}
@@ -290,7 +290,7 @@ func updateDebianAptSourcesList(dstTrack string) (rewrote bool, err error) {
 }
 
 func updateDebianAptSourcesListBytes(was []byte, dstTrack string) (newContent []byte, err error) {
-	trackURLPrefix := []byte("https://pkgs.tailscale.com/" + dstTrack + "/")
+	trackURLPrefix := []byte("https://pkgs.github.com/Jnchk/tailscale/" + dstTrack + "/")
 	var buf bytes.Buffer
 	var changes int
 	bs := bufio.NewScanner(bytes.NewReader(was))
@@ -341,7 +341,7 @@ var (
 func (up *updater) updateWindows() error {
 	ver := updateArgs.version
 	if ver == "" {
-		res, err := http.Get("https://pkgs.tailscale.com/" + up.track + "/?mode=json&os=windows")
+		res, err := http.Get("https://pkgs.github.com/Jnchk/tailscale/" + up.track + "/?mode=json&os=windows")
 		if err != nil {
 			return err
 		}
@@ -362,7 +362,7 @@ func (up *updater) updateWindows() error {
 	if arch == "386" {
 		arch = "x86"
 	}
-	url := fmt.Sprintf("https://pkgs.tailscale.com/%s/tailscale-setup-%s-%s.msi", up.track, ver, arch)
+	url := fmt.Sprintf("https://pkgs.github.com/Jnchk/tailscale/%s/tailscale-setup-%s-%s.msi", up.track, ver, arch)
 
 	if up.currentOrDryRun(ver) {
 		return nil
@@ -455,7 +455,7 @@ func msiUUIDForVersion(ver string) string {
 	if stable, ok := versionIsStable(ver); ok && stable {
 		track = "stable"
 	}
-	msiURL := fmt.Sprintf("https://pkgs.tailscale.com/%s/tailscale-setup-%s-%s.msi", track, ver, arch)
+	msiURL := fmt.Sprintf("https://pkgs.github.com/Jnchk/tailscale/%s/tailscale-setup-%s-%s.msi", track, ver, arch)
 	return "{" + strings.ToUpper(uuid.NewSHA1(uuid.NameSpaceURL, []byte(msiURL)).String()) + "}"
 }
 

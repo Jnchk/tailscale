@@ -4,7 +4,7 @@
 package controlhttp
 
 import (
-	"tailscale.com/control/controlbase"
+	"github.com/Jnchk/tailscale/control/controlbase"
 )
 
 // ClientConn is a Tailscale control client as returned by the Dialer.

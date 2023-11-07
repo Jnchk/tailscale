@@ -17,8 +17,8 @@ import (
 	"github.com/josharian/native"
 	"golang.org/x/sys/unix"
 	linuxabi "gvisor.dev/gvisor/pkg/abi/linux"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/net/netaddr"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 type sockLen uint32

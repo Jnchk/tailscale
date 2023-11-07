@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"tailscale.com/net/stun"
+	"github.com/Jnchk/tailscale/net/stun"
 )
 
 func TestProdAutocertHostPolicy(t *testing.T) {
@@ -19,15 +19,15 @@ func TestProdAutocertHostPolicy(t *testing.T) {
 		in     string
 		wantOK bool
 	}{
-		{"derp.tailscale.com", true},
-		{"derp.tailscale.com.", true},
-		{"derp1.tailscale.com", true},
-		{"derp1b.tailscale.com", true},
-		{"derp2.tailscale.com", true},
-		{"derp02.tailscale.com", true},
-		{"derp-nyc.tailscale.com", true},
-		{"derpfoo.tailscale.com", true},
-		{"derp02.bar.tailscale.com", false},
+		{"derp.github.com/Jnchk/tailscale", true},
+		{"derp.github.com/Jnchk/tailscale.", true},
+		{"derp1.github.com/Jnchk/tailscale", true},
+		{"derp1b.github.com/Jnchk/tailscale", true},
+		{"derp2.github.com/Jnchk/tailscale", true},
+		{"derp02.github.com/Jnchk/tailscale", true},
+		{"derp-nyc.github.com/Jnchk/tailscale", true},
+		{"derpfoo.github.com/Jnchk/tailscale", true},
+		{"derp02.bar.github.com/Jnchk/tailscale", false},
 		{"example.net", false},
 	}
 	for _, tt := range tests {
@@ -86,8 +86,8 @@ func TestNoContent(t *testing.T) {
 		},
 		{
 			name:  "valid challenge hostname",
-			input: "ts_derp99b.tailscale.com",
-			want:  "response ts_derp99b.tailscale.com",
+			input: "ts_derp99b.github.com/Jnchk/tailscale",
+			want:  "response ts_derp99b.github.com/Jnchk/tailscale",
 		},
 		{
 			name:  "invalid challenge",

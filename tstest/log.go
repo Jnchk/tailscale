@@ -12,7 +12,7 @@ import (
 	"testing"
 
 	"go4.org/mem"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 type testLogWriter struct {
@@ -46,12 +46,12 @@ func (panicLogWriter) Write(b []byte) (int, error) {
 		os.Stderr.Write(b)
 		return len(b), nil
 	}
-	panic(fmt.Sprintf("please use tailscale.com/logger.Logf instead of the log package (tried to log: %q)", b))
+	panic(fmt.Sprintf("please use github.com/Jnchk/tailscale/logger.Logf instead of the log package (tried to log: %q)", b))
 }
 
 // PanicOnLog modifies the standard library log package's default output to
 // an io.Writer that panics, to root out code that's not plumbing their logging
-// through explicit tailscale.com/logger.Logf paths.
+// through explicit github.com/Jnchk/tailscale/logger.Logf paths.
 func PanicOnLog() {
 	log.SetOutput(panicLogWriter{})
 }

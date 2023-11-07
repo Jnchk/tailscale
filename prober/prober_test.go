@@ -14,7 +14,7 @@ import (
 	"time"
 
 	"github.com/prometheus/client_golang/prometheus/testutil"
-	"tailscale.com/tstest"
+	"github.com/Jnchk/tailscale/tstest"
 )
 
 const (

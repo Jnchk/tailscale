@@ -11,7 +11,7 @@ package controlclient
 import (
 	"context"
 
-	"tailscale.com/tailcfg"
+	"github.com/Jnchk/tailscale/tailcfg"
 )
 
 type LoginFlags int

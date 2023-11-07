@@ -20,7 +20,7 @@ import (
 
 	"context"
 
-	"tailscale.com/envknob"
+	"github.com/Jnchk/tailscale/envknob"
 )
 
 // Logf is the basic Tailscale logger type: a printf-like func.

@@ -13,7 +13,7 @@ import (
 	"strings"
 
 	ps "github.com/mitchellh/go-ps"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 // fixTailscaledConnectError is called when the local tailscaled has

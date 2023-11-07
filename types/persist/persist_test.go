@@ -7,8 +7,8 @@ import (
 	"reflect"
 	"testing"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/key"
 )
 
 func fieldsOf(t reflect.Type) (fields []string) {
@@ -84,13 +84,13 @@ func TestPersistEqual(t *testing.T) {
 		},
 
 		{
-			&Persist{LoginName: "foo@tailscale.com"},
-			&Persist{LoginName: "bar@tailscale.com"},
+			&Persist{LoginName: "foo@github.com/Jnchk/tailscale"},
+			&Persist{LoginName: "bar@github.com/Jnchk/tailscale"},
 			false,
 		},
 		{
-			&Persist{LoginName: "foo@tailscale.com"},
-			&Persist{LoginName: "foo@tailscale.com"},
+			&Persist{LoginName: "foo@github.com/Jnchk/tailscale"},
+			&Persist{LoginName: "foo@github.com/Jnchk/tailscale"},
 			true,
 		},
 		{

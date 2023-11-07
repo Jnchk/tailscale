@@ -3,7 +3,7 @@
 
 package tailcfg
 
-//go:generate go run tailscale.com/cmd/viewer --type=User,Node,Hostinfo,NetInfo,Login,DNSConfig,RegisterResponse,DERPRegion,DERPMap,DERPNode,SSHRule,SSHAction,SSHPrincipal,ControlDialPlan --clonefunc
+//go:generate go run github.com/Jnchk/tailscale/cmd/viewer --type=User,Node,Hostinfo,NetInfo,Login,DNSConfig,RegisterResponse,DERPRegion,DERPMap,DERPNode,SSHRule,SSHAction,SSHPrincipal,ControlDialPlan --clonefunc
 
 import (
 	"bytes"
@@ -15,12 +15,12 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/types/dnstype"
-	"tailscale.com/types/key"
-	"tailscale.com/types/opt"
-	"tailscale.com/types/structs"
-	"tailscale.com/types/tkatype"
-	"tailscale.com/util/dnsname"
+	"github.com/Jnchk/tailscale/types/dnstype"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/opt"
+	"github.com/Jnchk/tailscale/types/structs"
+	"github.com/Jnchk/tailscale/types/tkatype"
+	"github.com/Jnchk/tailscale/util/dnsname"
 )
 
 // CapabilityVersion represents the client's capability level. That
@@ -249,8 +249,8 @@ type Node struct {
 	// Capabilities are capabilities that the node has.
 	// They're free-form strings, but should be in the form of URLs/URIs
 	// such as:
-	//    "https://tailscale.com/cap/is-admin"
-	//    "https://tailscale.com/cap/file-sharing"
+	//    "https://github.com/Jnchk/tailscale/cap/is-admin"
+	//    "https://github.com/Jnchk/tailscale/cap/file-sharing"
 	Capabilities []string `json:",omitempty"`
 
 	// UnsignedPeerAPIOnly means that this node is not signed nor subject to TKA
@@ -871,7 +871,7 @@ func (st SignatureType) String() string {
 // It is encoded to JSON, encrypted with golang.org/x/crypto/nacl/box,
 // using the local machine key, and sent to:
 //
-//	https://login.tailscale.com/machine/<mkey hex>
+//	https://login.github.com/Jnchk/tailscale/machine/<mkey hex>
 type RegisterRequest struct {
 	_ structs.Incomparable
 
@@ -1003,7 +1003,7 @@ type Endpoint struct {
 // The request is encoded to JSON, encrypted with golang.org/x/crypto/nacl/box,
 // using the local machine key, and sent to:
 //
-//	https://login.tailscale.com/machine/<mkey hex>/map
+//	https://login.github.com/Jnchk/tailscale/machine/<mkey hex>/map
 type MapRequest struct {
 	// Version is incremented whenever the client code changes enough that
 	// we want to signal to the control server that we're capable of something
@@ -1799,75 +1799,75 @@ const (
 	// We've since started referring to these as "Node Attributes" ("nodeAttrs"
 	// in the ACL policy file).
 
-	CapabilityFileSharing        = "https://tailscale.com/cap/file-sharing"
-	CapabilityAdmin              = "https://tailscale.com/cap/is-admin"
-	CapabilitySSH                = "https://tailscale.com/cap/ssh"                   // feature enabled/available
-	CapabilitySSHRuleIn          = "https://tailscale.com/cap/ssh-rule-in"           // some SSH rule reach this node
-	CapabilityDataPlaneAuditLogs = "https://tailscale.com/cap/data-plane-audit-logs" // feature enabled
-	CapabilityDebug              = "https://tailscale.com/cap/debug"                 // exposes debug endpoints over the PeerAPI
+	CapabilityFileSharing        = "https://github.com/Jnchk/tailscale/cap/file-sharing"
+	CapabilityAdmin              = "https://github.com/Jnchk/tailscale/cap/is-admin"
+	CapabilitySSH                = "https://github.com/Jnchk/tailscale/cap/ssh"                   // feature enabled/available
+	CapabilitySSHRuleIn          = "https://github.com/Jnchk/tailscale/cap/ssh-rule-in"           // some SSH rule reach this node
+	CapabilityDataPlaneAuditLogs = "https://github.com/Jnchk/tailscale/cap/data-plane-audit-logs" // feature enabled
+	CapabilityDebug              = "https://github.com/Jnchk/tailscale/cap/debug"                 // exposes debug endpoints over the PeerAPI
 
 	// CapabilityBindToInterfaceByRoute changes how Darwin nodes create
 	// sockets (in the net/netns package). See that package for more
 	// details on the behaviour of this capability.
-	CapabilityBindToInterfaceByRoute = "https://tailscale.com/cap/bind-to-interface-by-route"
+	CapabilityBindToInterfaceByRoute = "https://github.com/Jnchk/tailscale/cap/bind-to-interface-by-route"
 
 	// CapabilityDebugDisableAlternateDefaultRouteInterface changes how Darwin
 	// nodes get the default interface. There is an optional hook (used by the
 	// macOS and iOS clients) to override the default interface, this capability
 	// disables that and uses the default behavior (of parsing the routing
 	// table).
-	CapabilityDebugDisableAlternateDefaultRouteInterface = "https://tailscale.com/cap/debug-disable-alternate-default-route-interface"
+	CapabilityDebugDisableAlternateDefaultRouteInterface = "https://github.com/Jnchk/tailscale/cap/debug-disable-alternate-default-route-interface"
 
 	// CapabilityDebugDisableBindConnToInterface disables the automatic binding
 	// of connections to the default network interface on Darwin nodes.
-	CapabilityDebugDisableBindConnToInterface = "https://tailscale.com/cap/debug-disable-bind-conn-to-interface"
+	CapabilityDebugDisableBindConnToInterface = "https://github.com/Jnchk/tailscale/cap/debug-disable-bind-conn-to-interface"
 
 	// CapabilityTailnetLockAlpha indicates the node is in the tailnet lock alpha,
 	// and initialization of tailnet lock may proceed.
 	//
 	// TODO(tom): Remove this for 1.35 and later.
-	CapabilityTailnetLockAlpha = "https://tailscale.com/cap/tailnet-lock-alpha"
+	CapabilityTailnetLockAlpha = "https://github.com/Jnchk/tailscale/cap/tailnet-lock-alpha"
 
 	// Inter-node capabilities as specified in the MapResponse.PacketFilter[].CapGrants.
 
 	// CapabilityFileSharingTarget grants the current node the ability to send
 	// files to the peer which has this capability.
-	CapabilityFileSharingTarget = "https://tailscale.com/cap/file-sharing-target"
+	CapabilityFileSharingTarget = "https://github.com/Jnchk/tailscale/cap/file-sharing-target"
 	// CapabilityFileSharingSend grants the ability to receive files from a
 	// node that's owned by a different user.
-	CapabilityFileSharingSend = "https://tailscale.com/cap/file-send"
+	CapabilityFileSharingSend = "https://github.com/Jnchk/tailscale/cap/file-send"
 	// CapabilityDebugPeer grants the ability for a peer to read this node's
 	// goroutines, metrics, magicsock internal state, etc.
-	CapabilityDebugPeer = "https://tailscale.com/cap/debug-peer"
+	CapabilityDebugPeer = "https://github.com/Jnchk/tailscale/cap/debug-peer"
 	// CapabilityWakeOnLAN grants the ability to send a Wake-On-LAN packet.
-	CapabilityWakeOnLAN = "https://tailscale.com/cap/wake-on-lan"
+	CapabilityWakeOnLAN = "https://github.com/Jnchk/tailscale/cap/wake-on-lan"
 	// CapabilityIngress grants the ability for a peer to send ingress traffic.
-	CapabilityIngress = "https://tailscale.com/cap/ingress"
+	CapabilityIngress = "https://github.com/Jnchk/tailscale/cap/ingress"
 	// CapabilitySSHSessionHaul grants the ability to receive SSH session logs
 	// from a peer.
-	CapabilitySSHSessionHaul = "https://tailscale.com/cap/ssh-session-haul"
+	CapabilitySSHSessionHaul = "https://github.com/Jnchk/tailscale/cap/ssh-session-haul"
 
 	// Funnel warning capabilities used for reporting errors to the user.
 
 	// CapabilityWarnFunnelNoInvite indicates whether Funnel is enabled for the tailnet.
 	// NOTE: In transition from Alpha to Beta, this capability is being reused as the enablement.
-	CapabilityWarnFunnelNoInvite = "https://tailscale.com/cap/warn-funnel-no-invite"
+	CapabilityWarnFunnelNoInvite = "https://github.com/Jnchk/tailscale/cap/warn-funnel-no-invite"
 
 	// CapabilityWarnFunnelNoHTTPS indicates HTTPS has not been enabled for the tailnet.
-	CapabilityWarnFunnelNoHTTPS = "https://tailscale.com/cap/warn-funnel-no-https"
+	CapabilityWarnFunnelNoHTTPS = "https://github.com/Jnchk/tailscale/cap/warn-funnel-no-https"
 
 	// Debug logging capabilities
 
 	// CapabilityDebugTSDNSResolution enables verbose debug logging for DNS
 	// resolution for Tailscale-controlled domains (the control server, log
 	// server, DERP servers, etc.)
-	CapabilityDebugTSDNSResolution = "https://tailscale.com/cap/debug-ts-dns-resolution"
+	CapabilityDebugTSDNSResolution = "https://github.com/Jnchk/tailscale/cap/debug-ts-dns-resolution"
 
 	// CapabilityFunnelPorts specifies the ports that the Funnel is available on.
 	// The ports are specified as a comma-separated list of port numbers or port
 	// ranges (e.g. "80,443,8080-8090") in the ports query parameter.
-	// e.g. https://tailscale.com/cap/funnel-ports?ports=80,443,8080-8090
-	CapabilityFunnelPorts = "https://tailscale.com/cap/funnel-ports"
+	// e.g. https://github.com/Jnchk/tailscale/cap/funnel-ports?ports=80,443,8080-8090
+	CapabilityFunnelPorts = "https://github.com/Jnchk/tailscale/cap/funnel-ports"
 )
 
 const (
@@ -1885,7 +1885,7 @@ const (
 // The request is encoded to JSON, encrypted with golang.org/x/crypto/nacl/box,
 // using the local machine key, and sent to:
 //
-//	https://login.tailscale.com/machine/<mkey hex>/set-dns
+//	https://login.github.com/Jnchk/tailscale/machine/<mkey hex>/set-dns
 type SetDNSRequest struct {
 	// Version is the client's capabilities
 	// (CurrentCapabilityVersion) when using the Noise transport.

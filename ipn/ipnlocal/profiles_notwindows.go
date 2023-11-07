@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"runtime"
 
-	"tailscale.com/ipn"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/version"
 )
 
 func (pm *profileManager) loadLegacyPrefs() (string, ipn.PrefsView, error) {

@@ -13,8 +13,8 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/syncs"
-	"tailscale.com/util/slicesx"
+	"github.com/Jnchk/tailscale/syncs"
+	"github.com/Jnchk/tailscale/util/slicesx"
 )
 
 const refreshTimeout = time.Minute

@@ -14,7 +14,7 @@ import (
 	"unsafe"
 
 	"github.com/godbus/dbus/v5"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 func init() {

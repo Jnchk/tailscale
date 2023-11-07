@@ -6,11 +6,11 @@ package ipnlocal
 import (
 	"time"
 
-	"tailscale.com/syncs"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/netmap"
+	"github.com/Jnchk/tailscale/syncs"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/netmap"
 )
 
 // For extra defense-in-depth, when we're testing expired nodes we check

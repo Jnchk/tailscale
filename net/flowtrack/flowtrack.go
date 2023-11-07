@@ -14,7 +14,7 @@ import (
 	"fmt"
 	"net/netip"
 
-	"tailscale.com/types/ipproto"
+	"github.com/Jnchk/tailscale/types/ipproto"
 )
 
 // Tuple is a 5-tuple of proto, source and destination IP and port.

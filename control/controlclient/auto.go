@@ -11,16 +11,16 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/health"
-	"tailscale.com/logtail/backoff"
-	"tailscale.com/net/sockstats"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/empty"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/netmap"
-	"tailscale.com/types/persist"
-	"tailscale.com/types/structs"
+	"github.com/Jnchk/tailscale/health"
+	"github.com/Jnchk/tailscale/logtail/backoff"
+	"github.com/Jnchk/tailscale/net/sockstats"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/empty"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/netmap"
+	"github.com/Jnchk/tailscale/types/persist"
+	"github.com/Jnchk/tailscale/types/structs"
 )
 
 type LoginGoal struct {

@@ -8,7 +8,7 @@ package controlknobs
 import (
 	"sync/atomic"
 
-	"tailscale.com/envknob"
+	"github.com/Jnchk/tailscale/envknob"
 )
 
 // disableUPnP indicates whether to attempt UPnP mapping.

@@ -12,9 +12,9 @@ import (
 	"time"
 
 	"golang.org/x/sync/errgroup"
-	"tailscale.com/net/packet"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/types/netlogtype"
+	"github.com/Jnchk/tailscale/net/packet"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/types/netlogtype"
 )
 
 // Statistics maintains counters for every connection.

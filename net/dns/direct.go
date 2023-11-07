@@ -20,11 +20,11 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/health"
-	"tailscale.com/net/dns/resolvconffile"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/health"
+	"github.com/Jnchk/tailscale/net/dns/resolvconffile"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/dnsname"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 const (
@@ -336,7 +336,7 @@ func (m *directManager) checkForFileTrample() {
 		show = show[:1024]
 	}
 	m.logf("trample: resolv.conf changed from what we expected. did some other program interfere? current contents: %q", show)
-	warnTrample.Set(errors.New("Linux DNS config not ideal. /etc/resolv.conf overwritten. See https://tailscale.com/s/dns-fight"))
+	warnTrample.Set(errors.New("Linux DNS config not ideal. /etc/resolv.conf overwritten. See https://github.com/Jnchk/tailscale/s/dns-fight"))
 }
 
 func (m *directManager) SetDNS(config OSConfig) (err error) {

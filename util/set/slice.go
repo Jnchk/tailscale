@@ -5,7 +5,7 @@ package set
 
 import (
 	"golang.org/x/exp/slices"
-	"tailscale.com/types/views"
+	"github.com/Jnchk/tailscale/types/views"
 )
 
 // Slice is a set of elements tracked in a slice of unique elements.

@@ -7,7 +7,7 @@ import (
 	"net"
 	"testing"
 
-	"tailscale.com/tstest"
+	"github.com/Jnchk/tailscale/tstest"
 )
 
 func TestGetList(t *testing.T) {

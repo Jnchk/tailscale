@@ -8,8 +8,8 @@ import (
 	"reflect"
 	"testing"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/netmap"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/netmap"
 )
 
 func TestDNSMapFromNetworkMap(t *testing.T) {

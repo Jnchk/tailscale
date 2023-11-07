@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strings"
 
-	"tailscale.com/release/dist"
+	"github.com/Jnchk/tailscale/release/dist"
 
 	_ "github.com/goreleaser/nfpm/deb"
 	_ "github.com/goreleaser/nfpm/rpm"

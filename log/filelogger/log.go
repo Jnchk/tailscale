@@ -16,7 +16,7 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 const (

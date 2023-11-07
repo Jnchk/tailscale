@@ -23,7 +23,7 @@ import (
 	"github.com/peterbourgon/ff/v3/ffcli"
 	"github.com/tailscale/hujson"
 	"golang.org/x/oauth2/clientcredentials"
-	"tailscale.com/util/httpm"
+	"github.com/Jnchk/tailscale/util/httpm"
 )
 
 var (
@@ -32,7 +32,7 @@ var (
 	cacheFname   = rootFlagSet.String("cache-file", "./version-cache.json", "filename for the previous known version hash")
 	timeout      = rootFlagSet.Duration("timeout", 5*time.Minute, "timeout for the entire CI run")
 	githubSyntax = rootFlagSet.Bool("github-syntax", true, "use GitHub Action error syntax (https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-error-message)")
-	apiServer    = rootFlagSet.String("api-server", "api.tailscale.com", "API server to contact")
+	apiServer    = rootFlagSet.String("api-server", "api.github.com/Jnchk/tailscale", "API server to contact")
 )
 
 func modifiedExternallyError() {

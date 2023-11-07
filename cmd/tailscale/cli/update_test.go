@@ -16,38 +16,38 @@ func TestUpdateDebianAptSourcesListBytes(t *testing.T) {
 		{
 			name:    "stable-to-unstable",
 			toTrack: "unstable",
-			in:      "# Tailscale packages for debian buster\ndeb https://pkgs.tailscale.com/stable/debian bullseye main\n",
-			want:    "# Tailscale packages for debian buster\ndeb https://pkgs.tailscale.com/unstable/debian bullseye main\n",
+			in:      "# Tailscale packages for debian buster\ndeb https://pkgs.github.com/Jnchk/tailscale/stable/debian bullseye main\n",
+			want:    "# Tailscale packages for debian buster\ndeb https://pkgs.github.com/Jnchk/tailscale/unstable/debian bullseye main\n",
 		},
 		{
 			name:    "stable-unchanged",
 			toTrack: "stable",
-			in:      "# Tailscale packages for debian buster\ndeb https://pkgs.tailscale.com/stable/debian bullseye main\n",
+			in:      "# Tailscale packages for debian buster\ndeb https://pkgs.github.com/Jnchk/tailscale/stable/debian bullseye main\n",
 		},
 		{
 			name:    "if-both-stable-and-unstable-dont-change",
 			toTrack: "stable",
 			in: "# Tailscale packages for debian buster\n" +
-				"deb https://pkgs.tailscale.com/stable/debian bullseye main\n" +
-				"deb https://pkgs.tailscale.com/unstable/debian bullseye main\n",
+				"deb https://pkgs.github.com/Jnchk/tailscale/stable/debian bullseye main\n" +
+				"deb https://pkgs.github.com/Jnchk/tailscale/unstable/debian bullseye main\n",
 		},
 		{
 			name:    "if-both-stable-and-unstable-dont-change-unstable",
 			toTrack: "unstable",
 			in: "# Tailscale packages for debian buster\n" +
-				"deb https://pkgs.tailscale.com/stable/debian bullseye main\n" +
-				"deb https://pkgs.tailscale.com/unstable/debian bullseye main\n",
+				"deb https://pkgs.github.com/Jnchk/tailscale/stable/debian bullseye main\n" +
+				"deb https://pkgs.github.com/Jnchk/tailscale/unstable/debian bullseye main\n",
 		},
 		{
 			name:    "signed-by-form",
 			toTrack: "unstable",
-			in:      "# Tailscale packages for ubuntu jammy\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu jammy main\n",
-			want:    "# Tailscale packages for ubuntu jammy\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/unstable/ubuntu jammy main\n",
+			in:      "# Tailscale packages for ubuntu jammy\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.github.com/Jnchk/tailscale/stable/ubuntu jammy main\n",
+			want:    "# Tailscale packages for ubuntu jammy\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.github.com/Jnchk/tailscale/unstable/ubuntu jammy main\n",
 		},
 		{
 			name:    "unsupported-lines",
 			toTrack: "unstable",
-			in:      "# Tailscale packages for ubuntu jammy\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/foobar/ubuntu jammy main\n",
+			in:      "# Tailscale packages for ubuntu jammy\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.github.com/Jnchk/tailscale/foobar/ubuntu jammy main\n",
 			wantErr: "unexpected/unsupported /etc/apt/sources.list.d/tailscale.list contents",
 		},
 	}

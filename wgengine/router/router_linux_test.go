@@ -21,9 +21,9 @@ import (
 	"github.com/tailscale/wireguard-go/tun"
 	"github.com/vishvananda/netlink"
 	"golang.org/x/exp/slices"
-	"tailscale.com/net/netmon"
-	"tailscale.com/tstest"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 func TestRouterStates(t *testing.T) {

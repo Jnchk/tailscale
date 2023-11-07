@@ -15,7 +15,7 @@ import (
 	"os"
 	"strings"
 
-	"tailscale.com/util/codegen"
+	"github.com/Jnchk/tailscale/util/codegen"
 )
 
 const viewTemplateStr = `{{define "common"}}
@@ -177,10 +177,10 @@ func genView(buf *bytes.Buffer, it *codegen.ImportTracker, typ *types.Named, thi
 				it.Import("go4.org/mem")
 				writeTemplate("byteSliceField")
 			case "inet.af/netip.Prefix", "net/netip.Prefix":
-				it.Import("tailscale.com/types/views")
+				it.Import("github.com/Jnchk/tailscale/types/views")
 				writeTemplate("ipPrefixSliceField")
 			default:
-				it.Import("tailscale.com/types/views")
+				it.Import("github.com/Jnchk/tailscale/types/views")
 				shallow, deep, base := requiresCloning(elem)
 				if deep {
 					if _, isPtr := elem.(*types.Pointer); isPtr {
@@ -360,7 +360,7 @@ func main() {
 	}
 
 	buf := new(bytes.Buffer)
-	fmt.Fprintf(buf, "//go:generate go run tailscale.com/cmd/cloner  %s\n\n", strings.Join(flagArgs, " "))
+	fmt.Fprintf(buf, "//go:generate go run github.com/Jnchk/tailscale/cmd/cloner  %s\n\n", strings.Join(flagArgs, " "))
 	runCloner := false
 	for _, typeName := range typeNames {
 		if cloneOnlyType[typeName] {
@@ -388,7 +388,7 @@ func main() {
 	}
 	if runCloner {
 		// When a new package is added or when existing generated files have
-		// been deleted, we might run into a case where tailscale.com/cmd/cloner
+		// been deleted, we might run into a case where github.com/Jnchk/tailscale/cmd/cloner
 		// has not run yet. We detect this by verifying that all the structs we
 		// interacted with have had Clone method already generated. If they
 		// haven't we ask the caller to rerun generation again so that those get

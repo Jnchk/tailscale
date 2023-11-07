@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"tailscale.com/types/key"
+	"github.com/Jnchk/tailscale/types/key"
 )
 
 func TestSigDirect(t *testing.T) {

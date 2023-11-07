@@ -23,7 +23,7 @@ import (
 	"time"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/net/speedtest"
+	"github.com/Jnchk/tailscale/net/speedtest"
 )
 
 // Runs the speedtest command as a commandline program

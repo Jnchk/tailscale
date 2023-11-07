@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 // The derper binary is a simple DERP server.
-package main // import "tailscale.com/cmd/derper"
+package main // import "github.com/Jnchk/tailscale/cmd/derper"
 
 import (
 	"context"
@@ -26,14 +26,14 @@ import (
 
 	"go4.org/mem"
 	"golang.org/x/time/rate"
-	"tailscale.com/atomicfile"
-	"tailscale.com/derp"
-	"tailscale.com/derp/derphttp"
-	"tailscale.com/metrics"
-	"tailscale.com/net/stun"
-	"tailscale.com/tsweb"
-	"tailscale.com/types/key"
-	"tailscale.com/util/cmpx"
+	"github.com/Jnchk/tailscale/atomicfile"
+	"github.com/Jnchk/tailscale/derp"
+	"github.com/Jnchk/tailscale/derp/derphttp"
+	"github.com/Jnchk/tailscale/metrics"
+	"github.com/Jnchk/tailscale/net/stun"
+	"github.com/Jnchk/tailscale/tsweb"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/util/cmpx"
 )
 
 var (
@@ -44,7 +44,7 @@ var (
 	configPath = flag.String("c", "", "config file path")
 	certMode   = flag.String("certmode", "letsencrypt", "mode for getting a cert. possible options: manual, letsencrypt")
 	certDir    = flag.String("certdir", tsweb.DefaultCertDir("derper-certs"), "directory to store LetsEncrypt certs, if addr's port is :443")
-	hostname   = flag.String("hostname", "derp.tailscale.com", "LetsEncrypt host name, if addr's port is :443")
+	hostname   = flag.String("hostname", "derp.github.com/Jnchk/tailscale", "LetsEncrypt host name, if addr's port is :443")
 	runSTUN    = flag.Bool("stun", true, "whether to run a STUN server. It will bind to the same IP (if any) as the --addr flag value.")
 	runDERP    = flag.Bool("derp", true, "whether to run a DERP server. The only reason to set this false is if you're decommissioning a server but want to keep its bootstrap DNS functionality still running.")
 
@@ -190,8 +190,8 @@ func main() {
 <h1>DERP</h1>
 <p>
   This is a
-  <a href="https://tailscale.com/">Tailscale</a>
-  <a href="https://pkg.go.dev/tailscale.com/derp">DERP</a>
+  <a href="https://github.com/Jnchk/tailscale/">Tailscale</a>
+  <a href="https://pkg.go.dev/github.com/Jnchk/tailscale/derp">DERP</a>
   server.
 </p>
 `)

@@ -33,46 +33,46 @@ import (
 	"golang.org/x/exp/maps"
 	"golang.org/x/net/ipv4"
 	"golang.org/x/net/ipv6"
-	"tailscale.com/control/controlclient"
-	"tailscale.com/derp"
-	"tailscale.com/derp/derphttp"
-	"tailscale.com/disco"
-	"tailscale.com/envknob"
-	"tailscale.com/health"
-	"tailscale.com/hostinfo"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/logtail/backoff"
-	"tailscale.com/net/connstats"
-	"tailscale.com/net/dnscache"
-	"tailscale.com/net/interfaces"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/net/netcheck"
-	"tailscale.com/net/neterror"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/netns"
-	"tailscale.com/net/packet"
-	"tailscale.com/net/ping"
-	"tailscale.com/net/portmapper"
-	"tailscale.com/net/sockstats"
-	"tailscale.com/net/stun"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/syncs"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstime"
-	"tailscale.com/tstime/mono"
-	"tailscale.com/types/key"
-	"tailscale.com/types/lazy"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/netmap"
-	"tailscale.com/types/nettype"
-	"tailscale.com/util/clientmetric"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/ringbuffer"
-	"tailscale.com/util/set"
-	"tailscale.com/util/sysresources"
-	"tailscale.com/util/uniq"
-	"tailscale.com/version"
-	"tailscale.com/wgengine/capture"
+	"github.com/Jnchk/tailscale/control/controlclient"
+	"github.com/Jnchk/tailscale/derp"
+	"github.com/Jnchk/tailscale/derp/derphttp"
+	"github.com/Jnchk/tailscale/disco"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/health"
+	"github.com/Jnchk/tailscale/hostinfo"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/logtail/backoff"
+	"github.com/Jnchk/tailscale/net/connstats"
+	"github.com/Jnchk/tailscale/net/dnscache"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/net/netaddr"
+	"github.com/Jnchk/tailscale/net/netcheck"
+	"github.com/Jnchk/tailscale/net/neterror"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/netns"
+	"github.com/Jnchk/tailscale/net/packet"
+	"github.com/Jnchk/tailscale/net/ping"
+	"github.com/Jnchk/tailscale/net/portmapper"
+	"github.com/Jnchk/tailscale/net/sockstats"
+	"github.com/Jnchk/tailscale/net/stun"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/syncs"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tstime"
+	"github.com/Jnchk/tailscale/tstime/mono"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/lazy"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/netmap"
+	"github.com/Jnchk/tailscale/types/nettype"
+	"github.com/Jnchk/tailscale/util/clientmetric"
+	"github.com/Jnchk/tailscale/util/mak"
+	"github.com/Jnchk/tailscale/util/ringbuffer"
+	"github.com/Jnchk/tailscale/util/set"
+	"github.com/Jnchk/tailscale/util/sysresources"
+	"github.com/Jnchk/tailscale/util/uniq"
+	"github.com/Jnchk/tailscale/version"
+	"github.com/Jnchk/tailscale/wgengine/capture"
 )
 
 const (
@@ -2167,7 +2167,7 @@ const (
 //   - magic             [6]byte
 //   - senderDiscoPubKey [32]byte
 //   - nonce             [24]byte
-//   - naclbox of payload (see tailscale.com/disco package for inner payload format)
+//   - naclbox of payload (see github.com/Jnchk/tailscale/disco package for inner payload format)
 //
 // For messages received over DERP, the src.Addr() will be derpMagicIP (with
 // src.Port() being the region ID) and the derpNodeSrc will be the node key
@@ -4652,7 +4652,7 @@ func (de *endpoint) sendDiscoPing(ep netip.AddrPort, discoKey key.DiscoPublic, t
 // discoPingPurpose is the reason why a discovery ping message was sent.
 type discoPingPurpose int
 
-//go:generate go run tailscale.com/cmd/addlicense -file discopingpurpose_string.go go run golang.org/x/tools/cmd/stringer -type=discoPingPurpose -trimprefix=ping
+//go:generate go run github.com/Jnchk/tailscale/cmd/addlicense -file discopingpurpose_string.go go run golang.org/x/tools/cmd/stringer -type=discoPingPurpose -trimprefix=ping
 const (
 	// pingDiscovery means that purpose of a ping was to see if a
 	// path was valid.

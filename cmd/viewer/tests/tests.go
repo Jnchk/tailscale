@@ -1,7 +1,7 @@
 // Copyright (c) Tailscale Inc & AUTHORS
 // SPDX-License-Identifier: BSD-3-Clause
 
-// Package tests serves a list of tests for tailscale.com/cmd/viewer.
+// Package tests serves a list of tests for github.com/Jnchk/tailscale/cmd/viewer.
 package tests
 
 import (
@@ -9,7 +9,7 @@ import (
 	"net/netip"
 )
 
-//go:generate go run tailscale.com/cmd/viewer --type=StructWithPtrs,StructWithoutPtrs,Map,StructWithSlices,OnlyGetClone,StructWithEmbedded --clone-only-type=OnlyGetClone
+//go:generate go run github.com/Jnchk/tailscale/cmd/viewer --type=StructWithPtrs,StructWithoutPtrs,Map,StructWithSlices,OnlyGetClone,StructWithEmbedded --clone-only-type=OnlyGetClone
 
 type StructWithoutPtrs struct {
 	Int int

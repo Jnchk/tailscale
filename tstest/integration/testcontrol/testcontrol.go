@@ -27,13 +27,13 @@ import (
 	"github.com/klauspost/compress/zstd"
 	"go4.org/mem"
 	"golang.org/x/exp/slices"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/smallzstd"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/ptr"
+	"github.com/Jnchk/tailscale/net/netaddr"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/smallzstd"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/ptr"
 )
 
 const msgLimit = 1 << 20 // encrypted message length limit
@@ -421,7 +421,7 @@ func (s *Server) getUser(nodeKey key.NodePublic) (*tailcfg.User, *tailcfg.Login)
 		Provider:      "testcontrol",
 		LoginName:     loginName,
 		DisplayName:   displayName,
-		ProfilePicURL: "https://tailscale.com/static/images/marketing/team-carney.jpg",
+		ProfilePicURL: "https://github.com/Jnchk/tailscale/static/images/marketing/team-carney.jpg",
 		Domain:        domain,
 	}
 	user := &tailcfg.User{

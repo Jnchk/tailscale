@@ -6,7 +6,7 @@ package netns
 import (
 	"testing"
 
-	"tailscale.com/net/interfaces"
+	"github.com/Jnchk/tailscale/net/interfaces"
 )
 
 func TestGetInterfaceIndex(t *testing.T) {

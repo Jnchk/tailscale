@@ -14,10 +14,10 @@ import (
 	"os"
 	"strings"
 
-	"tailscale.com/client/tailscale"
-	"tailscale.com/client/tailscale/apitype"
-	"tailscale.com/tsnet"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/client/tailscale"
+	"github.com/Jnchk/tailscale/client/tailscale/apitype"
+	"github.com/Jnchk/tailscale/tsnet"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 type whoIsKey struct{}

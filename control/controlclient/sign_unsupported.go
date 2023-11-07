@@ -6,8 +6,8 @@
 package controlclient
 
 import (
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/key"
 )
 
 // signRegisterRequest on non-supported platforms always returns errNoCertStore.

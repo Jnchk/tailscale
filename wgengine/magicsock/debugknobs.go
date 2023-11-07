@@ -6,7 +6,7 @@
 package magicsock
 
 import (
-	"tailscale.com/envknob"
+	"github.com/Jnchk/tailscale/envknob"
 )
 
 const linkDebug = true

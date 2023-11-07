@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"os"
 
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 type kv struct {

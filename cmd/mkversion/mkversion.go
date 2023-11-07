@@ -14,8 +14,8 @@ import (
 	"os"
 	"time"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/version/mkversion"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/version/mkversion"
 )
 
 func main() {

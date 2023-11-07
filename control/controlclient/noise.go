@@ -17,17 +17,17 @@ import (
 	"time"
 
 	"golang.org/x/net/http2"
-	"tailscale.com/control/controlbase"
-	"tailscale.com/control/controlhttp"
-	"tailscale.com/net/dnscache"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/multierr"
-	"tailscale.com/util/singleflight"
+	"github.com/Jnchk/tailscale/control/controlbase"
+	"github.com/Jnchk/tailscale/control/controlhttp"
+	"github.com/Jnchk/tailscale/net/dnscache"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/tsdial"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/mak"
+	"github.com/Jnchk/tailscale/util/multierr"
+	"github.com/Jnchk/tailscale/util/singleflight"
 )
 
 // noiseConn is a wrapper around controlbase.Conn.

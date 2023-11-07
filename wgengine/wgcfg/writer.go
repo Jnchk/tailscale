@@ -9,8 +9,8 @@ import (
 	"net/netip"
 	"strconv"
 
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // ToUAPI writes cfg in UAPI format to w.

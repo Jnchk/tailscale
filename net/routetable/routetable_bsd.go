@@ -17,8 +17,8 @@ import (
 
 	"golang.org/x/net/route"
 	"golang.org/x/sys/unix"
-	"tailscale.com/net/interfaces"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 type RouteEntryBSD struct {

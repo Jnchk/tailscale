@@ -3,7 +3,7 @@
 
 //go:build go1.19
 
-package main // import "tailscale.com/cmd/tailscaled"
+package main // import "github.com/Jnchk/tailscale/cmd/tailscaled"
 
 // TODO: check if administrator, like tswin does.
 //
@@ -41,18 +41,18 @@ import (
 	"golang.org/x/sys/windows/svc/eventlog"
 	"golang.zx2c4.com/wintun"
 	"golang.zx2c4.com/wireguard/windows/tunnel/winipcfg"
-	"tailscale.com/envknob"
-	"tailscale.com/logpolicy"
-	"tailscale.com/logtail/backoff"
-	"tailscale.com/net/dns"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/tstun"
-	"tailscale.com/tsd"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/logid"
-	"tailscale.com/util/winutil"
-	"tailscale.com/version"
-	"tailscale.com/wf"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/logpolicy"
+	"github.com/Jnchk/tailscale/logtail/backoff"
+	"github.com/Jnchk/tailscale/net/dns"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/tstun"
+	"github.com/Jnchk/tailscale/tsd"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/logid"
+	"github.com/Jnchk/tailscale/util/winutil"
+	"github.com/Jnchk/tailscale/version"
+	"github.com/Jnchk/tailscale/wf"
 )
 
 func init() {

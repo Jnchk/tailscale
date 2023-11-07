@@ -8,7 +8,7 @@ package device
 import (
 	"container/list"
 
-	"tailscale.com/types/key"
+	"github.com/Jnchk/tailscale/types/key"
 )
 
 type Peer struct {

@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 var configureCmd = &ffcli.Command{

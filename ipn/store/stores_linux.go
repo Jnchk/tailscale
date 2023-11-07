@@ -6,10 +6,10 @@ package store
 import (
 	"strings"
 
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/store/awsstore"
-	"tailscale.com/ipn/store/kubestore"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/store/awsstore"
+	"github.com/Jnchk/tailscale/ipn/store/kubestore"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 func init() {

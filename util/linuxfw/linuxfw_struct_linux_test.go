@@ -9,7 +9,7 @@ import (
 	"testing"
 	"unsafe"
 
-	"tailscale.com/util/linuxfw/linuxfwtest"
+	"github.com/Jnchk/tailscale/util/linuxfw/linuxfwtest"
 )
 
 func TestSizes(t *testing.T) {

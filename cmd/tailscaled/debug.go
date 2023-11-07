@@ -20,13 +20,13 @@ import (
 	"os"
 	"time"
 
-	"tailscale.com/derp/derphttp"
-	"tailscale.com/ipn"
-	"tailscale.com/net/interfaces"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/tshttpproxy"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
+	"github.com/Jnchk/tailscale/derp/derphttp"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/tshttpproxy"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/key"
 )
 
 var debugArgs struct {
@@ -104,7 +104,7 @@ func runMonitor(ctx context.Context, loop bool) error {
 
 func getURL(ctx context.Context, urlStr string) error {
 	if urlStr == "login" {
-		urlStr = "https://login.tailscale.com"
+		urlStr = "https://login.github.com/Jnchk/tailscale"
 	}
 	log.SetOutput(os.Stdout)
 	ctx = httptrace.WithClientTrace(ctx, &httptrace.ClientTrace{

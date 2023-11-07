@@ -22,14 +22,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/atomicfile"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/netns"
-	"tailscale.com/net/tlsdial"
-	"tailscale.com/net/tshttpproxy"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/slicesx"
+	"github.com/Jnchk/tailscale/atomicfile"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/netns"
+	"github.com/Jnchk/tailscale/net/tlsdial"
+	"github.com/Jnchk/tailscale/net/tshttpproxy"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/slicesx"
 )
 
 // MakeLookupFunc creates a function that can be used to resolve hostnames
@@ -106,8 +106,8 @@ func lookup(ctx context.Context, host string, logf logger.Logf, netMon *netmon.M
 	return nil, fmt.Errorf("no DNS fallback candidates remain for %q", host)
 }
 
-// serverName and serverIP of are, say, "derpN.tailscale.com".
-// queryName is the name being sought (e.g. "controlplane.tailscale.com"), passed as hint.
+// serverName and serverIP of are, say, "derpN.github.com/Jnchk/tailscale".
+// queryName is the name being sought (e.g. "controlplane.github.com/Jnchk/tailscale"), passed as hint.
 func bootstrapDNSMap(ctx context.Context, serverName string, serverIP netip.Addr, queryName string, logf logger.Logf, netMon *netmon.Monitor) (dnsMap, error) {
 	dialer := netns.NewDialer(logf, netMon)
 	tr := http.DefaultTransport.(*http.Transport).Clone()
@@ -137,7 +137,7 @@ func bootstrapDNSMap(ctx context.Context, serverName string, serverIP netip.Addr
 }
 
 // dnsMap is the JSON type returned by the DERP /bootstrap-dns handler:
-// https://derp10.tailscale.com/bootstrap-dns
+// https://derp10.github.com/Jnchk/tailscale/bootstrap-dns
 type dnsMap map[string][]netip.Addr
 
 // getDERPMap returns some DERP map. The DERP servers also run a fallback

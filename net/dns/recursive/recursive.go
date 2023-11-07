@@ -16,13 +16,13 @@ import (
 	"github.com/miekg/dns"
 	"golang.org/x/exp/constraints"
 	"golang.org/x/exp/slices"
-	"tailscale.com/envknob"
-	"tailscale.com/net/netns"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/mak"
-	"tailscale.com/util/multierr"
-	"tailscale.com/util/slicesx"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/net/netns"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/dnsname"
+	"github.com/Jnchk/tailscale/util/mak"
+	"github.com/Jnchk/tailscale/util/multierr"
+	"github.com/Jnchk/tailscale/util/slicesx"
 )
 
 const (

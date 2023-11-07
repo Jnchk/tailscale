@@ -10,7 +10,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"tailscale.com/tailcfg"
+	"github.com/Jnchk/tailscale/tailcfg"
 )
 
 func TestDerpProber(t *testing.T) {

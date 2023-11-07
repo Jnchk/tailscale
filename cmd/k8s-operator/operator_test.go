@@ -20,8 +20,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/client/fake"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
-	"tailscale.com/client/tailscale"
-	"tailscale.com/types/ptr"
+	"github.com/Jnchk/tailscale/client/tailscale"
+	"github.com/Jnchk/tailscale/types/ptr"
 )
 
 func TestLoadBalancerClass(t *testing.T) {
@@ -85,7 +85,7 @@ func TestLoadBalancerClass(t *testing.T) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:       "test",
 			Namespace:  "default",
-			Finalizers: []string{"tailscale.com/finalizer"},
+			Finalizers: []string{"github.com/Jnchk/tailscale/finalizer"},
 			UID:        types.UID("1234-UID"),
 		},
 		Spec: corev1.ServiceSpec{
@@ -172,7 +172,7 @@ func TestAnnotations(t *testing.T) {
 			// on it being set.
 			UID: types.UID("1234-UID"),
 			Annotations: map[string]string{
-				"tailscale.com/expose": "true",
+				"github.com/Jnchk/tailscale/expose": "true",
 			},
 		},
 		Spec: corev1.ServiceSpec{
@@ -196,10 +196,10 @@ func TestAnnotations(t *testing.T) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:       "test",
 			Namespace:  "default",
-			Finalizers: []string{"tailscale.com/finalizer"},
+			Finalizers: []string{"github.com/Jnchk/tailscale/finalizer"},
 			UID:        types.UID("1234-UID"),
 			Annotations: map[string]string{
-				"tailscale.com/expose": "true",
+				"github.com/Jnchk/tailscale/expose": "true",
 			},
 		},
 		Spec: corev1.ServiceSpec{
@@ -212,7 +212,7 @@ func TestAnnotations(t *testing.T) {
 	// Turn the service back into a ClusterIP service, which should make the
 	// operator clean up.
 	mustUpdate(t, fc, "default", "test", func(s *corev1.Service) {
-		delete(s.ObjectMeta.Annotations, "tailscale.com/expose")
+		delete(s.ObjectMeta.Annotations, "github.com/Jnchk/tailscale/expose")
 	})
 	// synchronous StatefulSet deletion triggers a requeue. But, the StatefulSet
 	// didn't create any child resources since this is all faked, so the
@@ -269,7 +269,7 @@ func TestAnnotationIntoLB(t *testing.T) {
 			// on it being set.
 			UID: types.UID("1234-UID"),
 			Annotations: map[string]string{
-				"tailscale.com/expose": "true",
+				"github.com/Jnchk/tailscale/expose": "true",
 			},
 		},
 		Spec: corev1.ServiceSpec{
@@ -305,10 +305,10 @@ func TestAnnotationIntoLB(t *testing.T) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:       "test",
 			Namespace:  "default",
-			Finalizers: []string{"tailscale.com/finalizer"},
+			Finalizers: []string{"github.com/Jnchk/tailscale/finalizer"},
 			UID:        types.UID("1234-UID"),
 			Annotations: map[string]string{
-				"tailscale.com/expose": "true",
+				"github.com/Jnchk/tailscale/expose": "true",
 			},
 		},
 		Spec: corev1.ServiceSpec{
@@ -321,7 +321,7 @@ func TestAnnotationIntoLB(t *testing.T) {
 	// Remove Tailscale's annotation, and at the same time convert the service
 	// into a tailscale LoadBalancer.
 	mustUpdate(t, fc, "default", "test", func(s *corev1.Service) {
-		delete(s.ObjectMeta.Annotations, "tailscale.com/expose")
+		delete(s.ObjectMeta.Annotations, "github.com/Jnchk/tailscale/expose")
 		s.Spec.Type = corev1.ServiceTypeLoadBalancer
 		s.Spec.LoadBalancerClass = ptr.To("tailscale")
 	})
@@ -339,7 +339,7 @@ func TestAnnotationIntoLB(t *testing.T) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:       "test",
 			Namespace:  "default",
-			Finalizers: []string{"tailscale.com/finalizer"},
+			Finalizers: []string{"github.com/Jnchk/tailscale/finalizer"},
 			UID:        types.UID("1234-UID"),
 		},
 		Spec: corev1.ServiceSpec{
@@ -421,7 +421,7 @@ func TestLBIntoAnnotation(t *testing.T) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:       "test",
 			Namespace:  "default",
-			Finalizers: []string{"tailscale.com/finalizer"},
+			Finalizers: []string{"github.com/Jnchk/tailscale/finalizer"},
 			UID:        types.UID("1234-UID"),
 		},
 		Spec: corev1.ServiceSpec{
@@ -445,7 +445,7 @@ func TestLBIntoAnnotation(t *testing.T) {
 	// tailscale annotation.
 	mustUpdate(t, fc, "default", "test", func(s *corev1.Service) {
 		s.ObjectMeta.Annotations = map[string]string{
-			"tailscale.com/expose": "true",
+			"github.com/Jnchk/tailscale/expose": "true",
 		}
 		s.Spec.Type = corev1.ServiceTypeClusterIP
 		s.Spec.LoadBalancerClass = nil
@@ -469,9 +469,9 @@ func TestLBIntoAnnotation(t *testing.T) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:       "test",
 			Namespace:  "default",
-			Finalizers: []string{"tailscale.com/finalizer"},
+			Finalizers: []string{"github.com/Jnchk/tailscale/finalizer"},
 			Annotations: map[string]string{
-				"tailscale.com/expose": "true",
+				"github.com/Jnchk/tailscale/expose": "true",
 			},
 			UID: types.UID("1234-UID"),
 		},
@@ -510,8 +510,8 @@ func TestCustomHostname(t *testing.T) {
 			// on it being set.
 			UID: types.UID("1234-UID"),
 			Annotations: map[string]string{
-				"tailscale.com/expose":   "true",
-				"tailscale.com/hostname": "reindeer-flotilla",
+				"github.com/Jnchk/tailscale/expose":   "true",
+				"github.com/Jnchk/tailscale/hostname": "reindeer-flotilla",
 			},
 		},
 		Spec: corev1.ServiceSpec{
@@ -535,11 +535,11 @@ func TestCustomHostname(t *testing.T) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:       "test",
 			Namespace:  "default",
-			Finalizers: []string{"tailscale.com/finalizer"},
+			Finalizers: []string{"github.com/Jnchk/tailscale/finalizer"},
 			UID:        types.UID("1234-UID"),
 			Annotations: map[string]string{
-				"tailscale.com/expose":   "true",
-				"tailscale.com/hostname": "reindeer-flotilla",
+				"github.com/Jnchk/tailscale/expose":   "true",
+				"github.com/Jnchk/tailscale/hostname": "reindeer-flotilla",
 			},
 		},
 		Spec: corev1.ServiceSpec{
@@ -552,7 +552,7 @@ func TestCustomHostname(t *testing.T) {
 	// Turn the service back into a ClusterIP service, which should make the
 	// operator clean up.
 	mustUpdate(t, fc, "default", "test", func(s *corev1.Service) {
-		delete(s.ObjectMeta.Annotations, "tailscale.com/expose")
+		delete(s.ObjectMeta.Annotations, "github.com/Jnchk/tailscale/expose")
 	})
 	// synchronous StatefulSet deletion triggers a requeue. But, the StatefulSet
 	// didn't create any child resources since this is all faked, so the
@@ -574,7 +574,7 @@ func TestCustomHostname(t *testing.T) {
 			Namespace: "default",
 			UID:       types.UID("1234-UID"),
 			Annotations: map[string]string{
-				"tailscale.com/hostname": "reindeer-flotilla",
+				"github.com/Jnchk/tailscale/hostname": "reindeer-flotilla",
 			},
 		},
 		Spec: corev1.ServiceSpec{
@@ -613,8 +613,8 @@ func TestCustomPriorityClassName(t *testing.T) {
 			// on it being set.
 			UID: types.UID("1234-UID"),
 			Annotations: map[string]string{
-				"tailscale.com/expose":   "true",
-				"tailscale.com/hostname": "custom-priority-class-name",
+				"github.com/Jnchk/tailscale/expose":   "true",
+				"github.com/Jnchk/tailscale/hostname": "custom-priority-class-name",
 			},
 		},
 		Spec: corev1.ServiceSpec{
@@ -640,10 +640,10 @@ func expectedSecret(name string) *corev1.Secret {
 			Name:      name,
 			Namespace: "operator-ns",
 			Labels: map[string]string{
-				"tailscale.com/managed":              "true",
-				"tailscale.com/parent-resource":      "test",
-				"tailscale.com/parent-resource-ns":   "default",
-				"tailscale.com/parent-resource-type": "svc",
+				"github.com/Jnchk/tailscale/managed":              "true",
+				"github.com/Jnchk/tailscale/parent-resource":      "test",
+				"github.com/Jnchk/tailscale/parent-resource-ns":   "default",
+				"github.com/Jnchk/tailscale/parent-resource-type": "svc",
 			},
 		},
 		StringData: map[string]string{
@@ -663,10 +663,10 @@ func expectedHeadlessService(name string) *corev1.Service {
 			GenerateName: "ts-test-",
 			Namespace:    "operator-ns",
 			Labels: map[string]string{
-				"tailscale.com/managed":              "true",
-				"tailscale.com/parent-resource":      "test",
-				"tailscale.com/parent-resource-ns":   "default",
-				"tailscale.com/parent-resource-type": "svc",
+				"github.com/Jnchk/tailscale/managed":              "true",
+				"github.com/Jnchk/tailscale/parent-resource":      "test",
+				"github.com/Jnchk/tailscale/parent-resource-ns":   "default",
+				"github.com/Jnchk/tailscale/parent-resource-type": "svc",
 			},
 		},
 		Spec: corev1.ServiceSpec{
@@ -688,10 +688,10 @@ func expectedSTS(stsName, secretName, hostname, priorityClassName string) *appsv
 			Name:      stsName,
 			Namespace: "operator-ns",
 			Labels: map[string]string{
-				"tailscale.com/managed":              "true",
-				"tailscale.com/parent-resource":      "test",
-				"tailscale.com/parent-resource-ns":   "default",
-				"tailscale.com/parent-resource-type": "svc",
+				"github.com/Jnchk/tailscale/managed":              "true",
+				"github.com/Jnchk/tailscale/parent-resource":      "test",
+				"github.com/Jnchk/tailscale/parent-resource-ns":   "default",
+				"github.com/Jnchk/tailscale/parent-resource-type": "svc",
 			},
 		},
 		Spec: appsv1.StatefulSetSpec{

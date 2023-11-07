@@ -14,9 +14,9 @@ import (
 	"os"
 	"runtime"
 
-	"tailscale.com/tsweb/promvarz"
-	"tailscale.com/tsweb/varz"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/tsweb/promvarz"
+	"github.com/Jnchk/tailscale/tsweb/varz"
+	"github.com/Jnchk/tailscale/version"
 )
 
 // DebugHandler is an http.Handler that serves a debugging "homepage",

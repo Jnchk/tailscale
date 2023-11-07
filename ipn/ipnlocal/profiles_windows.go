@@ -11,9 +11,9 @@ import (
 	"os/user"
 	"path/filepath"
 
-	"tailscale.com/atomicfile"
-	"tailscale.com/ipn"
-	"tailscale.com/util/winutil/policy"
+	"github.com/Jnchk/tailscale/atomicfile"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/util/winutil/policy"
 )
 
 const (

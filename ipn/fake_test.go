@@ -4,8 +4,8 @@
 package ipn
 
 import (
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/netmap"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/netmap"
 )
 
 type FakeBackend struct {

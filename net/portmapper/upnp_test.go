@@ -15,7 +15,7 @@ import (
 	"regexp"
 	"testing"
 
-	"tailscale.com/tstest"
+	"github.com/Jnchk/tailscale/tstest"
 )
 
 // Google Wifi

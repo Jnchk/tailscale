@@ -14,13 +14,13 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	"go4.org/netipx"
-	"tailscale.com/net/packet"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/tstime/rate"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/net/packet"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/tstime/rate"
+	"github.com/Jnchk/tailscale/types/ipproto"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // testAllowedProto is an IP protocol number we treat as allowed for

@@ -74,9 +74,9 @@ func main() {
 		Arch:        *goarch,
 		Platform:    "linux",
 		Version:     *version,
-		Maintainer:  "Tailscale Inc <info@tailscale.com>",
+		Maintainer:  "Tailscale Inc <info@github.com/Jnchk/tailscale>",
 		Description: *description,
-		Homepage:    "https://www.tailscale.com",
+		Homepage:    "https://www.github.com/Jnchk/tailscale",
 		License:     "MIT",
 		Overridables: nfpm.Overridables{
 			EmptyFolders: emptyDirList,

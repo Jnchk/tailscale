@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"testing"
 
-	"tailscale.com/types/empty"
+	"github.com/Jnchk/tailscale/types/empty"
 )
 
 func fieldsOf(t reflect.Type) (fields []string) {

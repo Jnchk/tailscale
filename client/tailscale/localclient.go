@@ -26,17 +26,17 @@ import (
 	"time"
 
 	"go4.org/mem"
-	"tailscale.com/client/tailscale/apitype"
-	"tailscale.com/envknob"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/net/netutil"
-	"tailscale.com/paths"
-	"tailscale.com/safesocket"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tka"
-	"tailscale.com/types/key"
-	"tailscale.com/types/tkatype"
+	"github.com/Jnchk/tailscale/client/tailscale/apitype"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/net/netutil"
+	"github.com/Jnchk/tailscale/paths"
+	"github.com/Jnchk/tailscale/safesocket"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tka"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/tkatype"
 )
 
 // defaultLocalClient is the default LocalClient when using the legacy

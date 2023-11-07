@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 func NewOSConfigurator(logf logger.Logf, _ string) (OSConfigurator, error) {

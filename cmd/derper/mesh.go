@@ -12,10 +12,10 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/derp"
-	"tailscale.com/derp/derphttp"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/derp"
+	"github.com/Jnchk/tailscale/derp/derphttp"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 func startMesh(s *derp.Server) error {
@@ -49,10 +49,10 @@ func startMeshWithHost(s *derp.Server, host string) error {
 		}
 		var d net.Dialer
 		var r net.Resolver
-		if base, ok := strings.CutSuffix(host, ".tailscale.com"); ok && port == "443" {
+		if base, ok := strings.CutSuffix(host, ".github.com/Jnchk/tailscale"); ok && port == "443" {
 			subCtx, cancel := context.WithTimeout(ctx, 2*time.Second)
 			defer cancel()
-			vpcHost := base + "-vpc.tailscale.com"
+			vpcHost := base + "-vpc.github.com/Jnchk/tailscale"
 			ips, _ := r.LookupIP(subCtx, "ip", vpcHost)
 			if len(ips) > 0 {
 				vpcAddr := net.JoinHostPort(ips[0].String(), port)

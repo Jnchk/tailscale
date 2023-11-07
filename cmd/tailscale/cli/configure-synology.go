@@ -14,8 +14,8 @@ import (
 	"strings"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/hostinfo"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/hostinfo"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 // configureHostCmd is the "tailscale configure-host" command which was once
@@ -41,7 +41,7 @@ This command is intended to run at boot as root on a Synology device to
 create the /dev/net/tun device and give the tailscaled binary permission
 to use it.
 
-See: https://tailscale.com/s/synology-outbound
+See: https://github.com/Jnchk/tailscale/s/synology-outbound
 `),
 	FlagSet: (func() *flag.FlagSet {
 		fs := newFlagSet("synology")

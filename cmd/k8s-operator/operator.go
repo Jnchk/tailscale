@@ -38,15 +38,15 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/manager/signals"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 	"sigs.k8s.io/yaml"
-	"tailscale.com/client/tailscale"
-	"tailscale.com/hostinfo"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/store/kubestore"
-	"tailscale.com/tsnet"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/opt"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/client/tailscale"
+	"github.com/Jnchk/tailscale/hostinfo"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/store/kubestore"
+	"github.com/Jnchk/tailscale/tsnet"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/opt"
+	"github.com/Jnchk/tailscale/util/dnsname"
+	"github.com/Jnchk/tailscale/version"
 )
 
 func main() {
@@ -95,7 +95,7 @@ func main() {
 	credentials := clientcredentials.Config{
 		ClientID:     string(clientID),
 		ClientSecret: string(clientSecret),
-		TokenURL:     "https://login.tailscale.com/api/v2/oauth/token",
+		TokenURL:     "https://login.github.com/Jnchk/tailscale/api/v2/oauth/token",
 	}
 	tsClient := tailscale.NewClient("-", nil)
 	tsClient.HTTPClient = credentials.Client(context.Background())
@@ -264,16 +264,16 @@ waitOnline:
 }
 
 const (
-	LabelManaged         = "tailscale.com/managed"
-	LabelParentType      = "tailscale.com/parent-resource-type"
-	LabelParentName      = "tailscale.com/parent-resource"
-	LabelParentNamespace = "tailscale.com/parent-resource-ns"
+	LabelManaged         = "github.com/Jnchk/tailscale/managed"
+	LabelParentType      = "github.com/Jnchk/tailscale/parent-resource-type"
+	LabelParentName      = "github.com/Jnchk/tailscale/parent-resource"
+	LabelParentNamespace = "github.com/Jnchk/tailscale/parent-resource-ns"
 
-	FinalizerName = "tailscale.com/finalizer"
+	FinalizerName = "github.com/Jnchk/tailscale/finalizer"
 
-	AnnotationExpose   = "tailscale.com/expose"
-	AnnotationTags     = "tailscale.com/tags"
-	AnnotationHostname = "tailscale.com/hostname"
+	AnnotationExpose   = "github.com/Jnchk/tailscale/expose"
+	AnnotationTags     = "github.com/Jnchk/tailscale/tags"
+	AnnotationHostname = "github.com/Jnchk/tailscale/hostname"
 )
 
 // ServiceReconciler is a simple ControllerManagedBy example implementation.

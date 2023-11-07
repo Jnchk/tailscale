@@ -8,14 +8,14 @@ import (
 	"fmt"
 	"testing"
 
-	"tailscale.com/envknob"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/netmap"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/netmap"
 )
 
 var testKnob = NewLogKnob(
 	"TS_TEST_LOGKNOB",
-	"https://tailscale.com/cap/testing",
+	"https://github.com/Jnchk/tailscale/cap/testing",
 )
 
 // Static type assertion for our interface type.
@@ -65,7 +65,7 @@ func TestLogKnob(t *testing.T) {
 		testKnob.UpdateFromNetMap(&netmap.NetworkMap{
 			SelfNode: &tailcfg.Node{
 				Capabilities: []string{
-					"https://tailscale.com/cap/testing",
+					"https://github.com/Jnchk/tailscale/cap/testing",
 				},
 			},
 		})

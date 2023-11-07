@@ -11,8 +11,8 @@ import (
 
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/registry"
-	"tailscale.com/types/ptr"
-	"tailscale.com/util/winutil"
+	"github.com/Jnchk/tailscale/types/ptr"
+	"github.com/Jnchk/tailscale/util/winutil"
 )
 
 func init() {

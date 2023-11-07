@@ -12,7 +12,7 @@ import (
 	"time"
 
 	dns "golang.org/x/net/dns/dnsmessage"
-	"tailscale.com/types/dnstype"
+	"github.com/Jnchk/tailscale/types/dnstype"
 )
 
 func (rr resolverAndDelay) String() string {
@@ -184,7 +184,7 @@ func BenchmarkNameFromQuery(b *testing.B) {
 }
 
 // Reproduces https://github.com/tailscale/tailscale/issues/2533
-// Fixed by https://github.com/tailscale/tailscale/commit/f414a9cc01f3264912513d07c0244ff4f3e4ba54
+// Fixed by https://github.com/tailscale/github.com/Jnchk/tailscalemit/f414a9cc01f3264912513d07c0244ff4f3e4ba54
 //
 // NOTE: fuzz tests act like unit tests when run without `-fuzz`
 func FuzzClampEDNSSize(f *testing.F) {

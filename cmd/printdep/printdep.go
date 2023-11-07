@@ -12,7 +12,7 @@ import (
 	"runtime"
 	"strings"
 
-	ts "tailscale.com"
+	ts "github.com/Jnchk/tailscale"
 )
 
 var (

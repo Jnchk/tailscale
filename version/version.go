@@ -9,8 +9,8 @@ import (
 	"runtime/debug"
 	"strings"
 
-	tailscaleroot "tailscale.com"
-	"tailscale.com/types/lazy"
+	tailscaleroot "github.com/Jnchk/tailscale"
+	"github.com/Jnchk/tailscale/types/lazy"
 )
 
 // Stamp vars can have their value set at build time by linker flags (see
@@ -40,7 +40,7 @@ var (
 	// was dirty. Its value is ORed with the dirty bit embedded by the Go tool.
 	//
 	// We need this because when we build binaries from another repo that
-	// imports tailscale.com, the Go tool doesn't stamp any dirtiness info into
+	// imports github.com/Jnchk/tailscale, the Go tool doesn't stamp any dirtiness info into
 	// the binary. Instead, we have to inject the dirty bit ourselves here.
 	gitDirtyStamp bool
 

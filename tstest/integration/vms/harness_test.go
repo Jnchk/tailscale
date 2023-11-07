@@ -24,10 +24,10 @@ import (
 
 	"golang.org/x/crypto/ssh"
 	"golang.org/x/net/proxy"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest/integration"
-	"tailscale.com/tstest/integration/testcontrol"
-	"tailscale.com/types/dnstype"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tstest/integration"
+	"github.com/Jnchk/tailscale/tstest/integration/testcontrol"
+	"github.com/Jnchk/tailscale/types/dnstype"
 )
 
 type Harness struct {

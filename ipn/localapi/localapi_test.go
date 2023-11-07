@@ -11,10 +11,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"tailscale.com/client/tailscale/apitype"
-	"tailscale.com/hostinfo"
-	"tailscale.com/ipn/ipnlocal"
-	"tailscale.com/tstest"
+	"github.com/Jnchk/tailscale/client/tailscale/apitype"
+	"github.com/Jnchk/tailscale/hostinfo"
+	"github.com/Jnchk/tailscale/ipn/ipnlocal"
+	"github.com/Jnchk/tailscale/tstest"
 )
 
 func TestValidHost(t *testing.T) {

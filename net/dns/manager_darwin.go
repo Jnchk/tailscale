@@ -8,8 +8,8 @@ import (
 	"os"
 
 	"go4.org/mem"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/mak"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/mak"
 )
 
 func NewOSConfigurator(logf logger.Logf, ifName string) (OSConfigurator, error) {

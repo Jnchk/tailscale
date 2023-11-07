@@ -11,8 +11,8 @@ import (
 	"net"
 	"testing"
 
-	"tailscale.com/net/memnet"
-	"tailscale.com/types/key"
+	"github.com/Jnchk/tailscale/net/memnet"
+	"github.com/Jnchk/tailscale/types/key"
 )
 
 // Can a reference Noise IK client talk to our server?

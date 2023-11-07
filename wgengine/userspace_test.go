@@ -10,17 +10,17 @@ import (
 	"testing"
 
 	"go4.org/mem"
-	"tailscale.com/cmd/testwrapper/flakytest"
-	"tailscale.com/net/dns"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/net/tstun"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/tstime/mono"
-	"tailscale.com/types/key"
-	"tailscale.com/types/netmap"
-	"tailscale.com/wgengine/router"
-	"tailscale.com/wgengine/wgcfg"
+	"github.com/Jnchk/tailscale/cmd/testwrapper/flakytest"
+	"github.com/Jnchk/tailscale/net/dns"
+	"github.com/Jnchk/tailscale/net/netaddr"
+	"github.com/Jnchk/tailscale/net/tstun"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/tstime/mono"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/netmap"
+	"github.com/Jnchk/tailscale/wgengine/router"
+	"github.com/Jnchk/tailscale/wgengine/wgcfg"
 )
 
 func TestNoteReceiveActivity(t *testing.T) {

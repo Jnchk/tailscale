@@ -13,7 +13,7 @@ import (
 	"unicode"
 	"unsafe"
 
-	"tailscale.com/tstest"
+	"github.com/Jnchk/tailscale/tstest"
 )
 
 type filchTest struct {

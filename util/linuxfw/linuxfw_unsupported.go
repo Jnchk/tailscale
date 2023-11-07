@@ -9,7 +9,7 @@
 package linuxfw
 
 import (
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // DebugNetfilter is not supported on non-Linux platforms.

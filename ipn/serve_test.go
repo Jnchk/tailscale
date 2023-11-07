@@ -5,11 +5,11 @@ package ipn
 import (
 	"testing"
 
-	"tailscale.com/tailcfg"
+	"github.com/Jnchk/tailscale/tailcfg"
 )
 
 func TestCheckFunnelAccess(t *testing.T) {
-	portAttr := "https://tailscale.com/cap/funnel-ports?ports=443,8080-8090,8443,"
+	portAttr := "https://github.com/Jnchk/tailscale/cap/funnel-ports?ports=443,8080-8090,8443,"
 	tests := []struct {
 		port    uint16
 		caps    []string

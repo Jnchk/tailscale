@@ -21,10 +21,10 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 	"gvisor.dev/gvisor/pkg/tcpip/network/ipv4"
 	"gvisor.dev/gvisor/pkg/tcpip/transport/udp"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/net/packet"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/util/multierr"
+	"github.com/Jnchk/tailscale/net/netaddr"
+	"github.com/Jnchk/tailscale/net/packet"
+	"github.com/Jnchk/tailscale/types/ipproto"
+	"github.com/Jnchk/tailscale/util/multierr"
 )
 
 // TODO: this was randomly generated once. Maybe do it per process start? But

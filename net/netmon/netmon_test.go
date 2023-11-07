@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/net/interfaces"
+	"github.com/Jnchk/tailscale/net/interfaces"
 )
 
 func TestMonitorStartClose(t *testing.T) {

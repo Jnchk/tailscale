@@ -17,7 +17,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"tailscale.com/release/dist"
+	"github.com/Jnchk/tailscale/release/dist"
 )
 
 type target struct {
@@ -144,11 +144,11 @@ func getSynologyBuilds(b *dist.Build) *synologyBuilds {
 func (m *synologyBuilds) buildInnerPackage(b *dist.Build, dsmVersion int, goenv map[string]string) (*innerPkg, error) {
 	key := []any{dsmVersion, goenv}
 	return m.innerPkgs.Do(key, func() (*innerPkg, error) {
-		ts, err := b.BuildGoBinary("tailscale.com/cmd/tailscale", goenv)
+		ts, err := b.BuildGoBinary("github.com/Jnchk/tailscale/cmd/tailscale", goenv)
 		if err != nil {
 			return nil, err
 		}
-		tsd, err := b.BuildGoBinary("tailscale.com/cmd/tailscaled", goenv)
+		tsd, err := b.BuildGoBinary("github.com/Jnchk/tailscale/cmd/tailscaled", goenv)
 		if err != nil {
 			return nil, err
 		}

@@ -27,9 +27,9 @@ import (
 	expect "github.com/tailscale/goexpect"
 	"golang.org/x/crypto/ssh"
 	"golang.org/x/sync/semaphore"
-	"tailscale.com/tstest"
-	"tailscale.com/tstest/integration"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/tstest/integration"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 const (

@@ -25,10 +25,10 @@ import (
 
 	"go4.org/mem"
 	"golang.org/x/time/rate"
-	"tailscale.com/disco"
-	"tailscale.com/net/memnet"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/disco"
+	"github.com/Jnchk/tailscale/net/memnet"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 func TestClientInfoUnmarshal(t *testing.T) {

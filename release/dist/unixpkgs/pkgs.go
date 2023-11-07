@@ -16,7 +16,7 @@ import (
 	"strings"
 
 	"github.com/goreleaser/nfpm"
-	"tailscale.com/release/dist"
+	"github.com/Jnchk/tailscale/release/dist"
 )
 
 type tgzTarget struct {
@@ -48,11 +48,11 @@ func (t *tgzTarget) Build(b *dist.Build) ([]string, error) {
 	} else {
 		filename = fmt.Sprintf("tailscale_%s_%s_%s.tgz", b.Version.Short, t.os(), t.arch())
 	}
-	ts, err := b.BuildGoBinary("tailscale.com/cmd/tailscale", t.goenv)
+	ts, err := b.BuildGoBinary("github.com/Jnchk/tailscale/cmd/tailscale", t.goenv)
 	if err != nil {
 		return nil, err
 	}
-	tsd, err := b.BuildGoBinary("tailscale.com/cmd/tailscaled", t.goenv)
+	tsd, err := b.BuildGoBinary("github.com/Jnchk/tailscale/cmd/tailscaled", t.goenv)
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +125,7 @@ func (t *tgzTarget) Build(b *dist.Build) ([]string, error) {
 		if err := addDir(dir); err != nil {
 			return nil, err
 		}
-		tailscaledDir, err := b.GoPkg("tailscale.com/cmd/tailscaled")
+		tailscaledDir, err := b.GoPkg("github.com/Jnchk/tailscale/cmd/tailscaled")
 		if err != nil {
 			return nil, err
 		}
@@ -170,20 +170,20 @@ func (t *debTarget) Build(b *dist.Build) ([]string, error) {
 		return nil, errors.New("deb only supported on linux")
 	}
 
-	ts, err := b.BuildGoBinary("tailscale.com/cmd/tailscale", t.goenv)
+	ts, err := b.BuildGoBinary("github.com/Jnchk/tailscale/cmd/tailscale", t.goenv)
 	if err != nil {
 		return nil, err
 	}
-	tsd, err := b.BuildGoBinary("tailscale.com/cmd/tailscaled", t.goenv)
+	tsd, err := b.BuildGoBinary("github.com/Jnchk/tailscale/cmd/tailscaled", t.goenv)
 	if err != nil {
 		return nil, err
 	}
 
-	tailscaledDir, err := b.GoPkg("tailscale.com/cmd/tailscaled")
+	tailscaledDir, err := b.GoPkg("github.com/Jnchk/tailscale/cmd/tailscaled")
 	if err != nil {
 		return nil, err
 	}
-	repoDir, err := b.GoPkg("tailscale.com")
+	repoDir, err := b.GoPkg("github.com/Jnchk/tailscale")
 	if err != nil {
 		return nil, err
 	}
@@ -194,9 +194,9 @@ func (t *debTarget) Build(b *dist.Build) ([]string, error) {
 		Arch:        arch,
 		Platform:    "linux",
 		Version:     b.Version.Short,
-		Maintainer:  "Tailscale Inc <info@tailscale.com>",
+		Maintainer:  "Tailscale Inc <info@github.com/Jnchk/tailscale>",
 		Description: "The easiest, most secure, cross platform way to use WireGuard + oauth2 + 2FA/SSO",
-		Homepage:    "https://www.tailscale.com",
+		Homepage:    "https://www.github.com/Jnchk/tailscale",
 		License:     "MIT",
 		Section:     "net",
 		Priority:    "extra",
@@ -263,20 +263,20 @@ func (t *rpmTarget) Build(b *dist.Build) ([]string, error) {
 		return nil, errors.New("rpm only supported on linux")
 	}
 
-	ts, err := b.BuildGoBinary("tailscale.com/cmd/tailscale", t.goenv)
+	ts, err := b.BuildGoBinary("github.com/Jnchk/tailscale/cmd/tailscale", t.goenv)
 	if err != nil {
 		return nil, err
 	}
-	tsd, err := b.BuildGoBinary("tailscale.com/cmd/tailscaled", t.goenv)
+	tsd, err := b.BuildGoBinary("github.com/Jnchk/tailscale/cmd/tailscaled", t.goenv)
 	if err != nil {
 		return nil, err
 	}
 
-	tailscaledDir, err := b.GoPkg("tailscale.com/cmd/tailscaled")
+	tailscaledDir, err := b.GoPkg("github.com/Jnchk/tailscale/cmd/tailscaled")
 	if err != nil {
 		return nil, err
 	}
-	repoDir, err := b.GoPkg("tailscale.com")
+	repoDir, err := b.GoPkg("github.com/Jnchk/tailscale")
 	if err != nil {
 		return nil, err
 	}
@@ -287,9 +287,9 @@ func (t *rpmTarget) Build(b *dist.Build) ([]string, error) {
 		Arch:        arch,
 		Platform:    "linux",
 		Version:     b.Version.Short,
-		Maintainer:  "Tailscale Inc <info@tailscale.com>",
+		Maintainer:  "Tailscale Inc <info@github.com/Jnchk/tailscale>",
 		Description: "The easiest, most secure, cross platform way to use WireGuard + oauth2 + 2FA/SSO",
-		Homepage:    "https://www.tailscale.com",
+		Homepage:    "https://www.github.com/Jnchk/tailscale",
 		License:     "MIT",
 		Overridables: nfpm.Overridables{
 			Files: map[string]string{

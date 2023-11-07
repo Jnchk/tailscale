@@ -1,7 +1,7 @@
 // Copyright (c) Tailscale Inc & AUTHORS
 // SPDX-License-Identifier: BSD-3-Clause
 
-package main // import "tailscale.com/cmd/tailscaled"
+package main // import "github.com/Jnchk/tailscale/cmd/tailscaled"
 
 import "testing"
 

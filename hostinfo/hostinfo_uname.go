@@ -9,7 +9,7 @@ import (
 	"runtime"
 
 	"golang.org/x/sys/unix"
-	"tailscale.com/types/ptr"
+	"github.com/Jnchk/tailscale/types/ptr"
 )
 
 func init() {

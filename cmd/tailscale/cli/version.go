@@ -11,8 +11,8 @@ import (
 	"os"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/version"
 )
 
 var versionCmd = &ffcli.Command{

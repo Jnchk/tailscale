@@ -12,11 +12,11 @@ import (
 	"reflect"
 	"testing"
 
-	"tailscale.com/tstest"
+	"github.com/Jnchk/tailscale/tstest"
 )
 
 func BenchmarkHandleBootstrapDNS(b *testing.B) {
-	tstest.Replace(b, bootstrapDNS, "log.tailscale.io,login.tailscale.com,controlplane.tailscale.com,login.us.tailscale.com")
+	tstest.Replace(b, bootstrapDNS, "log.tailscale.io,login.github.com/Jnchk/tailscale,controlplane.github.com/Jnchk/tailscale,login.us.github.com/Jnchk/tailscale")
 	refreshBootstrapDNS()
 	w := new(bitbucketResponseWriter)
 	req, _ := http.NewRequest("GET", "https://localhost/bootstrap-dns?q="+url.QueryEscape("log.tailscale.io"), nil)
@@ -55,7 +55,7 @@ func getBootstrapDNS(t *testing.T, q string) dnsEntryMap {
 }
 
 func TestUnpublishedDNS(t *testing.T) {
-	const published = "login.tailscale.com"
+	const published = "login.github.com/Jnchk/tailscale"
 	const unpublished = "log.tailscale.io"
 
 	prev1, prev2 := *bootstrapDNS, *unpublishedDNS
@@ -104,19 +104,19 @@ func resetMetrics() {
 // cache hit in our metrics.
 func TestUnpublishedDNSEmptyList(t *testing.T) {
 	pub := dnsEntryMap{
-		"tailscale.com": {net.IPv4(10, 10, 10, 10)},
+		"github.com/Jnchk/tailscale": {net.IPv4(10, 10, 10, 10)},
 	}
 	dnsCache.Store(pub)
-	dnsCacheBytes.Store([]byte(`{"tailscale.com":["10.10.10.10"]}`))
+	dnsCacheBytes.Store([]byte(`{"github.com/Jnchk/tailscale":["10.10.10.10"]}`))
 
 	unpublishedDNSCache.Store(dnsEntryMap{
 		"log.tailscale.io":           {},
-		"controlplane.tailscale.com": {net.IPv4(1, 2, 3, 4)},
+		"controlplane.github.com/Jnchk/tailscale": {net.IPv4(1, 2, 3, 4)},
 	})
 
 	t.Run("CacheMiss", func(t *testing.T) {
 		// One domain in map but empty, one not in map at all
-		for _, q := range []string{"log.tailscale.io", "login.tailscale.com"} {
+		for _, q := range []string{"log.tailscale.io", "login.github.com/Jnchk/tailscale"} {
 			resetMetrics()
 			ips := getBootstrapDNS(t, q)
 
@@ -136,8 +136,8 @@ func TestUnpublishedDNSEmptyList(t *testing.T) {
 	// Verify that we do get a valid response and metric.
 	t.Run("CacheHit", func(t *testing.T) {
 		resetMetrics()
-		ips := getBootstrapDNS(t, "controlplane.tailscale.com")
-		want := dnsEntryMap{"controlplane.tailscale.com": {net.IPv4(1, 2, 3, 4)}}
+		ips := getBootstrapDNS(t, "controlplane.github.com/Jnchk/tailscale")
+		want := dnsEntryMap{"controlplane.github.com/Jnchk/tailscale": {net.IPv4(1, 2, 3, 4)}}
 		if !reflect.DeepEqual(ips, want) {
 			t.Errorf("got ips=%+v; want %+v", ips, want)
 		}

@@ -15,12 +15,12 @@ import (
 	"testing"
 	"time"
 
-	. "tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/types/key"
-	"tailscale.com/types/ptr"
-	"tailscale.com/util/must"
-	"tailscale.com/version"
+	. "github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/ptr"
+	"github.com/Jnchk/tailscale/util/must"
+	"github.com/Jnchk/tailscale/version"
 )
 
 func fieldsOf(t reflect.Type) (fields []string) {

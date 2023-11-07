@@ -20,10 +20,10 @@ import (
 
 	"github.com/peterbourgon/ff/v3/ffcli"
 	"golang.org/x/exp/slices"
-	"tailscale.com/client/tailscale"
-	"tailscale.com/envknob"
-	"tailscale.com/paths"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/client/tailscale"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/paths"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 var Stderr io.Writer = os.Stderr

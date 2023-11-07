@@ -11,9 +11,9 @@ import (
 
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/registry"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/dnsname"
-	"tailscale.com/util/winutil"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/dnsname"
+	"github.com/Jnchk/tailscale/util/winutil"
 )
 
 const (
@@ -77,7 +77,7 @@ func newNRPTRuleDatabase(logf logger.Logf) *nrptRuleDatabase {
 	// Best-effort: if our NRPT rule exists, try to delete it. Unlike
 	// per-interface configuration, NRPT rules survive the unclean
 	// termination of the Tailscale process, and depending on the
-	// rule, it may prevent us from reaching login.tailscale.com to
+	// rule, it may prevent us from reaching login.github.com/Jnchk/tailscale to
 	// boot up. The bootstrap resolver logic will save us, but it
 	// slows down start-up a bunch.
 	ret.DelAllRuleKeys()

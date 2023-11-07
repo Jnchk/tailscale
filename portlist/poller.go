@@ -14,7 +14,7 @@ import (
 	"time"
 
 	"golang.org/x/exp/slices"
-	"tailscale.com/envknob"
+	"github.com/Jnchk/tailscale/envknob"
 )
 
 var (

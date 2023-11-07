@@ -11,10 +11,10 @@ import (
 	"log"
 	"os"
 
-	"tailscale.com/release/dist"
-	"tailscale.com/release/dist/cli"
-	"tailscale.com/release/dist/synology"
-	"tailscale.com/release/dist/unixpkgs"
+	"github.com/Jnchk/tailscale/release/dist"
+	"github.com/Jnchk/tailscale/release/dist/cli"
+	"github.com/Jnchk/tailscale/release/dist/synology"
+	"github.com/Jnchk/tailscale/release/dist/unixpkgs"
 )
 
 var synologyPackageCenter bool
@@ -32,7 +32,7 @@ func getTargets() ([]dist.Target, error) {
 	//
 	// Since only we can provide packages to Synology for
 	// distribution, we default to building the "sideload" variant of
-	// packages that we distribute on pkgs.tailscale.com.
+	// packages that we distribute on pkgs.github.com/Jnchk/tailscale.
 	ret = append(ret, synology.Targets(synologyPackageCenter)...)
 	return ret, nil
 }

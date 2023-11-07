@@ -7,7 +7,7 @@ import (
 	"os"
 	"testing"
 
-	"tailscale.com/util/cibuild"
+	"github.com/Jnchk/tailscale/util/cibuild"
 )
 
 func TestMain(m *testing.M) {

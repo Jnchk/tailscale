@@ -30,9 +30,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/types/opt"
-	"tailscale.com/version"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/types/opt"
+	"github.com/Jnchk/tailscale/version"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 var (

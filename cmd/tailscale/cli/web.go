@@ -25,13 +25,13 @@ import (
 	"strings"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/envknob"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/tailcfg"
-	"tailscale.com/util/cmpx"
-	"tailscale.com/util/groupmember"
-	"tailscale.com/version/distro"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/util/cmpx"
+	"github.com/Jnchk/tailscale/util/groupmember"
+	"github.com/Jnchk/tailscale/version/distro"
 )
 
 //go:embed web.html

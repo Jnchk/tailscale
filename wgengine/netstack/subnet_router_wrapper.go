@@ -4,7 +4,7 @@
 package netstack
 
 import (
-	"tailscale.com/wgengine/router"
+	"github.com/Jnchk/tailscale/wgengine/router"
 )
 
 type subnetRouter struct {

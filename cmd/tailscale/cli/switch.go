@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/peterbourgon/ff/v3/ffcli"
-	"tailscale.com/ipn"
+	"github.com/Jnchk/tailscale/ipn"
 )
 
 var switchCmd = &ffcli.Command{

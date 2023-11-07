@@ -15,8 +15,8 @@ import (
 	"log"
 	"net/http"
 
-	"tailscale.com/tsnet"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/tsnet"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 func main() {

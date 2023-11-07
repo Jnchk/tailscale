@@ -15,13 +15,13 @@ import (
 	"time"
 
 	"go4.org/mem"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/types/key"
-	"tailscale.com/types/persist"
-	"tailscale.com/types/preftype"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/net/netaddr"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/persist"
+	"github.com/Jnchk/tailscale/types/preftype"
 )
 
 func fieldsOf(t reflect.Type) (fields []string) {
@@ -94,13 +94,13 @@ func TestPrefsEqual(t *testing.T) {
 		},
 
 		{
-			&Prefs{ControlURL: "https://controlplane.tailscale.com"},
+			&Prefs{ControlURL: "https://controlplane.github.com/Jnchk/tailscale"},
 			&Prefs{ControlURL: "https://login.private.co"},
 			false,
 		},
 		{
-			&Prefs{ControlURL: "https://controlplane.tailscale.com"},
-			&Prefs{ControlURL: "https://controlplane.tailscale.com"},
+			&Prefs{ControlURL: "https://controlplane.github.com/Jnchk/tailscale"},
+			&Prefs{ControlURL: "https://controlplane.github.com/Jnchk/tailscale"},
 			true,
 		},
 
@@ -336,7 +336,7 @@ func TestBasicPrefs(t *testing.T) {
 	tstest.PanicOnLog()
 
 	p := Prefs{
-		ControlURL: "https://controlplane.tailscale.com",
+		ControlURL: "https://controlplane.github.com/Jnchk/tailscale",
 	}
 	checkPrefs(t, p)
 }
@@ -348,7 +348,7 @@ func TestPrefsPersist(t *testing.T) {
 		LoginName: "test@example.com",
 	}
 	p := Prefs{
-		ControlURL: "https://controlplane.tailscale.com",
+		ControlURL: "https://controlplane.github.com/Jnchk/tailscale",
 		CorpDNS:    true,
 		Persist:    &c,
 	}
@@ -831,7 +831,7 @@ func TestControlURLOrDefault(t *testing.T) {
 	if got, want := p.ControlURLOrDefault(), "http://foo.bar"; got != want {
 		t.Errorf("got %q; want %q", got, want)
 	}
-	p.ControlURL = "https://login.tailscale.com"
+	p.ControlURL = "https://login.github.com/Jnchk/tailscale"
 	if got, want := p.ControlURLOrDefault(), DefaultControlURL; got != want {
 		t.Errorf("got %q; want %q", got, want)
 	}

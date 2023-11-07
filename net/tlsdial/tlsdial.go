@@ -22,8 +22,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/envknob"
-	"tailscale.com/health"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/health"
 )
 
 var counterFallbackOK int32 // atomic

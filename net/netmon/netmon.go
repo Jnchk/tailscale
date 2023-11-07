@@ -14,9 +14,9 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/net/interfaces"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/set"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/set"
 )
 
 // pollWallTimeInterval is how often we check the time to check

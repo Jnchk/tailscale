@@ -21,14 +21,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"tailscale.com/envknob"
-	"tailscale.com/net/interfaces"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/sockstats"
-	"tailscale.com/tstime"
-	tslogger "tailscale.com/types/logger"
-	"tailscale.com/types/logid"
-	"tailscale.com/util/set"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/net/interfaces"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/sockstats"
+	"github.com/Jnchk/tailscale/tstime"
+	tslogger "github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/logid"
+	"github.com/Jnchk/tailscale/util/set"
 )
 
 // DefaultHost is the default host name to upload logs to when

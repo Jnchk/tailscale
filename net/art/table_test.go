@@ -13,7 +13,7 @@ import (
 	"testing"
 	"time"
 
-	"tailscale.com/types/ptr"
+	"github.com/Jnchk/tailscale/types/ptr"
 )
 
 func TestInsert(t *testing.T) {

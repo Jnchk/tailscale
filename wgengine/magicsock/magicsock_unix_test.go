@@ -10,7 +10,7 @@ import (
 	"syscall"
 	"testing"
 
-	"tailscale.com/types/nettype"
+	"github.com/Jnchk/tailscale/types/nettype"
 )
 
 func TestTrySetSocketBuffer(t *testing.T) {

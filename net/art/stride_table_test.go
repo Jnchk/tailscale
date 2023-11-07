@@ -12,7 +12,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"tailscale.com/types/ptr"
+	"github.com/Jnchk/tailscale/types/ptr"
 )
 
 func TestInversePrefix(t *testing.T) {

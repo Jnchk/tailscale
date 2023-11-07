@@ -15,10 +15,10 @@ import (
 	"time"
 
 	"nhooyr.io/websocket"
-	"tailscale.com/control/controlbase"
-	"tailscale.com/net/netutil"
-	"tailscale.com/net/wsconn"
-	"tailscale.com/types/key"
+	"github.com/Jnchk/tailscale/control/controlbase"
+	"github.com/Jnchk/tailscale/net/netutil"
+	"github.com/Jnchk/tailscale/net/wsconn"
+	"github.com/Jnchk/tailscale/types/key"
 )
 
 // AcceptHTTP upgrades the HTTP request given by w and r into a Tailscale

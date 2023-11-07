@@ -11,7 +11,7 @@ import (
 
 	"github.com/fxamacker/cbor/v2"
 	"github.com/google/go-cmp/cmp"
-	"tailscale.com/util/must"
+	"github.com/Jnchk/tailscale/util/must"
 )
 
 func TestMaxSize(t *testing.T) {

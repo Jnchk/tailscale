@@ -16,14 +16,14 @@ import (
 	"time"
 
 	"golang.org/x/exp/slices"
-	"tailscale.com/health"
-	"tailscale.com/net/dns/resolver"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/types/dnstype"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/clientmetric"
-	"tailscale.com/util/dnsname"
+	"github.com/Jnchk/tailscale/health"
+	"github.com/Jnchk/tailscale/net/dns/resolver"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/tsdial"
+	"github.com/Jnchk/tailscale/types/dnstype"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/clientmetric"
+	"github.com/Jnchk/tailscale/util/dnsname"
 )
 
 var (

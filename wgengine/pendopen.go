@@ -8,13 +8,13 @@ import (
 	"runtime"
 	"time"
 
-	"tailscale.com/net/flowtrack"
-	"tailscale.com/net/packet"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/net/tstun"
-	"tailscale.com/types/ipproto"
-	"tailscale.com/util/mak"
-	"tailscale.com/wgengine/filter"
+	"github.com/Jnchk/tailscale/net/flowtrack"
+	"github.com/Jnchk/tailscale/net/packet"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/net/tstun"
+	"github.com/Jnchk/tailscale/types/ipproto"
+	"github.com/Jnchk/tailscale/util/mak"
+	"github.com/Jnchk/tailscale/wgengine/filter"
 )
 
 const tcpTimeoutBeforeDebug = 5 * time.Second

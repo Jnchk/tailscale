@@ -30,11 +30,11 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	"golang.org/x/sys/unix"
-	"tailscale.com/ipn"
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstest"
-	"tailscale.com/types/netmap"
-	"tailscale.com/types/ptr"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/types/netmap"
+	"github.com/Jnchk/tailscale/types/ptr"
 )
 
 func TestContainerBoot(t *testing.T) {
@@ -87,7 +87,7 @@ func TestContainerBoot(t *testing.T) {
 	resetFiles()
 
 	boot := filepath.Join(d, "containerboot")
-	if err := exec.Command("go", "build", "-o", boot, "tailscale.com/cmd/containerboot").Run(); err != nil {
+	if err := exec.Command("go", "build", "-o", boot, "github.com/Jnchk/tailscale/cmd/containerboot").Run(); err != nil {
 		t.Fatalf("Building containerboot: %v", err)
 	}
 

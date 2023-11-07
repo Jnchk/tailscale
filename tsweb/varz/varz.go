@@ -17,9 +17,9 @@ import (
 	"sync"
 	"time"
 
-	"tailscale.com/metrics"
-	"tailscale.com/util/cmpx"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/metrics"
+	"github.com/Jnchk/tailscale/util/cmpx"
+	"github.com/Jnchk/tailscale/version"
 )
 
 func init() {

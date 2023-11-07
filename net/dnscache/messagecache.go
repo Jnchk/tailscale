@@ -13,7 +13,7 @@ import (
 
 	"github.com/golang/groupcache/lru"
 	"golang.org/x/net/dns/dnsmessage"
-	"tailscale.com/util/cmpx"
+	"github.com/Jnchk/tailscale/util/cmpx"
 )
 
 // MessageCache is a cache that works at the DNS message layer,

@@ -11,7 +11,7 @@ import (
 	"net/http"
 	"time"
 
-	"tailscale.com/util/goroutines"
+	"github.com/Jnchk/tailscale/util/goroutines"
 )
 
 func dumpGoroutinesToURL(c *http.Client, targetURL string) {

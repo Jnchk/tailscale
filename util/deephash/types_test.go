@@ -10,8 +10,8 @@ import (
 	"time"
 	"unsafe"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/structs"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/structs"
 )
 
 func TestTypeIsMemHashable(t *testing.T) {

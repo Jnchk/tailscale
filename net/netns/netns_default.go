@@ -8,8 +8,8 @@ package netns
 import (
 	"syscall"
 
-	"tailscale.com/net/netmon"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 func control(logger.Logf, *netmon.Monitor) func(network, address string, c syscall.RawConn) error {

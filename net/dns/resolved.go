@@ -15,11 +15,11 @@ import (
 
 	"github.com/godbus/dbus/v5"
 	"golang.org/x/sys/unix"
-	"tailscale.com/health"
-	"tailscale.com/logtail/backoff"
-	"tailscale.com/net/netaddr"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/dnsname"
+	"github.com/Jnchk/tailscale/health"
+	"github.com/Jnchk/tailscale/logtail/backoff"
+	"github.com/Jnchk/tailscale/net/netaddr"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/dnsname"
 )
 
 // resolvedListenAddr is the listen address of the resolved stub resolver.

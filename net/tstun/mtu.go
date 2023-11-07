@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 package tstun
 
-import "tailscale.com/envknob"
+import "github.com/Jnchk/tailscale/envknob"
 
 const (
 	maxMTU     uint32 = 65536

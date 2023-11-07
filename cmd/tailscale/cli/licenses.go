@@ -22,13 +22,13 @@ var licensesCmd = &ffcli.Command{
 func licensesURL() string {
 	switch runtime.GOOS {
 	case "android":
-		return "https://tailscale.com/licenses/android"
+		return "https://github.com/Jnchk/tailscale/licenses/android"
 	case "darwin", "ios":
-		return "https://tailscale.com/licenses/apple"
+		return "https://github.com/Jnchk/tailscale/licenses/apple"
 	case "windows":
-		return "https://tailscale.com/licenses/windows"
+		return "https://github.com/Jnchk/tailscale/licenses/windows"
 	default:
-		return "https://tailscale.com/licenses/tailscale"
+		return "https://github.com/Jnchk/tailscale/licenses/tailscale"
 	}
 }
 

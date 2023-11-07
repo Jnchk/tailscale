@@ -17,8 +17,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"tailscale.com/atomicfile"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/atomicfile"
+	"github.com/Jnchk/tailscale/version"
 )
 
 func main() {

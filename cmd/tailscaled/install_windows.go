@@ -15,9 +15,9 @@ import (
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/svc"
 	"golang.org/x/sys/windows/svc/mgr"
-	"tailscale.com/logtail/backoff"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/osshare"
+	"github.com/Jnchk/tailscale/logtail/backoff"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/osshare"
 )
 
 func init() {

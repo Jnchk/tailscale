@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 // get-authkey allocates an authkey using an OAuth API client
-// https://tailscale.com/s/oauth-clients and prints it
+// https://github.com/Jnchk/tailscale/s/oauth-clients and prints it
 // to stdout for scripts to capture and use.
 package main
 
@@ -15,8 +15,8 @@ import (
 	"strings"
 
 	"golang.org/x/oauth2/clientcredentials"
-	"tailscale.com/client/tailscale"
-	"tailscale.com/util/cmpx"
+	"github.com/Jnchk/tailscale/client/tailscale"
+	"github.com/Jnchk/tailscale/util/cmpx"
 )
 
 func main() {
@@ -40,7 +40,7 @@ func main() {
 		log.Fatal("at least one tag must be specified")
 	}
 
-	baseURL := cmpx.Or(os.Getenv("TS_BASE_URL"), "https://api.tailscale.com")
+	baseURL := cmpx.Or(os.Getenv("TS_BASE_URL"), "https://api.github.com/Jnchk/tailscale")
 
 	credentials := clientcredentials.Config{
 		ClientID:     clientID,

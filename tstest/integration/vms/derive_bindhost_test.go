@@ -9,7 +9,7 @@ import (
 	"runtime"
 	"testing"
 
-	"tailscale.com/net/interfaces"
+	"github.com/Jnchk/tailscale/net/interfaces"
 )
 
 func deriveBindhost(t *testing.T) string {

@@ -29,32 +29,32 @@ import (
 	"time"
 
 	"golang.org/x/exp/slices"
-	"tailscale.com/client/tailscale"
-	"tailscale.com/control/controlclient"
-	"tailscale.com/envknob"
-	"tailscale.com/hostinfo"
-	"tailscale.com/ipn"
-	"tailscale.com/ipn/ipnlocal"
-	"tailscale.com/ipn/ipnstate"
-	"tailscale.com/ipn/localapi"
-	"tailscale.com/ipn/store"
-	"tailscale.com/ipn/store/mem"
-	"tailscale.com/logpolicy"
-	"tailscale.com/logtail"
-	"tailscale.com/logtail/filch"
-	"tailscale.com/net/memnet"
-	"tailscale.com/net/netmon"
-	"tailscale.com/net/proxymux"
-	"tailscale.com/net/socks5"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/smallzstd"
-	"tailscale.com/tsd"
-	"tailscale.com/types/logger"
-	"tailscale.com/types/logid"
-	"tailscale.com/types/nettype"
-	"tailscale.com/util/mak"
-	"tailscale.com/wgengine"
-	"tailscale.com/wgengine/netstack"
+	"github.com/Jnchk/tailscale/client/tailscale"
+	"github.com/Jnchk/tailscale/control/controlclient"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/hostinfo"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/ipn/ipnlocal"
+	"github.com/Jnchk/tailscale/ipn/ipnstate"
+	"github.com/Jnchk/tailscale/ipn/localapi"
+	"github.com/Jnchk/tailscale/ipn/store"
+	"github.com/Jnchk/tailscale/ipn/store/mem"
+	"github.com/Jnchk/tailscale/logpolicy"
+	"github.com/Jnchk/tailscale/logtail"
+	"github.com/Jnchk/tailscale/logtail/filch"
+	"github.com/Jnchk/tailscale/net/memnet"
+	"github.com/Jnchk/tailscale/net/netmon"
+	"github.com/Jnchk/tailscale/net/proxymux"
+	"github.com/Jnchk/tailscale/net/socks5"
+	"github.com/Jnchk/tailscale/net/tsdial"
+	"github.com/Jnchk/tailscale/smallzstd"
+	"github.com/Jnchk/tailscale/tsd"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/types/logid"
+	"github.com/Jnchk/tailscale/types/nettype"
+	"github.com/Jnchk/tailscale/util/mak"
+	"github.com/Jnchk/tailscale/wgengine"
+	"github.com/Jnchk/tailscale/wgengine/netstack"
 )
 
 func inTest() bool { return flag.Lookup("test.v") != nil }
@@ -78,7 +78,7 @@ type Server struct {
 	// Store specifies the state store to use.
 	//
 	// If nil, a new FileStore is initialized at `Dir/tailscaled.state`.
-	// See tailscale.com/ipn/store for supported stores.
+	// See github.com/Jnchk/tailscale/ipn/store for supported stores.
 	//
 	// Logs will automatically be uploaded to log.tailscale.io,
 	// where the configuration file for logging will be saved at
@@ -94,7 +94,7 @@ type Server struct {
 	Logf logger.Logf
 
 	// Ephemeral, if true, specifies that the instance should register
-	// as an Ephemeral node (https://tailscale.com/s/ephemeral-nodes).
+	// as an Ephemeral node (https://github.com/Jnchk/tailscale/s/ephemeral-nodes).
 	Ephemeral bool
 
 	// AuthKey, if non-empty, is the auth key to create the node
@@ -849,7 +849,7 @@ func (s *Server) ListenTLS(network, addr string) (net.Listener, error) {
 		return nil, err
 	}
 	if len(st.CertDomains) == 0 {
-		return nil, errors.New("tsnet: you must enable HTTPS in the admin panel to proceed. See https://tailscale.com/s/https")
+		return nil, errors.New("tsnet: you must enable HTTPS in the admin panel to proceed. See https://github.com/Jnchk/tailscale/s/https")
 	}
 
 	ln, err := s.listen(network, addr, listenOnTailnet)

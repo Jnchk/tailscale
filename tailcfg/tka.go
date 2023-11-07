@@ -4,8 +4,8 @@
 package tailcfg
 
 import (
-	"tailscale.com/types/key"
-	"tailscale.com/types/tkatype"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/tkatype"
 )
 
 // TKAInitBeginRequest submits a genesis AUM to seed the creation of the

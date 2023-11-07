@@ -17,11 +17,11 @@ import (
 
 	"golang.org/x/net/dns/dnsmessage"
 	"inet.af/tcpproxy"
-	"tailscale.com/client/tailscale"
-	"tailscale.com/hostinfo"
-	"tailscale.com/net/netutil"
-	"tailscale.com/tsnet"
-	"tailscale.com/types/nettype"
+	"github.com/Jnchk/tailscale/client/tailscale"
+	"github.com/Jnchk/tailscale/hostinfo"
+	"github.com/Jnchk/tailscale/net/netutil"
+	"github.com/Jnchk/tailscale/tsnet"
+	"github.com/Jnchk/tailscale/types/nettype"
 )
 
 var (
@@ -29,7 +29,7 @@ var (
 	promoteHTTPS = flag.Bool("promote-https", true, "promote HTTP to HTTPS")
 )
 
-var tsMBox = dnsmessage.MustNewName("support.tailscale.com.")
+var tsMBox = dnsmessage.MustNewName("support.github.com/Jnchk/tailscale.")
 
 func main() {
 	flag.Parse()

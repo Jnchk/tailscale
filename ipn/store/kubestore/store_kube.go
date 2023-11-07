@@ -11,9 +11,9 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/ipn"
-	"tailscale.com/kube"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/kube"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 // Store is an ipn.StateStore that uses a Kubernetes Secret for persistence.

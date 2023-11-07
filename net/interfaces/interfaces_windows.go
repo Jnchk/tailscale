@@ -13,7 +13,7 @@ import (
 
 	"golang.org/x/sys/windows"
 	"golang.zx2c4.com/wireguard/windows/tunnel/winipcfg"
-	"tailscale.com/tsconst"
+	"github.com/Jnchk/tailscale/tsconst"
 )
 
 const (

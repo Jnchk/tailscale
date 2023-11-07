@@ -6,7 +6,7 @@ package packet
 import (
 	"encoding/binary"
 
-	"tailscale.com/types/ipproto"
+	"github.com/Jnchk/tailscale/types/ipproto"
 )
 
 // udpHeaderLength is the size of the UDP packet header, not including

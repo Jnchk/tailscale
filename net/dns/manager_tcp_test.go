@@ -15,9 +15,9 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	dns "golang.org/x/net/dns/dnsmessage"
-	"tailscale.com/net/tsdial"
-	"tailscale.com/tstest"
-	"tailscale.com/util/dnsname"
+	"github.com/Jnchk/tailscale/net/tsdial"
+	"github.com/Jnchk/tailscale/tstest"
+	"github.com/Jnchk/tailscale/util/dnsname"
 )
 
 func mkDNSRequest(domain dnsname.FQDN, tp dns.Type, modify func(*dns.Builder)) []byte {
@@ -94,7 +94,7 @@ func TestDNSOverTCP(t *testing.T) {
 			"dave.ts.com.", "1.2.3.4",
 			"bradfitz.ts.com.", "2.3.4.5"),
 		Routes:        upstreams("ts.com", ""),
-		SearchDomains: fqdns("tailscale.com", "universe.tf"),
+		SearchDomains: fqdns("github.com/Jnchk/tailscale", "universe.tf"),
 	})
 	defer m.Down()
 
@@ -177,7 +177,7 @@ func TestDNSOverTCP_TooLarge(t *testing.T) {
 	m.Set(Config{
 		Hosts:         hosts("andrew.ts.com.", "1.2.3.4"),
 		Routes:        upstreams("ts.com", ""),
-		SearchDomains: fqdns("tailscale.com"),
+		SearchDomains: fqdns("github.com/Jnchk/tailscale"),
 	})
 	defer m.Down()
 

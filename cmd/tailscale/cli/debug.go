@@ -28,19 +28,19 @@ import (
 
 	"github.com/peterbourgon/ff/v3/ffcli"
 	"golang.org/x/net/http/httpproxy"
-	"tailscale.com/client/tailscale/apitype"
-	"tailscale.com/control/controlhttp"
-	"tailscale.com/hostinfo"
-	"tailscale.com/ipn"
-	"tailscale.com/net/tsaddr"
-	"tailscale.com/net/tshttpproxy"
-	"tailscale.com/paths"
-	"tailscale.com/safesocket"
-	"tailscale.com/tailcfg"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/util/must"
-	"tailscale.com/wgengine/capture"
+	"github.com/Jnchk/tailscale/client/tailscale/apitype"
+	"github.com/Jnchk/tailscale/control/controlhttp"
+	"github.com/Jnchk/tailscale/hostinfo"
+	"github.com/Jnchk/tailscale/ipn"
+	"github.com/Jnchk/tailscale/net/tsaddr"
+	"github.com/Jnchk/tailscale/net/tshttpproxy"
+	"github.com/Jnchk/tailscale/paths"
+	"github.com/Jnchk/tailscale/safesocket"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/util/must"
+	"github.com/Jnchk/tailscale/wgengine/capture"
 )
 
 var debugCmd = &ffcli.Command{
@@ -160,7 +160,7 @@ var debugCmd = &ffcli.Command{
 			ShortHelp: "debug ts2021 protocol connectivity",
 			FlagSet: (func() *flag.FlagSet {
 				fs := newFlagSet("ts2021")
-				fs.StringVar(&ts2021Args.host, "host", "controlplane.tailscale.com", "hostname of control plane")
+				fs.StringVar(&ts2021Args.host, "host", "controlplane.github.com/Jnchk/tailscale", "hostname of control plane")
 				fs.IntVar(&ts2021Args.version, "version", int(tailcfg.CurrentCapabilityVersion), "protocol version")
 				fs.BoolVar(&ts2021Args.verbose, "verbose", false, "be extra verbose")
 				return fs
@@ -601,7 +601,7 @@ func runVia(ctx context.Context, args []string) error {
 }
 
 var ts2021Args struct {
-	host    string // "controlplane.tailscale.com"
+	host    string // "controlplane.github.com/Jnchk/tailscale"
 	version int    // 27 or whatever
 	verbose bool
 }

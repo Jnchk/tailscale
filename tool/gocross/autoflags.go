@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"strings"
 
-	"tailscale.com/version/mkversion"
+	"github.com/Jnchk/tailscale/version/mkversion"
 )
 
 // Autoflags adjusts the commandline argv into a new commandline
@@ -53,10 +53,10 @@ func autoflagsForTest(argv []string, env *Environment, goroot, nativeGOOS, nativ
 
 	vi := getVersion()
 	ldflags = []string{
-		"-X", "tailscale.com/version.longStamp=" + vi.Long,
-		"-X", "tailscale.com/version.shortStamp=" + vi.Short,
-		"-X", "tailscale.com/version.gitCommitStamp=" + vi.GitHash,
-		"-X", "tailscale.com/version.extraGitCommitStamp=" + vi.OtherHash,
+		"-X", "github.com/Jnchk/tailscale/version.longStamp=" + vi.Long,
+		"-X", "github.com/Jnchk/tailscale/version.shortStamp=" + vi.Short,
+		"-X", "github.com/Jnchk/tailscale/version.gitCommitStamp=" + vi.GitHash,
+		"-X", "github.com/Jnchk/tailscale/version.extraGitCommitStamp=" + vi.OtherHash,
 	}
 
 	switch targetOS {

@@ -24,11 +24,11 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/client/tailscale"
-	"tailscale.com/metrics"
-	"tailscale.com/tsnet"
-	"tailscale.com/tsweb"
-	"tailscale.com/types/logger"
+	"github.com/Jnchk/tailscale/client/tailscale"
+	"github.com/Jnchk/tailscale/metrics"
+	"github.com/Jnchk/tailscale/tsnet"
+	"github.com/Jnchk/tailscale/tsweb"
+	"github.com/Jnchk/tailscale/types/logger"
 )
 
 var (

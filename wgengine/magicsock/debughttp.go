@@ -13,9 +13,9 @@ import (
 	"strings"
 	"time"
 
-	"tailscale.com/tailcfg"
-	"tailscale.com/tstime/mono"
-	"tailscale.com/types/key"
+	"github.com/Jnchk/tailscale/tailcfg"
+	"github.com/Jnchk/tailscale/tstime/mono"
+	"github.com/Jnchk/tailscale/types/key"
 )
 
 // ServeHTTPDebug serves an HTML representation of the innards of c for debugging.

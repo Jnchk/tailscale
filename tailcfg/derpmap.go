@@ -40,9 +40,9 @@ func (m *DERPMap) RegionIDs() []int {
 type DERPRegion struct {
 	// RegionID is a unique integer for a geographic region.
 	//
-	// It corresponds to the legacy derpN.tailscale.com hostnames
+	// It corresponds to the legacy derpN.github.com/Jnchk/tailscale hostnames
 	// used by older clients. (Older clients will continue to resolve
-	// derpN.tailscale.com when contacting peers, rather than use
+	// derpN.github.com/Jnchk/tailscale when contacting peers, rather than use
 	// the server-provided DERPMap)
 	//
 	// RegionIDs must be non-zero, positive, and guaranteed to fit

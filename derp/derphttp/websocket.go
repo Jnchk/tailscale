@@ -11,7 +11,7 @@ import (
 	"net"
 
 	"nhooyr.io/websocket"
-	"tailscale.com/net/wsconn"
+	"github.com/Jnchk/tailscale/net/wsconn"
 )
 
 func init() {

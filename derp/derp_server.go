@@ -34,15 +34,15 @@ import (
 
 	"go4.org/mem"
 	"golang.org/x/sync/errgroup"
-	"tailscale.com/client/tailscale"
-	"tailscale.com/disco"
-	"tailscale.com/envknob"
-	"tailscale.com/metrics"
-	"tailscale.com/syncs"
-	"tailscale.com/tstime/rate"
-	"tailscale.com/types/key"
-	"tailscale.com/types/logger"
-	"tailscale.com/version"
+	"github.com/Jnchk/tailscale/client/tailscale"
+	"github.com/Jnchk/tailscale/disco"
+	"github.com/Jnchk/tailscale/envknob"
+	"github.com/Jnchk/tailscale/metrics"
+	"github.com/Jnchk/tailscale/syncs"
+	"github.com/Jnchk/tailscale/tstime/rate"
+	"github.com/Jnchk/tailscale/types/key"
+	"github.com/Jnchk/tailscale/types/logger"
+	"github.com/Jnchk/tailscale/version"
 )
 
 // verboseDropKeys is the set of destination public keys that should
@@ -1009,7 +1009,7 @@ func (c *sclient) debugLogf(format string, v ...any) {
 // dropReason is why we dropped a DERP frame.
 type dropReason int
 
-//go:generate go run tailscale.com/cmd/addlicense -file dropreason_string.go go run golang.org/x/tools/cmd/stringer -type=dropReason -trimprefix=dropReason
+//go:generate go run github.com/Jnchk/tailscale/cmd/addlicense -file dropreason_string.go go run golang.org/x/tools/cmd/stringer -type=dropReason -trimprefix=dropReason
 
 const (
 	dropReasonUnknownDest      dropReason = iota // unknown destination pubkey
