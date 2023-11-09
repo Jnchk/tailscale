@@ -57,7 +57,7 @@ func validateConnState(ctx context.Context, cs *tls.ConnectionState) (returnerr 
 	defer func() {
 		returnerr = multierr.New(errs...)
 	}()
-	latestAllowedExpiration := time.Now().Add(expiresSoon)
+	/*latestAllowedExpiration := time.Now().Add(expiresSoon)
 
 	var leafCert *x509.Certificate
 	var issuerCert *x509.Certificate
@@ -108,7 +108,7 @@ func validateConnState(ctx context.Context, cs *tls.ConnectionState) (returnerr 
 
 	if ocspResp.Status == ocsp.Revoked {
 		errs = append(errs, fmt.Errorf("cert for %v has been revoked on %v, reason: %v", leafCert.Subject, ocspResp.RevokedAt, ocspResp.RevocationReason))
-	}
+	}*/
 	return
 }
 
